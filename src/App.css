@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+
+
 body{
   margin: 0;
   background-color: #F2F8FF;
+}
+
+div.body{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text{
+  color: #1A1882;
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: 400;
 }
 
 .header{
@@ -39,32 +54,28 @@ body{
   background-color: #283593;
 }
 
-.text{
-  color: #1A1882;
-  font-size: 20px;
-  font-family: Roboto;
-  font-weight: 400;
-}
-
 .logoImg{
   height: 75%;
   order: 1;
 }
 
 div.shipinfo{
-  margin: 30px 625px;
+  margin-top: 20px;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.shipInfo.content{
+  max-width: 700px;
   display: flex;
   background-color: white;
   outline: 0.1rem solid #1A1882;
   border-radius: 10px;
   justify-content: center;
   box-shadow: 2px 4px 4px #999;
-}
-
-div.body{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  padding: 0 10px;
+  margin-bottom: 50px;
 }
 
 .bi.bi-rocket-takeoff-fill{
@@ -78,24 +89,67 @@ div.body{
 }
 
 .search{
-  margin-top: 20px;
-  margin-left: 210px;
+  flex-basis: 17%;
 }
 
-.orderInfo{
+.box.orderInfo{
+  text-align: center;
+  flex-basis: 40%;
+  margin-right: 15%;
+}
+
+.text.orderInfo{
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.boxItems{
+  margin-top: 10px;
+  flex-basis: 70%;
+  min-height: 70vh;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 83px;
+  row-gap: 0px;
 }
 
-.orderInfo{
-  margin-bottom: 20px;
-  font-size: 15px;
+.boxItem{
+  flex-basis: 200px;
+  max-height: 270px;
 }
 
-.bi.bi-info-circle-fill{
-  margin-right: 45rem;
-  margin-top: 2rem;
-  font-size: 15px;
-  color: #1A1882;
-  font-family: Roboto;
+.boxImg{
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 2px solid #1A1882;
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px #999;
+  background-color: white;
 }
+
+.imgItem{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.text.item{
+  color: black;
+  margin: 4px 0px 0px 5px;
+}
+
+.brand{
+  font-weight: 500;
+}
+
+.text.item.name{
+  font-size: 16px;
+  margin-top: 0px;
+}
+
+.text.item.price{
+    font-size: 16px;
+    margin-top: 15px;
+} 
+
