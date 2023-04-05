@@ -1,31 +1,35 @@
-import '../App.css';
 import {  IconButton, Box, InputBase } from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
 
+const boxStyle = {
+  display: 'inline-block',
+  bgcolor: 'white',
+  borderRadius: 2,
+  border: 1,
+  borderColor: '#1A1882',
+  maxHeight: 45,
+  minWidth: 322
+}
 
-function SearchField() {
+const inputStyle = {
+  color: '#1A1882',
+  fontSize: 15,
+  minWidth: 273
+}
+
+const searchStyle = {
+  color: '#1A1882',
+  fontSize: 30,
+}
+
+function SearchField(props) {
     return (
         <div className="search home">
-          <Box sx={{
-          display: 'inline-block',
-          bgcolor: 'white',
-          borderRadius: 2,
-          border: 1,
-          borderColor: '#1A1882',
-          maxHeight: 45,
-          minWidth: 322
-          }}>
+          <Box sx={boxStyle}>
           <IconButton>
-          <SearchOutlined sx={{
-          color: '#1A1882',
-          fontSize: 30,
-          }}/>
+          <SearchOutlined sx={searchStyle}/>
           </IconButton>
-          <InputBase placeholder='Wyszukaj produkt..' sx={{
-          color: '#1A1882',
-          fontSize: 15,
-          minWidth: 273
-          }}/>
+          <InputBase onChange={props.onChangeFun} placeholder='Wyszukaj produkt..' sx={inputStyle}/>
           </Box>
         </div>   
     );

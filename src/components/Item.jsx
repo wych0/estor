@@ -1,14 +1,12 @@
-import '../App.css';
-
-function Item() {
+function Item(props) {
     return (
       <div className="boxItem">
         <div className="boxImg">
             <img className="imgItem" src="/images/products/product1.png" alt="produkt"/>
         </div>
-        <p className="text item brand">Apple</p>
-        <p className="text item name">IPhone 12 mini 256GB</p>
-        <p className="text item price">3 200 zł</p>
+        <p className="text item brand">{props.brand}</p>
+        <p className="text item name">{props.name}</p>
+        <p className="text item price">{props.price}</p>
       </div>
     );
   }

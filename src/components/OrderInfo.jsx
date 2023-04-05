@@ -1,5 +1,3 @@
-import '../App.css';
-
 function OrderInfo() {
     return (
         <div className="box orderInfo">

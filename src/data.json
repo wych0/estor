@@ -1,0 +1,51 @@
+[{
+  "id": 1,
+  "brand": "Apple",
+  "name": "IPhone 12 mini",
+  "price": "3200 zł"
+}, {
+  "id": 2,
+  "brand": "Apple",
+  "name": "IPhone 13 Pro",
+  "price": "3200 zł"
+}, {
+  "id": 3,
+  "brand": "Apple",
+  "name": "IPhone 13",
+  "price": "3200 zł"
+}, {
+  "id": 4,
+  "brand": "Apple",
+  "name": "IPhone 13 Pro Max",
+  "price": "3200 zł"
+}, {
+  "id": 5,
+  "brand": "Apple",
+  "name": "IPhone 14",
+  "price": "3200 zł"
+}, {
+  "id": 6,
+  "brand": "Apple",
+  "name": "IPhone 12",
+  "price": "3200 zł"
+}, {
+  "id": 7,
+  "brand": "Apple",
+  "name": "IPhone 14 Pro",
+  "price": "3200 zł"
+}, {
+  "id": 8,
+  "brand": "Apple",
+  "name": "IPhone 13 mini",
+  "price": "3200 zł"
+}, {
+  "id": 9,
+  "brand": "Apple",
+  "name": "IPhone 12 Pro Max",
+  "price": "3200 zł"
+}, {
+  "id": 10,
+  "brand": "Apple",
+  "name": "IPhone 12 Pro",
+  "price": "3200 zł"
+}] 

@@ -1,5 +1,3 @@
-import '../App.css';
-
 function ShipInfo() {
     return (
       <div className="shipinfo home">

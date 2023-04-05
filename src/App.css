@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-
+* {
+	box-sizing: border-box;
+}
 
 body{
   margin: 0;
@@ -61,6 +63,7 @@ div.body{
 
 div.shipinfo{
   margin-top: 20px;
+  margin-bottom: 50px;
   flex-basis: 100%;
   display: flex;
   justify-content: center;
@@ -75,7 +78,6 @@ div.shipinfo{
   justify-content: center;
   box-shadow: 2px 4px 4px #999;
   padding: 0 10px;
-  margin-bottom: 50px;
 }
 
 .bi.bi-rocket-takeoff-fill{
@@ -107,14 +109,9 @@ div.shipinfo{
   margin-top: 10px;
   flex-basis: 70%;
   min-height: 70vh;
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 83px;
-  row-gap: 0px;
 }
 
 .boxItem{
-  flex-basis: 200px;
   max-height: 270px;
 }
 
@@ -149,7 +146,22 @@ div.shipinfo{
 }
 
 .text.item.price{
-    font-size: 16px;
-    margin-top: 15px;
+  font-size: 16px;
+  margin-top: 15px;
 } 
+
+.listItems{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listItem{
+  flex-basis: 200px;
+  margin-bottom: 50px;
+}
 
