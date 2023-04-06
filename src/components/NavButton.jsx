@@ -1,7 +1,7 @@
 function NavButton(props) {
     return (
       <div className="btn nav">
-        <i class={props.className}></i>
+        <i className={props.className}></i>
       </div>
     );
   }

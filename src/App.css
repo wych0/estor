@@ -165,3 +165,40 @@ div.shipinfo{
   margin-bottom: 50px;
 }
 
+.boxLogin{
+  margin-top: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 2px 4px 4px #999;
+  max-width: 550px;
+}
+
+.boxLoginForm{
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column;
+}
+
+.boxLogoWelcome{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+}
+
+.logoWelImg{
+  max-height: 150px;
+  max-width: 350px;
+}
+
+.boxBodyLogin{
+  display: flex;
+  justify-content: center;
+}
+
+.MuiOutlinedInput-notchedOutline{
+  border-color: #1A1882 !important;
+}

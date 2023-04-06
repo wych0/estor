@@ -1,5 +1,10 @@
+import LoginForm from '../components/LoginForm'
+
 export default function Login() {
     return (
-          <p>LOGIN PAGE</p>
+        <div className="boxBodyLogin">
+        <LoginForm></LoginForm>
+        
+      </div>
     );
 }

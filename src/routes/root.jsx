@@ -4,9 +4,9 @@ import BodyHome from '../components/BodyHome'
 
 export default function Root() {
     return (
-      <body>
+      <div className="boxBody">
         <Header></Header>
         <BodyHome></BodyHome>
-      </body>
+      </div>
     );
   }
