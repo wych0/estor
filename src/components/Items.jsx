@@ -1,27 +1,16 @@
 import Item from '../components/Item'
 import data from '../data.json'
 
+function matchesSearchTags(el, searchTags){
+  const tags = el.brand.concat(" ", el.name);
+  return searchTags.every(tag => tags.toLowerCase().includes(tag));
+}
+
 function Items(props) {
-  const filterData = data.filter((el)=>{
-    const tags = el.brand.concat(" ", el.name);
-    const searchTags = props.input.split(" ");
-    let display = false;
-    if(props.input === ''){
-      return el;
-    } else{
-      for(let i=0; i<searchTags.length; i++){
-        if(tags.toLowerCase().includes(searchTags[i])){
-          display=true;
-        }else{
-          display=false;
-          break;
-        }
-      }
-      if(display === true){
-        return el;
-      }
-    }
-  })
+  const searchTags = props.input ? props.input.split(" ") : [];
+  const filterData = data.filter(el => matchesSearchTags(el, searchTags));
+
+  
     return (
       <div className="boxItems"> 
         <ul className="listItems">
