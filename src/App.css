@@ -44,11 +44,14 @@ div.body{
   align-items: center;
 }
 
-.btn.nav{
+.btn{
   background-color: #1A1882;
   color: white;
-  padding: 12px 16px;
   border-radius: 10px;
+}
+
+.btn.nav{
+  padding: 12px 16px;
   font-size: 22px;
 }
 
@@ -56,8 +59,8 @@ div.body{
   background-color: #283593;
 }
 
-.logoImg{
-  height: 75%;
+.logoImgHeader{
+  max-height: 85%;
   order: 1;
 }
 
@@ -112,10 +115,15 @@ div.shipinfo{
 }
 
 .boxItem{
-  max-height: 270px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  max-height: 290px;
+  max-width: 180px;
 }
 
 .boxImg{
+  flex-basis: 100%;
   padding: 20px 0px;
   display: flex;
   justify-content: center;
@@ -134,9 +142,10 @@ div.shipinfo{
 .text.item{
   color: black;
   margin: 4px 0px 0px 5px;
+  flex-basis: 100%;
 }
 
-.brand{
+.text.item.brand{
   font-weight: 500;
 }
 
@@ -148,6 +157,7 @@ div.shipinfo{
 .text.item.price{
   font-size: 16px;
   margin-top: 15px;
+  flex-basis: 75%;
 } 
 
 .listItems{
@@ -165,16 +175,6 @@ div.shipinfo{
   margin-bottom: 50px;
 }
 
-.boxLogin{
-  margin-top: 5%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: white;
-  box-shadow: 2px 4px 4px #999;
-  max-width: 550px;
-}
-
 .boxLoginForm{
   margin-top: 10px;
   display: flex;
@@ -185,20 +185,85 @@ div.shipinfo{
   margin-top: 30px;
   margin-bottom: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   flex-basis: 100%;
 }
 
-.logoWelImg{
-  max-height: 150px;
-  max-width: 350px;
+.text.welcome{
+  margin-top: 0px;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 42px;
+  flex-basis: 100%;
 }
 
 .boxBodyLogin{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .MuiOutlinedInput-notchedOutline{
   border-color: #1A1882 !important;
 }
+
+.line{
+  flex-basis: 100%;
+  min-height: 2px;
+  background-color: #1A1882;
+  margin-top: 65px;
+}
+
+.boxBottomBtn{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 450px;
+}
+
+.boxTextBottomBtn{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  max-height: 40px;
+}
+
+.text.bottomBtn{
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.text.register{
+  margin-top: 0px;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 38px;
+  flex-basis: 100%;
+}
+
+.text.register.bottom{
+  margin-top: -6px;
+  font-size: 24px;
+}
+
+.boxForm{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 2px 4px 4px #999;
+  max-width: 550px;
+}
+
+.boxForm.register{
+  margin-top: 2%;
+}
+
+.boxForm.login{
+  margin-top: 4%;
+}
+

@@ -6,8 +6,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import EmailIcon from '@mui/icons-material/Email';
-import HttpsIcon from '@mui/icons-material/Https';
 import Button from '@mui/material/Button';
 import {Link } from "react-router-dom";
 import { UserContext } from '../UserContext';
@@ -15,7 +13,8 @@ import { UserContext } from '../UserContext';
 const formStyle = {
     m: 1, 
     width: '55ch',
-    marginBottom: 2.5
+    height: 'auto',
+    marginBottom: 2,
 }
 
 const inputStyle = {
@@ -30,17 +29,17 @@ const labelStyle = {
         color: '#1A1882',
         fontWeight: "700"
     },
-    fontWeight: "500",
-    fontSize: 20,
-    paddingRight: 1,
+    fontWeight: "300",
+    fontSize: 18,
     bgcolor: 'white',
+    paddingRight: 1
 }
 
 const iconStyle = {
     color: '#1A1882'
 }
 
-const btnLoginStyle = {
+const btnStyle = {
     marginTop: 4,
     marginBottom: 5,
     height: 50,
@@ -55,7 +54,7 @@ const btnLoginStyle = {
 
 
 
-function LoginForm() {
+function RegisterForm() {
     const {login} = useContext(UserContext);
     const [showPassword, setShowPassword] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -64,36 +63,43 @@ function LoginForm() {
     };
 
     return (
-      <div className="boxForm login">
+      <div className="boxForm register">
         <div className="boxLogoWelcome">
             <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
-            <p className="text welcome">Witamy ponownie!</p>
+            <p className="text register">Nie masz jeszcze konta?</p>
+            <p className="text register bottom">Zarejestruj się korzystając formularza poniżej</p>
         </div>
         <div className="boxLoginForm">
         <FormControl sx={formStyle} variant="outlined">
-          <InputLabel htmlFor="outlined-with-icon-adornment" sx={labelStyle} shrink={true}>Adres e-mail</InputLabel>
+          <InputLabel htmlFor="outlined" sx={labelStyle}>Imię</InputLabel>
           <OutlinedInput
-            startAdornment={
-                <InputAdornment position="start">
-                <EmailIcon sx={iconStyle} />
-                </InputAdornment>
-            }
+            sx={inputStyle}
+            id="outlined"
+            label="Imię"
+          />
+        </FormControl>
+        <FormControl sx={formStyle} variant="outlined">
+          <InputLabel htmlFor="outlined" sx={labelStyle}>Nazwisko</InputLabel>
+          <OutlinedInput
+            sx={inputStyle}
+            id="outlined"
+            label="Nazwisko"
+          />
+        </FormControl>
+        <FormControl sx={formStyle} variant="outlined">
+          <InputLabel htmlFor="outlined" sx={labelStyle}>Adres e-mail</InputLabel>
+          <OutlinedInput
             sx={inputStyle}
             id="outlined"
             label="Adres e-mail"
           />
         </FormControl>
         <FormControl sx={formStyle} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password-with-icon-adornment" sx={labelStyle}>Hasło</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password" sx={labelStyle}>Hasło</InputLabel>
           <OutlinedInput
             sx={inputStyle}
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
-            startAdornment={
-                <InputAdornment position="start">
-                <HttpsIcon sx={iconStyle} />
-                </InputAdornment>
-            }
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -111,9 +117,9 @@ function LoginForm() {
           />
         </FormControl>
         </div>
-        <Link to={"/auth"}><Button variant="contained" sx={btnLoginStyle} onClick={login}>Zaloguj się</Button></Link>
+        <Link to={"/auth"}><Button variant="contained" sx={btnStyle} onClick={login}>Zarejestruj się</Button></Link>
       </div>
     );
   }
   
-  export default LoginForm;
+  export default RegisterForm;

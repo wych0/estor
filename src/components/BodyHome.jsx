@@ -4,6 +4,7 @@ import Items from '../components/Items'
 import OrderInfo from '../components/OrderInfo'
 import { React, useState} from "react";
 
+
 function BodyHome() {
     const [inputText, setInputText] = useState("");
     let inputHandler = (e) =>{
