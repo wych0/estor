@@ -18,7 +18,6 @@ import Protected from './Protected'
 
 function App(){
     const {user} = useContext(UserContext);
-    console.log(user.auth + " auth z app.js");
     const router = createBrowserRouter([
         {
           path: "/",
