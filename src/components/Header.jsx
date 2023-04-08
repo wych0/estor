@@ -2,20 +2,36 @@ import {Link } from "react-router-dom";
 import NavButton from './NavButton';
 import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
+import Button from '@mui/material/Button';
+
+const btnLoginStyle = {
+    height: 50,
+    width: 190,
+    bgcolor: '#1A1882',
+    '&:hover':{
+        bgcolor: '#283593'
+    },
+    fontSize: 15,
+    fontWeight: "700",
+} 
+
 
 function Header() {
-    const { user } = useContext(UserContext);
-    const routeCart = user.auth ? 'cart' : 'login'
-    const routeHome = user.auth ? '/auth' : '/'
-    const routeAcc = user.auth ? 'account' : 'login'
+    const { user, logout } = useContext(UserContext);
     return (
       <div className="header home">
-        <p className="text shipInfo free">Bezpłatna dostawa i zwrot!</p>
+        <div className="left headerContent">
+          {user.auth
+          ?  <Link to={"/"}><Button variant="contained" sx={btnLoginStyle} onClick={logout}>Wyloguj się</Button></Link>
+          : <p className="text shipInfo free">Bezpłatna dostawa i zwrot!</p>
+          }
+        </div>
+        
         <img src="images/logo.png" alt="logoImgHeader" className="logoImgHeader"/>
         <ul className="navigation home">
-            <li><Link to={routeCart}><NavButton className="bi bi-cart-fill"/></Link></li>
-            <li><Link to={routeHome}><NavButton className="bi bi-house-fill"/></Link></li>
-            <li><Link to={routeAcc}><NavButton className="bi bi-person-fill"/></Link></li>
+            <li><Link to='/cart'><NavButton className="bi bi-cart-fill"/></Link></li>
+            <li><Link to={(user.auth ? '/auth' : '/')}><NavButton className="bi bi-house-fill"/></Link></li>
+            <li><Link to='/account'><NavButton className="bi bi-person-fill"/></Link></li>
         </ul>
       </div>
     );

@@ -63,7 +63,7 @@ function RegisterForm() {
     };
 
     return (
-      <div className="boxForm register">
+      <div className="boxForm register shadow">
         <div className="boxLogoWelcome">
             <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
             <p className="text register">Nie masz jeszcze konta?</p>

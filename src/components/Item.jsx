@@ -3,7 +3,7 @@ import ItemBtn from '../components/ItemBtn'
 function Item(props) {
     return (
       <div className="boxItem">
-        <div className="boxImg">
+        <div className="boxImg shadow">
             <img className="imgItem" src="/images/products/product1.png" alt="produkt"/>
         </div>
         <p className="text item brand">{props.brand}</p>

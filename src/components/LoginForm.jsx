@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import {Link } from "react-router-dom";
+import { UserContext } from '../UserContext';
 import IconButton from '@mui/material/IconButton';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,8 +11,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import EmailIcon from '@mui/icons-material/Email';
 import HttpsIcon from '@mui/icons-material/Https';
 import Button from '@mui/material/Button';
-import {Link } from "react-router-dom";
-import { UserContext } from '../UserContext';
+
 
 const formStyle = {
     m: 1, 
@@ -64,7 +65,7 @@ function LoginForm() {
     };
 
     return (
-      <div className="boxForm login">
+      <div className="boxForm login shadow">
         <div className="boxLogoWelcome">
             <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>

@@ -1,37 +1,53 @@
-import {  IconButton, Box, InputBase } from '@mui/material';
-import { SearchOutlined } from '@mui/icons-material';
+import React from 'react';
+import SearchIcon from '@mui/icons-material/Search';
+import TextField from '@mui/material/TextField';
 
-const boxStyle = {
-  display: 'inline-block',
+const textAreaStyle = {
+  minWidth: 280,
   bgcolor: 'white',
-  borderRadius: 2,
-  border: 1,
+  color: '#1A1882',
   borderColor: '#1A1882',
-  maxHeight: 45,
-  minWidth: 322
+  fontWeight: "500",
+  "&.Mui-focused":{
+      color: '#1A1882',
+      fontWeight: "700"
+  },
+ 
+}
+
+const iconStyle = {
+  color: '#1A1882',
+  fontSize: '30px',
+  marginRight: 1,
 }
 
 const inputStyle = {
   color: '#1A1882',
   fontSize: 15,
-  minWidth: 273
+  borderRadius: 10,
 }
 
-const searchStyle = {
-  color: '#1A1882',
-  fontSize: 30,
-}
 
 function SearchField(props) {
     return (
         <div className="search home">
-          <Box sx={boxStyle}>
-          <IconButton>
-          <SearchOutlined sx={searchStyle}/>
-          </IconButton>
-          <InputBase onChange={props.onChangeFun} placeholder='Wyszukaj produkt..' sx={inputStyle}/>
-          </Box>
+          <TextField
+          sx={textAreaStyle}
+          id="outlined-textarea"
+          placeholder="Wyszykaj produkt.."
+          onChange={props.onChangeFun}
+          InputProps={{
+            startAdornment: (
+              <SearchIcon sx={iconStyle}/>
+            ),
+            style: inputStyle,
+          }}
+          />
         </div>   
+
+
+
+
     );
   }
   

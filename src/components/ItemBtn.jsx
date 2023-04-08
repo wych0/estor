@@ -1,6 +1,10 @@
 import Button from '@mui/material/Button';
+import { useContext } from 'react';
+import { UserContext } from '../UserContext';
 
-const buttonStyle = {
+function ItemBtn() {
+  const { user } = useContext(UserContext);
+  const buttonStyle = {
     bgcolor: '#1A1882',
     '&:hover':{
         bgcolor: '#283593'
@@ -11,10 +15,9 @@ const buttonStyle = {
     maxHeight: '30px', 
     minWidth: '30px', 
     minHeight: '30px',
-    marginTop: '10px',
+    marginTop: '4px',
+    display: user.auth ? 'flex' : 'none'
 }
-
-function ItemBtn() {
     return (
       <div>
         <Button variant="contained" sx={buttonStyle}><p className="icon">+</p></Button>

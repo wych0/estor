@@ -9,6 +9,10 @@ body{
   background-color: #F2F8FF;
 }
 
+.shadow{
+  box-shadow: 2px 4px 4px #999;
+}
+
 div.body{
   display: flex;
   justify-content: center;
@@ -22,6 +26,10 @@ div.body{
   font-weight: 400;
 }
 
+.text.shipInfo.free{
+  width: 250px;
+}
+
 .header{
   height: 90px;
   padding: 0px 200px;
@@ -32,6 +40,12 @@ div.body{
   border-bottom: 0.2rem solid #1A1882;
 }
 
+.left.headerContent{
+  display: flex;
+  justify-content: center;
+  width: 250px;
+}
+
 .navigation{
   display: flex;
   margin: 0;
@@ -39,8 +53,9 @@ div.body{
   order: 2;
   list-style: none;
   height: 60%;
-  width: 12%;
-  justify-content: space-between;
+  width: 250px;
+  justify-content: center;
+  gap: 10px;
   align-items: center;
 }
 
@@ -65,8 +80,8 @@ div.body{
 }
 
 div.shipinfo{
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 40px;
   flex-basis: 100%;
   display: flex;
   justify-content: center;
@@ -76,10 +91,9 @@ div.shipinfo{
   max-width: 700px;
   display: flex;
   background-color: white;
-  outline: 0.1rem solid #1A1882;
+  outline: 1.5px solid #1A1882;
   border-radius: 10px;
   justify-content: center;
-  box-shadow: 2px 4px 4px #999;
   padding: 0 10px;
 }
 
@@ -94,7 +108,11 @@ div.shipinfo{
 }
 
 .search{
+  display: flex;
+  justify-content: left;
+  align-items: center;
   flex-basis: 17%;
+  max-height: 50px;
 }
 
 .box.orderInfo{
@@ -130,7 +148,6 @@ div.shipinfo{
   align-items: center;
   outline: 2px solid #1A1882;
   border-radius: 5px;
-  box-shadow: 2px 4px 4px #999;
   background-color: white;
 }
 
@@ -146,6 +163,7 @@ div.shipinfo{
 }
 
 .text.item.brand{
+  margin-top: 6px;
   font-weight: 500;
 }
 
@@ -255,7 +273,6 @@ div.shipinfo{
   flex-wrap: wrap;
   justify-content: center;
   background-color: white;
-  box-shadow: 2px 4px 4px #999;
   max-width: 550px;
 }
 
@@ -265,5 +282,9 @@ div.shipinfo{
 
 .boxForm.login{
   margin-top: 4%;
+}
+
+.icon{
+  margin-left: 1.5px;
 }
 
