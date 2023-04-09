@@ -5,8 +5,6 @@ import OrderInfo from '../components/OrderInfo'
 import { React, useState, useContext} from "react";
 import { UserContext } from '../UserContext';
 
-
-
 function BodyHome() {
     const {user} = useContext(UserContext);
     const [inputText, setInputText] = useState("");
