@@ -65,12 +65,12 @@ function LoginForm() {
     };
 
     return (
-      <div className="boxForm login shadow">
-        <div className="boxLogoWelcome">
+      <div className="boxForm login flex wrap centerX shadow">
+        <div className="boxLogoWelcome flex wrap centerX">
             <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>
         </div>
-        <div className="boxLoginForm">
+        <div className="form flex">
         <FormControl sx={formStyle} variant="outlined">
           <InputLabel htmlFor="outlined-with-icon-adornment" sx={labelStyle} shrink={true}>Adres e-mail</InputLabel>
           <OutlinedInput

@@ -6,7 +6,7 @@ function ItemBtn(props) {
   const {user, addItemToCart, deleteItemFromCart} = useContext(UserContext);
   const cartItemsIds = user.cart.map((item) => item.id);
   const btnFunction = cartItemsIds.includes(props.itemId) ? 'delete' : 'add';
-  const icon = btnFunction==='add' ? '+' : '-';
+  const icon = btnFunction==='add' ? 'bi bi-cart-plus-fill' : 'bi bi-cart-dash-fill';
 
   const handleClick = () => {
     const product = {id: props.itemId, name: `Produkt ${props.itemId}`}
@@ -20,16 +20,16 @@ function ItemBtn(props) {
     },
     color: 'white',
     fontSize: 23,
-    maxWidth: '30px', 
-    maxHeight: '30px', 
-    minWidth: '30px', 
-    minHeight: '30px',
+    maxWidth: '35px', 
+    maxHeight: '35px', 
+    minWidth: '35px', 
+    minHeight: '35px',
     marginTop: '4px',
     display: user.auth ? 'flex' : 'none'
 }
     return (
       <div>
-        <Button onClick={handleClick} variant="contained" sx={buttonStyle}><p className="icon">{icon}</p></Button>
+        <Button onClick={handleClick} variant="contained" sx={buttonStyle}><i className={icon+" icon"}></i></Button>
       </div>
     );
   }

@@ -19,8 +19,8 @@ const btnLoginStyle = {
 function Header() {
     const { user, logout } = useContext(UserContext);
     return (
-      <div className="header home">
-        <div className="left headerContent">
+      <div className="header flex spaceBetween centerY">
+        <div className="left headerContent flex centerX">
           {user.auth
           ?  <Link to={"/"}><Button variant="contained" sx={btnLoginStyle} onClick={logout}>Wyloguj się</Button></Link>
           : <p className="text shipInfo free">Bezpłatna dostawa i zwrot!</p>
@@ -28,7 +28,7 @@ function Header() {
         </div>
         
         <img src="images/logo.png" alt="logoImgHeader" className="logoImgHeader"/>
-        <ul className="navigation home">
+        <ul className="navigation flex centerX centerY">
             <li><Link to='/cart'><NavButton className="bi bi-cart-fill"/></Link></li>
             <li><Link to={(user.auth ? '/auth' : '/')}><NavButton className="bi bi-house-fill"/></Link></li>
             <li><Link to='/account'><NavButton className="bi bi-person-fill"/></Link></li>
