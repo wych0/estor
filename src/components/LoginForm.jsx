@@ -11,8 +11,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import EmailIcon from '@mui/icons-material/Email';
 import HttpsIcon from '@mui/icons-material/Https';
 import Button from '@mui/material/Button';
-
-
 const formStyle = {
     m: 1, 
     width: '55ch',
@@ -41,7 +39,7 @@ const iconStyle = {
     color: '#1A1882'
 }
 
-const btnLoginStyle = {
+const btnStyle = {
     marginTop: 4,
     marginBottom: 5,
     height: 50,
@@ -54,8 +52,6 @@ const btnLoginStyle = {
     fontWeight: "700",
 } 
 
-
-
 function LoginForm() {
     const {login} = useContext(UserContext);
     const [showPassword, setShowPassword] = React.useState(false);
@@ -65,12 +61,12 @@ function LoginForm() {
     };
 
     return (
-      <div className="boxForm login shadow">
-        <div className="boxLogoWelcome">
+      <div className="boxForm login flex wrap centerX shadow">
+        <div className="boxLogoWelcome flex wrap centerX">
             <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>
         </div>
-        <div className="boxLoginForm">
+        <div className="form flex">
         <FormControl sx={formStyle} variant="outlined">
           <InputLabel htmlFor="outlined-with-icon-adornment" sx={labelStyle} shrink={true}>Adres e-mail</InputLabel>
           <OutlinedInput
@@ -112,7 +108,7 @@ function LoginForm() {
           />
         </FormControl>
         </div>
-        <Link to={"/auth"}><Button variant="contained" sx={btnLoginStyle} onClick={login}>Zaloguj się</Button></Link>
+        <Link to={"/auth"}><Button variant="contained" sx={btnStyle} onClick={login}>Zaloguj się</Button></Link>
       </div>
     );
   }

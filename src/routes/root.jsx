@@ -3,7 +3,7 @@ import BodyHome from '../components/BodyHome'
 
 export default function Root() {
     return (
-      <div className="boxBody">
+      <div id="homePage">
         <Header></Header>
         <BodyHome></BodyHome>
       </div>

@@ -30,7 +30,7 @@ const inputStyle = {
 
 function SearchField(props) {
     return (
-        <div className="search home">
+        <div className="search flex centerY">
           <TextField
           sx={textAreaStyle}
           id="outlined-textarea"

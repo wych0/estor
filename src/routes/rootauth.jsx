@@ -2,9 +2,8 @@ import Header from '../components/Header'
 import BodyHome from '../components/BodyHome'
 
 export default function HomePage() {
-    
     return (
-      <div className="boxBody">
+      <div id="homeAuthPage">
         <Header></Header>
         <BodyHome></BodyHome>
       </div>

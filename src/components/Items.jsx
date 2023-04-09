@@ -12,7 +12,7 @@ function Items(props) {
   
     return (
       <div className="boxItems"> 
-        <ul className="listItems">
+        <ul className="listItems flex wrap centerX">
           {filterData.map((item) => (
             <li key={item.id} className="listItem"><Item itemId={item.id} brand={item.brand} name={item.name} price={item.price}></Item></li>
           ))}

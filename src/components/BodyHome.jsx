@@ -1,4 +1,4 @@
-import ShipInfo from '../components/ShipInfo'
+import InfoBox from './InfoBox'
 import SearchField from './SearchField';
 import Items from '../components/Items'
 import OrderInfo from '../components/OrderInfo'
@@ -15,8 +15,8 @@ function BodyHome() {
         setInputText(lowerCase);
     }
     return (
-        <div className="body home">
-            <ShipInfo></ShipInfo>
+        <div className="bodyHomePage flex centerX wrap">
+            <InfoBox text="shipInfo"></InfoBox>
             <SearchField onChangeFun={inputHandler}></SearchField>
             {user.auth
                 ? <OrderInfo isDisplay="false"></OrderInfo>

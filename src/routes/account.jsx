@@ -1,5 +1,8 @@
 export default function Account() {
     return (
-          <p>ACCOUNT PAGE</p>
+        <div id="accountPage">
+            <p>ACCOUNT PAGE</p>
+        </div>
+          
     );
 }

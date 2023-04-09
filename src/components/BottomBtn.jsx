@@ -21,7 +21,7 @@ const btnStyle = {
 function BottomBtn(props) {
     return (
       <div className="boxBottomBtn">
-        <div className="boxTextBottomBtn">
+        <div className="boxTextBottomBtn flex centerY">
             <p className="text bottomBtn">{props.text}</p>
         </div>
         <Link to={`../${props.route}`}><Button variant="contained" sx={btnStyle}>{props.btnText}</Button></Link>

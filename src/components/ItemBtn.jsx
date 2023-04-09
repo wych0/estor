@@ -24,7 +24,6 @@ function ItemBtn(props) {
     maxHeight: '30px', 
     minWidth: '30px', 
     minHeight: '30px',
-    marginTop: '4px',
     display: user.auth ? 'flex' : 'none'
 }
     return (
