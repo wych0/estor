@@ -1,8 +1,10 @@
 import ItemBtn from '../components/ItemBtn'
+import useStyles from '../styles';
 
-function Item(props) {
+function ItemCart(props) {
+    const classes = useStyles()
     return (
-      <div className="boxItem flex wrap">
+      <div className={classes.boxItemCart}>
         <div className="boxImg shadow flex centerX centerY">
             <img className="imgItem" src="/images/products/product1.png" alt="produkt"/>
         </div>
@@ -17,4 +19,4 @@ function Item(props) {
     );
   }
   
-  export default Item;
+  export default ItemCart;
