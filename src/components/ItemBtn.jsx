@@ -1,35 +1,31 @@
 import Button from '@mui/material/Button';
 import { useContext} from 'react';
 import { UserContext } from '../UserContext';
+import useStyles from '../styles';
 
 function ItemBtn(props) {
+  const classes = useStyles()
   const {user, addItemToCart, deleteItemFromCart} = useContext(UserContext);
   const cartItemsIds = user.cart.map((item) => item.id);
   const btnFunction = cartItemsIds.includes(props.itemId) ? 'delete' : 'add';
-  const icon = btnFunction==='add' ? '+' : '-';
+  const icon = btnFunction==='add' ? 'bi bi-cart-plus-fill' : 'bi bi-cart-dash-fill';
 
   const handleClick = () => {
     const product = {id: props.itemId, name: `Produkt ${props.itemId}`}
     cartItemsIds.includes(props.itemId) ? deleteItemFromCart(props.itemId) : addItemToCart(product)
   }
 
-  const buttonStyle = {
-    bgcolor: btnFunction === 'add' ? '#1A1882' : '#D21312',
+  const btnItemStyle = {
+    bgcolor: btnFunction === 'add' ? '#1A1882' : '#da0000',
     '&:hover':{
-        bgcolor: btnFunction === 'add' ? '#283593' : '#ED2B2A',
+        bgcolor: btnFunction === 'add' ? '#283593' : '#ff0000',
     },
-    color: 'white',
-    fontSize: 23,
-    maxWidth: '30px', 
-    maxHeight: '30px', 
-    minWidth: '30px', 
-    minHeight: '30px',
-    marginTop: '4px',
     display: user.auth ? 'flex' : 'none'
-}
+  }
+
     return (
       <div>
-        <Button onClick={handleClick} variant="contained" sx={buttonStyle}><p className="icon">{icon}</p></Button>
+        <Button onClick={handleClick} variant="contained" sx={btnItemStyle} className={classes.btnItem}><i className={icon+" icon"}></i></Button>
       </div>
     );
   }
