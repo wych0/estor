@@ -27,12 +27,11 @@ const labelStyle = {
     color: '#1A1882',
     "&.Mui-focused":{
         color: '#1A1882',
-        fontWeight: "700"
+        fontWeight: "700",
+        fontSize: 16
     },
-    fontWeight: "300",
-    fontSize: 18,
-    bgcolor: 'white',
-    paddingRight: 1
+    fontWeight: "400",
+    fontSize: 15,
 }
 
 const iconStyle = {
@@ -63,13 +62,13 @@ function RegisterForm() {
     };
 
     return (
-      <div className="boxForm register shadow">
-        <div className="boxLogoWelcome">
+      <div className="boxForm register flex wrap centerX shadow">
+        <div className="boxLogoWelcome flex wrap centerX">
             <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
             <p className="text register">Nie masz jeszcze konta?</p>
             <p className="text register bottom">Zarejestruj się korzystając formularza poniżej</p>
         </div>
-        <div className="boxLoginForm">
+        <div className="form flex">
         <FormControl sx={formStyle} variant="outlined">
           <InputLabel htmlFor="outlined" sx={labelStyle}>Imię</InputLabel>
           <OutlinedInput
