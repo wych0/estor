@@ -1,10 +1,8 @@
 import Button from '@mui/material/Button';
 import { useContext} from 'react';
 import { UserContext } from '../UserContext';
-import useStyles from '../styles';
 
 function ItemBtn(props) {
-  const classes = useStyles()
   const {user, addItemToCart, deleteItemFromCart} = useContext(UserContext);
   const cartItemsIds = user.cart.map((item) => item.id);
   const btnFunction = cartItemsIds.includes(props.itemId) ? 'delete' : 'add';

@@ -7,29 +7,29 @@ import {Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 const formStyle = {
-  marginRight: 2,
+  marginRight: '19px',
   width: '25ch',
   height: 'auto',
-  marginBottom: 3,
+  marginBottom: '25px',
 }
 
 const formStyleMedium = {
-  marginRight: 2,
+  marginRight: '19px',
   width: '33ch',
   height: 'auto',
-  marginBottom: 3,
+  marginBottom: '25px',
 }
 
 const formStyleSmall = {
   width: '17ch',
   height: 'auto',
-  marginBottom: 3,
+  marginBottom: '25px',
 }
 
 const formStyleBig = {
   width: '52ch',
   height: 'auto',
-  marginBottom: 3,
+  marginBottom: '25px',
 }
 
 const inputStyle = {

@@ -24,12 +24,38 @@ const inputStyle = {
     fontWeight: "500",
 }
 
+const labelStyle = {
+    color: '#1A1882',
+    "&.Mui-focused":{
+        color: '#1A1882',
+        fontWeight: "700"
+    },
+    fontWeight: "500",
+    fontSize: 20,
+    paddingRight: 1,
+    bgcolor: 'white',
+}
+
 const iconStyle = {
     color: '#1A1882'
 }
 
+const btnLoginStyle = {
+    marginTop: 4,
+    marginBottom: 5,
+    height: 50,
+    width: 450,
+    bgcolor: '#1A1882',
+    '&:hover':{
+        bgcolor: '#283593'
+    },
+    fontSize: 16,
+    fontWeight: "700",
+} 
+
+
+
 function LoginForm() {
-    const classes = useStyles();
     const {login} = useContext(UserContext);
     const [showPassword, setShowPassword] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -54,11 +80,11 @@ function LoginForm() {
             }
             sx={inputStyle}
             id="outlined"
-            label="Adres e-mail....."
+            label="Adres e-mail"
           />
         </FormControl>
-        <FormControl className={classes.formLogin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password-with-icon-adornment" className={classes.labelForm}>Hasło</InputLabel>
+        <FormControl sx={formStyle} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password-with-icon-adornment" sx={labelStyle}>Hasło</InputLabel>
           <OutlinedInput
             sx={inputStyle}
             id="outlined-adornment-password"
@@ -85,7 +111,7 @@ function LoginForm() {
           />
         </FormControl>
         </div>
-        <Link to={"/auth"}><Button variant="contained" className={classes.btnForm} onClick={login}>Zaloguj się</Button></Link>
+        <Link to={"/auth"}><Button variant="contained" sx={btnLoginStyle} onClick={login}>Zaloguj się</Button></Link>
       </div>
     );
   }

@@ -3,16 +3,26 @@ import NavButton from './NavButton';
 import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import Button from '@mui/material/Button';
-import useStyles from '../styles';
+
+const btnLoginStyle = {
+    height: 50,
+    width: 190,
+    bgcolor: '#1A1882',
+    '&:hover':{
+        bgcolor: '#283593'
+    },
+    fontSize: 15,
+    fontWeight: "700",
+} 
+
 
 function Header() {
-    const classes = useStyles()
     const { user, logout } = useContext(UserContext);
     return (
       <div className="header flex spaceBetween centerY">
         <div className="left headerContent flex centerX">
           {user.auth
-          ?  <Link to={"/"}><Button variant="contained" className={classes.btnLogout} onClick={logout}>Wyloguj się</Button></Link>
+          ?  <Link to={"/"}><Button variant="contained" sx={btnLoginStyle} onClick={logout}>Wyloguj się</Button></Link>
           : <p className="text shipInfo free">Bezpłatna dostawa i zwrot!</p>
           }
         </div>
