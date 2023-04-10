@@ -9,7 +9,7 @@ function Item(props) {
         <p className="text item brand">{props.brand}</p>
         <p className="text item name">{props.name}</p>
         <div className="boxPriceBtn flex centerY">
-          <p className="text item price">{props.price}</p>
+          <p className="text item price">{props.price} zł</p>
           <ItemBtn itemId={props.itemId}></ItemBtn>
         </div>
         
