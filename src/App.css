@@ -135,10 +135,27 @@ body{
   min-height: 70%;
 }
 
+.list.cartItems{
+  flex-basis: 100%;
+  background-color: yellow;
+  margin: 20px;
+  list-style: none;
+}
+
+.listItemCart{
+  flex-basis: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .boxItem{
   justify-content: left;
   height: 300px;
   max-width: 180px;
+}
+
+.boxItemCart{
+  background-color: red;
 }
 
 .boxImg{
@@ -146,6 +163,15 @@ body{
   flex-basis: 100%;
   padding: 20px 0px;
   outline: 2px solid #1A1882;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.boxImgCart{
+  max-height: 100px;
+  max-width: 100px;
+  padding: 5px 0;
+  outline: 1.5px solid #1A1882;
   border-radius: 5px;
   background-color: white;
 }
@@ -171,12 +197,15 @@ body{
   margin-top: 0px;
 }
 
+
 .boxPriceBtn{
   min-height: 40px;
   flex-basis: 100%;
+  justify-content: space-between;
 }
 
 .text.item.price{
+  max-width: 60px;
   margin-right: 0px;
   font-size: 16px;
   margin-bottom: 1px;
@@ -308,6 +337,12 @@ body{
   flex-basis: 100%;
 }
 
-.icon{
+.icon.itemBtn{
+  margin-right: 3px;
   font-size: 20px;
+}
+
+.icon.nav{
+  margin-top: 2px;
+  font-size: 23px;
 }

@@ -1,5 +1,5 @@
 import Line from '../components/Line'
-import BottomBtn from '../components/BottomBtn'
+import BottomBtnContainer from '../components/BottomBtnContainer'
 import RegisterForm from '../components/RegisterForm'
 
 export default function Register() {
@@ -7,7 +7,7 @@ export default function Register() {
         <div id="registerPage" className="flex wrap centerX">
             <RegisterForm></RegisterForm>
             <Line></Line>
-            <BottomBtn text="Masz już konto?" btnText="Zaloguj się" route="login"></BottomBtn>
+            <BottomBtnContainer text="Masz już konto?" btnText="Zaloguj się" route="login"></BottomBtnContainer>
         </div>
     );
 }

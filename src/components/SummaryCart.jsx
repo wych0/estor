@@ -1,6 +1,6 @@
 import { React, useContext} from "react"
 import { UserContext } from '../UserContext'
-import Item from './Item'
+import ItemCart from './ItemCart'
 import products from '../products.json'
 
 function filterProductsByCartItems(products, cartItems) {
@@ -13,11 +13,10 @@ function SummaryCart() {
     const filterData = filterProductsByCartItems(products, user.cart);
     return (
       <div className="bodyCartContent summaryCart shadow flex">
-        <div className ="box cartItems">
+        <div className ="list cartItems flex wrap centerX">
             {filterData.map((item) => (
-            <li key={item.id} className="listItem"><Item itemId={item.id} brand={item.brand} name={item.name} price={item.price}></Item></li>
+            <li key={item.id} className="listItemCart"><ItemCart itemId={item.id} brand={item.brand} name={item.name} price={item.price}></ItemCart></li>
             ))}
-            
         </div>
       </div>
     );
