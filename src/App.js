@@ -16,6 +16,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { UserContext } from './UserContext';
 import Protected from './Protected'
 
+
 function App(){
     const {user} = useContext(UserContext);
     const router = createBrowserRouter([
