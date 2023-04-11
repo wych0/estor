@@ -1,8 +1,8 @@
 function CostSumBox(props) {
     return (
-        <div className="boxTextSum flex wrap centerY">
-            <p className="text sum CartLabel">{props.text}</p>
-            <p className="text sum Cart">{props.cost} zł</p>
+        <div className={"boxTextSum flex centerY "}>
+            <p className={"text sum CartLabel "+props.class}>{props.text}</p>
+            <p className={"text sum Cart "+props.class}>{props.cost} zł</p>
         </div>
     );
   }

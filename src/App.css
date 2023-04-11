@@ -292,7 +292,8 @@ body{
   min-width: 344px;
   max-width: 344px;
   flex-basis: 100%;
-  margin: 40px; 
+  margin: 40px;
+  margin-bottom: 0px; 
   list-style: none;
   border-bottom: 1.5px solid #1A1882;
 }
@@ -379,16 +380,16 @@ body{
 }
 
 .boxTextSum{
-  margin-top: -25px;
-  height: 50px;
+  margin: 10px 40px 0px 40px; 
   flex-basis: 100%;
 }
 
-.boxTextSum:last-child {
-  margin-bottom: 15px;
+.boxTextSum:last-of-type {
+  border-top: 1.5px solid #1A1882;
 }
 
 .text.sum{
+  margin: 0;
   font-size: 16px;
   color: black;
 }
@@ -406,10 +407,18 @@ body{
   font-size: 16px;
 }
 
-.calculationBox{
-  border-bottom: 1.5px solid #1A1882;
-  flex-basis: 100%;
-  margin: 0px 40px 60px 40px; 
+.text.sum.total{
+  padding: 20px 0 40px 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.text.sum.CartLabel.total{
+  flex-basis: 70%;
+}
+
+.text.sum.Cart.total{
+  flex-basis: 30%;
 }
 
 .text.emptyCart{
@@ -418,3 +427,5 @@ body{
   font-size: 30px;
   font-weight: 450;
 }
+
+

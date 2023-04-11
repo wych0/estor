@@ -31,10 +31,11 @@ function SummaryCart() {
             : <p className="text emptyCart">Twój koszyk jest pusty</p>
             } 
           </div>
-          <div className="calculationBox flex wrap">
-            <CostSumBox cost={productsCost} text="Produkty"></CostSumBox>
-            <CostSumBox cost="0" text="Dostawa"></CostSumBox>
-          </div>
+          <CostSumBox cost={productsCost} text="Produkty"></CostSumBox>
+          <CostSumBox cost="0" text="Dostawa"></CostSumBox>
+          <CostSumBox cost={productsCost + 0} text="Łącznie" class="total"></CostSumBox>
+
+            
             
         </div>
       </div>
