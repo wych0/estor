@@ -75,6 +75,9 @@ const labelStyle = {
 const iconStyle = {
   color: '#1A1882',
   fontSize: '60px',
+  "@media (max-width:1600px)": {
+    fontSize: '50px',
+  },
 }
 
 const btnStyle = {

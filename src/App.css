@@ -570,6 +570,23 @@ body{
     margin-top: 50px;
     gap: 50px;
   }
+  .text.orderDetails{
+    font-size: 28px;
+    font-weight: 450;
+  }
+  .text.emptyCart{
+    font-size: 28px;
+    margin-top: -9px;
+    margin-bottom: 25px;
+    padding-bottom: 0px;
+  }
+  .boxText.orderDetails{
+    margin-bottom: 10px;
+  }
+  .orderDetailsCart{
+    padding: 20px 20px 10px 30px;
+    max-height: 510px;
+  }
   
 }
 
