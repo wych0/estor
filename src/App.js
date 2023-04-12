@@ -15,6 +15,7 @@ import Account from './routes/account';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { UserContext } from './UserContext';
 import Protected from './Protected'
+import Complete from './routes/complete'
 
 
 function App(){
@@ -48,6 +49,11 @@ function App(){
         {
           path: "/account",
           element: <Protected isLoggedIn={user.auth}> <Account /></Protected>,
+          errorElement: <ErrorPage />
+        },
+        {
+          path: "/complete",
+          element: <Protected isLoggedIn={user.auth}> <Complete /></Protected>,
           errorElement: <ErrorPage />
         }
     ]);

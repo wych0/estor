@@ -168,7 +168,7 @@ function OrderDetails() {
             />
           </FormControl>
           <div className="orderDetailsBtnBox flex centerX">
-            <Link to={"/auth"}><Button variant="contained" sx={btnStyle}>Zamów z obowiązkiem zapłaty</Button></Link>
+            <Link to={"/complete"}><Button variant="contained" sx={btnStyle}>Zamów z obowiązkiem zapłaty</Button></Link>
           </div>
           
         </div>
