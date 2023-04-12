@@ -27,6 +27,9 @@ function ItemBtn(props) {
     fontSize: 12,
     display: user.auth ? 'flex' : 'none',
     textTransform: 'none',
+    "@media (max-width:1600px)": {
+      fontSize: 11,
+    },
   }
 
     return (

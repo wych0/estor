@@ -6,7 +6,6 @@ export const NavButton = styled(Button)(({ theme }) => ({
     '&:hover':{
         backgroundColor: '#283593'
     },
-    fontSize: '22px',
     borderRadius: "10px",
     color: 'white',
     maxWidth: '50px', 
@@ -15,4 +14,10 @@ export const NavButton = styled(Button)(({ theme }) => ({
     minHeight: '50px',
     display: 'flex',
     alignItems: 'center',
+    "@media (max-width:1600px)": {
+        maxWidth: '45px', 
+        maxHeight: '45px', 
+        minWidth: '45px', 
+        minHeight: '45px',
+      },
 }));

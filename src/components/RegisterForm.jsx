@@ -11,16 +11,20 @@ import {Link } from "react-router-dom";
 import { UserContext } from '../UserContext';
 
 const formStyle = {
-    m: 1, 
+  mb: 1.5,
     width: '55ch',
-    height: 'auto',
-    marginBottom: 2,
+    "@media (max-width:1600px)": {
+      width: '45ch',
+    },
 }
 
 const inputStyle = {
-    color: '#1A1882',
-    borderColor: '#1A1882',
-    fontWeight: "500",
+  color: '#1A1882',
+  borderColor: '#1A1882',
+  fontWeight: "500",
+  "@media (max-width:1600px)": {
+    height:"50px",
+  },
 }
 
 const labelStyle = {
@@ -39,18 +43,22 @@ const iconStyle = {
 }
 
 const btnStyle = {
-    marginTop: 4,
-    marginBottom: 5,
-    height: 50,
-    width: 450,
-    bgcolor: '#1A1882',
-    '&:hover':{
-        bgcolor: '#283593'
-    },
-    fontSize: 16,
-    fontWeight: "700",
-} 
-
+  marginTop: 4,
+  marginBottom: 5,
+  height: 50,
+  width: 450,
+  bgcolor: '#1A1882',
+  '&:hover':{
+      bgcolor: '#283593'
+  },
+  fontSize: 16,
+  fontWeight: "700",
+  "@media (max-width:1600px)": {
+    width: 375,
+    marginTop: 1.5,
+    marginBottom: 4,
+  },
+}
 
 
 function RegisterForm() {
@@ -63,8 +71,8 @@ function RegisterForm() {
 
     return (
       <div className="boxForm register flex wrap centerX shadow">
-        <div className="boxLogoWelcome flex wrap centerX">
-            <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
+        <div className="boxLogoWelcome register flex wrap centerX">
+            <Link to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
             <p className="text register">Nie masz jeszcze konta?</p>
             <p className="text register bottom">Zarejestruj się korzystając formularza poniżej</p>
         </div>

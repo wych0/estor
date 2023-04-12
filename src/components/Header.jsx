@@ -15,7 +15,7 @@ function Header() {
           }
         </div>
         
-        <img src="images/logo.png" alt="logoImgHeader" className="logoImgHeader"/>
+        <img src="images/logoSvg.svg" alt="logoImgHeader" className="logoImgHeader"/>
         <ul className="navigation flex centerX centerY">
             <li><Link to='/cart'><NavButton><i className="bi bi-cart-fill icon nav"></i></NavButton></Link></li>
             <li><Link to={(user.auth ? '/auth' : '/')}><NavButton><i className="bi bi-house-fill icon nav"></i></NavButton></Link></li>

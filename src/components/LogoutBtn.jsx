@@ -10,4 +10,10 @@ export const LogoutBtn = styled(Button)(({ theme }) => ({
     },
     fontSize: 15,
     fontWeight: "700",
+    "@media (max-width:1600px)": {
+        height: 45,
+        width: 167,
+        fontSize: 13,
+        fontWeight: "600",
+      },
 }));

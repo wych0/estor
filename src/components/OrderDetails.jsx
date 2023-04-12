@@ -11,6 +11,11 @@ const formStyle = {
   width: '25ch',
   height: 'auto',
   marginBottom: '25px',
+  "@media (max-width:1600px)": {
+    width: '21ch',
+    marginRight: '10px',
+    marginBottom: '15px',
+  },
 }
 
 const formStyleMedium = {
@@ -18,24 +23,40 @@ const formStyleMedium = {
   width: '33ch',
   height: 'auto',
   marginBottom: '25px',
+  "@media (max-width:1600px)": {
+    width: '27ch',
+    marginRight: '10px',
+    marginBottom: '15px',
+  },
 }
 
 const formStyleSmall = {
   width: '17ch',
   height: 'auto',
   marginBottom: '25px',
+  "@media (max-width:1600px)": {
+    width: '15ch',
+    marginBottom: '15px',
+  },
 }
 
 const formStyleBig = {
   width: '52ch',
   height: 'auto',
   marginBottom: '25px',
+  "@media (max-width:1600px)": {
+    width: '43ch',
+    marginBottom: '15px',
+  },
 }
 
 const inputStyle = {
   color: '#1A1882',
   borderColor: '#1A1882',
   fontWeight: "500",
+  "@media (max-width:1600px)": {
+    height:"50px",
+  },
 }
 
 const labelStyle = {
@@ -46,6 +67,9 @@ const labelStyle = {
   },
   fontWeight: "400",
   fontSize: 16,
+  "@media (max-width:1600px)": {
+    fontSize: 14,
+  },
 }
 
 const iconStyle = {
@@ -64,6 +88,14 @@ const btnStyle = {
   },
   fontSize: 16,
   fontWeight: "700",
+  "@media (max-width:1600px)": {
+    marginTop: 2.5,
+    marginBottom: 2.5,
+    height: 45,
+    width: 350,
+    fontSize: 13,
+    fontWeight: "600",
+  },
 } 
 
 

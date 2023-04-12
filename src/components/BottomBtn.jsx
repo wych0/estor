@@ -14,4 +14,7 @@ export const BottomBtn = styled(Button)(({ theme }) => ({
     },
     fontSize: 16,
     fontWeight: "700",
+    "@media (max-width:1600px)": {
+        width: 375,
+    },
 }));

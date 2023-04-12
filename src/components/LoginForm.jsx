@@ -13,15 +13,20 @@ import HttpsIcon from '@mui/icons-material/Https';
 import Button from '@mui/material/Button';
 
 const formStyle = {
-    m: 1, 
+  mb: 2.5,
     width: '55ch',
-    marginBottom: 2.5
+    "@media (max-width:1600px)": {
+      width: '45ch',
+    },
 }
 
 const inputStyle = {
     color: '#1A1882',
     borderColor: '#1A1882',
     fontWeight: "500",
+    "@media (max-width:1600px)": {
+      height:"50px",
+    },
 }
 
 const labelStyle = {
@@ -51,6 +56,11 @@ const btnLoginStyle = {
     },
     fontSize: 16,
     fontWeight: "700",
+    "@media (max-width:1600px)": {
+      width: 375,
+      marginTop: 1.5,
+      marginBottom: 4,
+    },
 } 
 
 
@@ -65,8 +75,8 @@ function LoginForm() {
 
     return (
       <div className="boxForm login flex wrap centerX shadow">
-        <div className="boxLogoWelcome flex wrap centerX">
-            <Link to={'/'}><img src="images/logo.png" alt="logo" className="logoImgForm"/></Link>
+        <div className="boxLogoWelcome flex wrap centerX centerY">
+            <Link to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>
         </div>
         <div className="form flex">
