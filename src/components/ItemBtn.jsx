@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 import { useContext} from 'react';
 import { UserContext } from '../UserContext';
-import IconButton from '@mui/material/IconButton';
 
 function ItemBtn(props) {
   const {user, addItemToCart, deleteItemFromCart} = useContext(UserContext);

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../UserContext';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import {Link } from "react-router-dom";
 import Button from '@mui/material/Button';
+
 
 const formStyle = {
   marginRight: '19px',
@@ -103,6 +105,7 @@ const btnStyle = {
 
 
 function OrderDetails() {
+    const {placeOrder} = useContext(UserContext);
     return (
       <div className="bodyCartContent orderDetailsCart flex centerX shadow">
         <div className="orderDetailsForm flex wrap">
@@ -168,7 +171,7 @@ function OrderDetails() {
             />
           </FormControl>
           <div className="orderDetailsBtnBox flex centerX">
-            <Link to={"/complete"}><Button variant="contained" sx={btnStyle}>Zamów z obowiązkiem zapłaty</Button></Link>
+            <Link to={"/complete"}><Button variant="contained" sx={btnStyle} onClick={placeOrder}>Zamów z obowiązkiem zapłaty</Button></Link>
           </div>
           
         </div>
