@@ -590,4 +590,60 @@ body{
   
 }
 
+.completeBox{
+  padding: 15px 0;
+  margin-top: 10%;
+  max-width: 500px;
+  background-color: white;
+}
 
+.none{
+  display: none;
+}
+
+.center{
+  justify-content: center;
+}
+
+.complete{
+  margin: 0;
+  text-align: center;
+  flex-basis: 100%;
+}
+
+.complete.text{
+  color: black;
+}
+
+.complete.text.big{
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.complete.text.small{
+  margin-top: 2px;
+  font-size: 18px;
+}
+
+
+.icon.complete{
+  font-size: 70px;
+  color: #1A1882;
+}
+
+.bodyAccPage{
+  
+}
+
+.text.headerTab{
+  margin: 10px;
+  font-size: 30px;
+  margin-left: 30px;
+  color: black;
+  font-weight: 500;
+}
+
+.box.headerTab{
+  flex-basis: 95%;
+  border-bottom: 1px solid #1A1882;
+}

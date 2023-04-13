@@ -14,12 +14,14 @@ import RootAuth from './routes/rootauth';
 import Account from './routes/account';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { UserContext } from './UserContext';
-import Protected from './Protected'
+import ProtectedAuth from './ProtectedAuth'
+import ProtectedComplete from './ProtectedComplete';
 import Complete from './routes/complete'
 
 
 function App(){
     const {user} = useContext(UserContext);
+    console.log(user.placedOrder);
     const router = createBrowserRouter([
         {
           path: "/",
@@ -38,22 +40,22 @@ function App(){
         },
         {
           path: "/auth",
-          element: <Protected isLoggedIn={user.auth}> <RootAuth /></Protected>,
+          element: <ProtectedAuth isLoggedIn={user.auth}> <RootAuth /></ProtectedAuth>,
           errorElement: <ErrorPage />,
         },
         {
           path: "/cart",
-          element: <Protected isLoggedIn={user.auth}> <Cart /></Protected>,
+          element: <ProtectedAuth isLoggedIn={user.auth}> <Cart /></ProtectedAuth>,
           errorElement: <ErrorPage />
         },
         {
           path: "/account",
-          element: <Protected isLoggedIn={user.auth}> <Account /></Protected>,
+          element: <ProtectedAuth isLoggedIn={user.auth}> <Account /></ProtectedAuth>,
           errorElement: <ErrorPage />
         },
         {
           path: "/complete",
-          element: <Protected isLoggedIn={user.auth}> <Complete /></Protected>,
+          element: <ProtectedComplete placedOrder={user.placedOrder}> <Complete /></ProtectedComplete>,
           errorElement: <ErrorPage />
         }
     ]);

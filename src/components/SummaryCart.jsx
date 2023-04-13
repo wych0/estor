@@ -18,7 +18,6 @@ function SummaryCart() {
     const {user} = useContext(UserContext)
     const filterData = filterProductsByCartItems(products, user.cart);
     const productsCost = calculateAllProductsCost(filterData);
-    console.log(filterData);
 
     return (
       <div className="bodyCartContent">

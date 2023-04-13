@@ -1,7 +1,11 @@
+import Header from '../components/Header'
+import BodyAcc from '../components/BodyAcc';
+
 export default function Account() {
     return (
         <div id="accountPage">
-            <p>ACCOUNT PAGE</p>
+            <Header></Header>
+            <BodyAcc></BodyAcc>
         </div>
           
     );
