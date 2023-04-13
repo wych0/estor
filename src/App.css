@@ -631,3 +631,19 @@ body{
   color: #1A1882;
 }
 
+.bodyAccPage{
+  
+}
+
+.text.headerTab{
+  margin: 10px;
+  font-size: 30px;
+  margin-left: 30px;
+  color: black;
+  font-weight: 500;
+}
+
+.box.headerTab{
+  flex-basis: 95%;
+  border-bottom: 1px solid #1A1882;
+}
