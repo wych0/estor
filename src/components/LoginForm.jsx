@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 
 const formStyle = {
   mb: 2.5,
-    width: '55ch',
+    width: '52ch',
     "@media (max-width:1600px)": {
       width: '45ch',
     },
@@ -49,7 +49,7 @@ const btnLoginStyle = {
     marginTop: 4,
     marginBottom: 5,
     height: 50,
-    width: 450,
+    width: 425,
     bgcolor: '#1A1882',
     '&:hover':{
         bgcolor: '#283593'
