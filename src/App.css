@@ -636,7 +636,7 @@ body{
 }
 
 .text.headerTab{
-  margin: 10px;
+  margin: 20px;
   font-size: 30px;
   margin-left: 30px;
   color: black;
@@ -645,5 +645,5 @@ body{
 
 .box.headerTab{
   flex-basis: 95%;
-  border-bottom: 1px solid #1A1882;
+  border-bottom: 1px solid rgba(26,24,130,0.3);
 }

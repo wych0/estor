@@ -28,12 +28,28 @@ const containerStyle = {
     mt: 10,
     bgcolor: 'white',
     boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-    justifyContent: "center"
+    justifyContent: "center",
 }
 
 const tableStyle = {
     maxWidth: '950px',
 }
+
+const btnStyle = {
+    height: 30,
+    width: 75,
+    bgcolor: '#1A1882',
+    '&:hover':{
+        bgcolor: '#283593'
+    },
+    fontSize: 12,
+    fontWeight: "700",
+    "@media (max-width:1600px)": {
+      width: 375,
+      marginTop: 1.5,
+      marginBottom: 4,
+    },
+} 
 
 
 function TableComp(){
@@ -45,10 +61,10 @@ function TableComp(){
       <Table sx={tableStyle} size="small" aria-label="a dense table">
             <TableHead>
             <TableRowCustom>
-                <TableCellCustom align="center">ID zamówienia</TableCellCustom>
-                <TableCellCustom align="center">Data zamówienia</TableCellCustom>
-                <TableCellCustom align="center">Koszt zamówienia</TableCellCustom>
-                <TableCellCustom align="center">Status zamówienia</TableCellCustom>
+                <TableCellCustom align="center">Numer</TableCellCustom>
+                <TableCellCustom align="center">Data</TableCellCustom>
+                <TableCellCustom align="center">Koszt</TableCellCustom>
+                <TableCellCustom align="center">Status</TableCellCustom>
                 <TableCellCustom align="center"></TableCellCustom>
             </TableRowCustom>
             </TableHead>
@@ -56,13 +72,15 @@ function TableComp(){
             {rows.map((row) => (
                 <TableRowCustom
                 key={row.name}
-                sx ={{'&:last-of-type': { border: 0 } }}
+                sx ={{'&:last-of-type': { border: 0 }, 
+                '&:hover':{bgcolor: '#F5F5F5'},
+                }}
                 >
                 <TableCellCustom align="center">{row.name}</TableCellCustom>
                 <TableCellCustom align="center">{row.calories}</TableCellCustom>
                 <TableCellCustom align="center">{row.fat}</TableCellCustom>
                 <TableCellCustom align="center">{row.carbs}</TableCellCustom>
-                <TableCellCustom align="center"><Button variant="contained">Anuluj</Button></TableCellCustom>
+                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>Anuluj</Button></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
