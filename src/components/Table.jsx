@@ -24,7 +24,7 @@ function createData(name, calories, fat, carbs) {
 const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    maxWidth: '1000px',
+    maxWidth: '632px',
     mt: 10,
     bgcolor: 'white',
     boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
@@ -32,12 +32,12 @@ const containerStyle = {
 }
 
 const tableStyle = {
-    maxWidth: '950px',
+    maxWidth: '600px',
 }
 
 const btnStyle = {
-    height: 30,
-    width: 75,
+    height: 35,
+    width: 90,
     bgcolor: '#1A1882',
     '&:hover':{
         bgcolor: '#283593'
@@ -50,7 +50,6 @@ const btnStyle = {
       marginBottom: 4,
     },
 } 
-
 
 function TableComp(){
     return(
@@ -80,7 +79,7 @@ function TableComp(){
                 <TableCellCustom align="center">{row.calories}</TableCellCustom>
                 <TableCellCustom align="center">{row.fat}</TableCellCustom>
                 <TableCellCustom align="center">{row.carbs}</TableCellCustom>
-                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>Anuluj</Button></TableCellCustom>
+                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>Szczegóły</Button></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
