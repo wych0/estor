@@ -1,5 +1,5 @@
 import {Link } from "react-router-dom";
-import { BottomBtn } from "./BottomBtn";
+import { BtnUnderForm } from "./BtnUnderForm";
 
 function BottomBtnContainer(props) {
     return (
@@ -7,7 +7,7 @@ function BottomBtnContainer(props) {
         <div className="boxTextBottomBtn flex centerY">
             <p className="text bottomBtn">{props.text}</p>
         </div>
-        <Link to={`../${props.route}`}><BottomBtn variant="contained"> {props.btnText}</BottomBtn></Link>
+        <Link to={`../${props.route}`}><BtnUnderForm variant="contained"> {props.btnText}</BtnUnderForm></Link>
       </div>
     );
   }

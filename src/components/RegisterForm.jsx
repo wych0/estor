@@ -9,6 +9,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
 import {Link } from "react-router-dom";
 import { UserContext } from '../UserContext';
+import { SignupLoginBtn } from './SignupLoginBtn';
 
 const formStyle = {
   mb: 1.5,
@@ -41,25 +42,6 @@ const labelStyle = {
 const iconStyle = {
     color: '#1A1882'
 }
-
-const btnStyle = {
-  marginTop: 4,
-  marginBottom: 5,
-  height: 50,
-  width: 450,
-  bgcolor: '#1A1882',
-  '&:hover':{
-      bgcolor: '#283593'
-  },
-  fontSize: 16,
-  fontWeight: "700",
-  "@media (max-width:1600px)": {
-    width: 375,
-    marginTop: 1.5,
-    marginBottom: 4,
-  },
-}
-
 
 function RegisterForm() {
     const {login} = useContext(UserContext);
@@ -124,7 +106,7 @@ function RegisterForm() {
           />
         </FormControl>
         </div>
-        <Link to={"/auth"}><Button variant="contained" sx={btnStyle} onClick={login}>Zarejestruj się</Button></Link>
+        <Link to={"/auth"}><SignupLoginBtn variant="contained" onClick={login}>Zarejestruj się</SignupLoginBtn></Link>
       </div>
     );
   }

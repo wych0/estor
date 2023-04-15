@@ -1,7 +1,7 @@
 import {styled} from "@mui/material/styles";
 import Button from '@mui/material/Button';
 
-export const BottomBtn = styled(Button)(({ theme }) => ({
+export const BtnUnderForm = styled(Button)(({ theme }) => ({
     marginTop: 0.5,
     height: 50,
     width: 425,

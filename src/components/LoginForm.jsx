@@ -10,7 +10,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import EmailIcon from '@mui/icons-material/Email';
 import HttpsIcon from '@mui/icons-material/Https';
-import Button from '@mui/material/Button';
+import { SignupLoginBtn } from './SignupLoginBtn';
 
 const formStyle = {
   mb: 2.5,
@@ -44,25 +44,6 @@ const labelStyle = {
 const iconStyle = {
     color: '#1A1882'
 }
-
-const btnLoginStyle = {
-    marginTop: 4,
-    marginBottom: 5,
-    height: 50,
-    width: 425,
-    bgcolor: '#1A1882',
-    '&:hover':{
-        bgcolor: '#283593'
-    },
-    fontSize: 16,
-    fontWeight: "700",
-    "@media (max-width:1600px)": {
-      width: 375,
-      marginTop: 1.5,
-      marginBottom: 4,
-    },
-} 
-
 
 
 function LoginForm() {
@@ -121,7 +102,7 @@ function LoginForm() {
           />
         </FormControl>
         </div>
-        <Link to={"/auth"}><Button variant="contained" sx={btnLoginStyle} onClick={login}>Zaloguj się</Button></Link>
+        <Link to={"/auth"}><SignupLoginBtn variant="contained" onClick={login}>Zaloguj się</SignupLoginBtn></Link>
       </div>
     );
   }
