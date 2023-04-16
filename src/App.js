@@ -21,7 +21,6 @@ import Complete from './routes/complete'
 
 function App(){
     const {user} = useContext(UserContext);
-    console.log(user.placedOrder);
     const router = createBrowserRouter([
         {
           path: "/",

@@ -5,27 +5,14 @@ import TableHead from '@mui/material/TableHead';
 import { Button } from '@mui/material';
 import { TableCellCustom } from './TableCellCustom';
 import { TableRowCustom } from './TableRowCustom';
-
-function createData(name, calories, fat, carbs) {
-    return { name, calories, fat, carbs };
-  }
-  
-  const rows = [
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-    createData(1111111, '13.04.2023', 6400, 'W realizacji'),
-
-  ];
-
+import orders from '../orders.json'
+import { UserContext } from '../UserContext';
+import { useContext } from 'react';
+ 
 const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     maxWidth: '632px',
-    mt: 10,
     bgcolor: 'white',
     boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
     justifyContent: "center",
@@ -52,6 +39,7 @@ const btnStyle = {
 } 
 
 function TableComp(){
+    const {displayOrderDetails} = useContext(UserContext)
     return(
     <TableContainer sx={containerStyle}>
         <div className="box headerTab flex">
@@ -68,18 +56,18 @@ function TableComp(){
             </TableRowCustom>
             </TableHead>
             <TableBody>
-            {rows.map((row) => (
+            {orders.map((row) => (
                 <TableRowCustom
-                key={row.name}
+                key={row.id}
                 sx ={{'&:last-of-type': { border: 0 }, 
                 '&:hover':{bgcolor: '#F5F5F5'},
                 }}
                 >
-                <TableCellCustom align="center">{row.name}</TableCellCustom>
-                <TableCellCustom align="center">{row.calories}</TableCellCustom>
-                <TableCellCustom align="center">{row.fat}</TableCellCustom>
-                <TableCellCustom align="center">{row.carbs}</TableCellCustom>
-                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>Szczegóły</Button></TableCellCustom>
+                <TableCellCustom align="center">{row.id}</TableCellCustom>
+                <TableCellCustom align="center">{row.date}</TableCellCustom>
+                <TableCellCustom align="center">{row.cost}</TableCellCustom>
+                <TableCellCustom align="center">{row.status}</TableCellCustom>
+                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle} onClick={() => displayOrderDetails(row.id)}>Szczegóły</Button></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>

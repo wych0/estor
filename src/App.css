@@ -632,7 +632,9 @@ body{
 }
 
 .bodyAccPage{
-  
+  align-items: start;
+  background-color: red;
+  gap: 100px;
 }
 
 .text.headerTab{
@@ -646,4 +648,12 @@ body{
 .box.headerTab{
   flex-basis: 95%;
   border-bottom: 1px solid rgba(26,24,130,0.3);
+}
+
+.box.orderDetails{
+  background-color: white;
+}
+
+.text.orderDetails{
+  color: black;
 }

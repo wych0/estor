@@ -1,9 +1,9 @@
 import { createContext, useState} from "react";
 
-export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false})
+export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none"})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: false, cart: [], placedOrder: false})
+    const [user, setUser] = useState({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none"})
     const login = (name)=>{
         setUser((user)=> ({
             ...user,
@@ -50,8 +50,23 @@ export const UserProvider = ({children}) => {
         }))
     }
 
+    const displayOrderDetails = (id) => {
+        setUser((user) => ({
+            ...user,
+            displayedOrder: id,
+        }))
+    }
+
     return (
-        <UserContext.Provider value={{user, login, logout, addItemToCart, deleteItemFromCart, placeOrder, endOrderProcess}}>
+        <UserContext.Provider value={{
+        user, 
+        login, 
+        logout, 
+        addItemToCart, 
+        deleteItemFromCart, 
+        placeOrder, 
+        endOrderProcess, 
+        displayOrderDetails: displayOrderDetails}}>
         {children}
         </UserContext.Provider>
     )

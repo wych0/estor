@@ -1,10 +1,10 @@
 import SummaryCart from "./SummaryCart"
-import OrderDetails from './OrderDetails'
+import ShipDetails from './ShipDetails'
 
 function BodyCart() {
     return (
       <div className="bodyCartPage flex wrap centerX">
-        <OrderDetails></OrderDetails>
+        <ShipDetails></ShipDetails>
         <SummaryCart></SummaryCart>
       </div>
     );

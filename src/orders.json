@@ -1,0 +1,15 @@
+[{
+    "id": 1111111,
+    "date": "16.04.2023",
+    "cost": "6400",
+    "status": "W realizacji",
+    "products": [1, 2],
+    "isDisplay": "false"
+  }, {
+    "id": 2222222,
+    "date": "18.04.2023",
+    "cost": "3200",
+    "status": "W realizacji",
+    "products": [3],
+    "isDisplay": "false"
+  }] 
