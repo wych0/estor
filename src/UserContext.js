@@ -17,7 +17,8 @@ export const UserProvider = ({children}) => {
           ...user,
           name: '',
           auth: false,
-          cart: []
+          cart: [],
+          displayedOrder: "none"
         }));
     };
 

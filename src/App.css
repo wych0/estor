@@ -633,8 +633,8 @@ body{
 
 .bodyAccPage{
   align-items: start;
-  background-color: red;
   gap: 100px;
+  margin-top: 3%;
 }
 
 .text.headerTab{
@@ -651,9 +651,29 @@ body{
 }
 
 .box.orderDetails{
+  text-align: left;
+  padding: 0 40px;
+  max-width: 500px;
   background-color: white;
 }
 
 .text.orderDetails{
   color: black;
+}
+
+.text.orderDetails.info{
+  font-size: 20px;
+  flex-basis: 100%;
+}
+
+.box.orderDetailsContent{
+  width: 400px;
+  min-width: 400px;
+} 
+
+.text.itemOrderDetails{
+  margin: 0;
+  color: black;
+  font-size: 12px;
+  flex-basis: 100%;
 }

@@ -13,12 +13,14 @@ const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     maxWidth: '632px',
+    minWidth: '632px',
     bgcolor: 'white',
     boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
     justifyContent: "center",
 }
 
 const tableStyle = {
+    minWidth: '600px',
     maxWidth: '600px',
 }
 
