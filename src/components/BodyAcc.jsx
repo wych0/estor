@@ -4,7 +4,7 @@ import OrderDetails from './OrderDetails';
 
 function BodyAcc() {
     return (
-      <div className="bodyAccPage flex centerX">
+      <div className="bodyAccPage flex wrap centerX">
         <Table></Table>
         <OrderDetails></OrderDetails>
       </div>
