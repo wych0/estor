@@ -7,7 +7,7 @@ import { NavButton } from "./NavButton";
 function Header(props) {
     const { user, logout } = useContext(UserContext);
     return (
-      <div className={"header flex spaceBetween centerY "+props.headerContent}>
+      <div className={"headerContainer flex spaceBetween centerY "+props.headerContent}>
         <div className={"left headerContent flex centerX "+props.childDisplay}>
           {user.auth
           ?  <Link to={"/"}><LogoutBtn variant="contained" onClick={logout}>Wyloguj się</LogoutBtn></Link>

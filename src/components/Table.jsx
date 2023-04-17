@@ -44,8 +44,8 @@ function TableComp(){
     const {displayOrderDetails} = useContext(UserContext)
     return(
     <TableContainer sx={containerStyle}>
-        <div className="box headerTab flex">
-            <p className="text headerTab">Twoje zamówienia</p>
+        <div className="box header flex">
+            <p className="text header">Twoje zamówienia</p>
         </div>
       <Table sx={tableStyle} size="small" aria-label="a dense table">
             <TableHead>

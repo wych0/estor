@@ -15,14 +15,20 @@ function DisplayOrder(props){
     const isOrderChosen = props.isOrderChosen==='false' ? false : true
     const filterData = isOrderChosen ? filterProductsByOrderItems(products, orderToDisplay.products) : ' '
     return(
-        <div className="box orderDetailsContent flex wrap">
-            {!isOrderChosen
-            ? <p className="text orderDetails">Nie wybrano zamówienia</p>
-            : <p className="text orderDetails">Szczegóły zamówienia nr. {orderToDisplay.id}</p>
-            }
-            <p className="text orderDetails info">Data zamówienia: { isOrderChosen ? orderToDisplay.date : ' '}</p>
-            <p className="text orderDetails info">Koszt zamówienia: { isOrderChosen ? orderToDisplay.cost : ' '}</p>
-            <p className="text orderDetails info">Status zamówienia: { isOrderChosen ? orderToDisplay.status : ' '}</p>
+        <div className="box orderDetailsContent flex wrap centerX">
+            <div className="box orderDetailsHeader header">
+                {!isOrderChosen
+                ? <p className="text orderDetails header">Nie wybrano zamówienia</p>
+                : <p className="text orderDetails header">Szczegóły zamówienia</p>
+                }
+            </div>
+            <div className="box orderDetailsInfo flex wrap">
+                <p className="text orderDetails info">Numer zamówienia: { isOrderChosen ? orderToDisplay.id : ' '}</p>
+                <p className="text orderDetails info">Data zamówienia: { isOrderChosen ? orderToDisplay.date : ' '}</p>
+                <p className="text orderDetails info">Koszt zamówienia: { isOrderChosen ? orderToDisplay.cost : ' '}</p>
+                <p className="text orderDetails info">Status zamówienia: { isOrderChosen ? orderToDisplay.status : ' '}</p>
+            </div>
+            
             {filterData===' '
             ? <p> </p>
             : filterData.map((item) => (

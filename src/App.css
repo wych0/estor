@@ -59,7 +59,7 @@ body{
   font-weight: 400;
 }
 
-.header{
+.headerContainer{
   height: 90px;
   padding: 0px 200px;
   background-color: white;
@@ -284,7 +284,7 @@ body{
 }
 
 .bodyCartPage{
-  margin-top: 70px;
+  margin-top: 3%;
   height: 70%;
   gap: 50px;
 }
@@ -633,47 +633,49 @@ body{
 
 .bodyAccPage{
   align-items: start;
-  gap: 100px;
+  gap: 50px;
   margin-top: 3%;
 }
 
-.text.headerTab{
+.text.header{
   margin: 20px;
-  font-size: 30px;
+  font-size: 28px;
   margin-left: 30px;
-  color: black;
   font-weight: 500;
 }
 
-.box.headerTab{
+.box.header{
   flex-basis: 95%;
   border-bottom: 1px solid rgba(26,24,130,0.3);
 }
 
+.box.orderDetailsHeader{
+  
+}
+
 .box.orderDetails{
   text-align: left;
-  padding: 0 40px;
-  max-width: 500px;
   background-color: white;
 }
 
-.text.orderDetails{
-  color: black;
-}
-
 .text.orderDetails.info{
+  color: black;
   font-size: 20px;
   flex-basis: 100%;
 }
 
 .box.orderDetailsContent{
-  width: 400px;
-  min-width: 400px;
+  max-width: 500px;  
 } 
 
 .text.itemOrderDetails{
   margin: 0;
   color: black;
   font-size: 12px;
+  flex-basis: 100%;
+}
+
+.orderDetailsInfo{
+  margin: 0 15px;
   flex-basis: 100%;
 }
