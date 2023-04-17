@@ -107,11 +107,11 @@ const btnStyle = {
 function ShipDetails() {
     const {placeOrder} = useContext(UserContext);
     return (
-      <div className="bodyCartContent orderDetailsCart flex centerX shadow">
-        <div className="orderDetailsForm flex wrap">
-          <div className="boxText orderDetails flex centerY">
+      <div className="bodyCartContent shipDetailsCart flex centerX shadow">
+        <div className="shipDetailsForm flex wrap">
+          <div className="boxText shipDetails flex centerY">
             <LocalShippingIcon sx={iconStyle}/> 
-            <p className="text orderDetails">Dane do wysyłki</p>
+            <p className="text shipDetails">Dane do wysyłki</p>
           </div>
           
           <FormControl sx={formStyle} variant="outlined">
@@ -170,7 +170,7 @@ function ShipDetails() {
               label="Kraj"
             />
           </FormControl>
-          <div className="orderDetailsBtnBox flex centerX">
+          <div className="shipDetailsBtnBox flex centerX">
             <Link to={"/complete"}><Button variant="contained" sx={btnStyle} onClick={placeOrder}>Zamów z obowiązkiem zapłaty</Button></Link>
           </div>
           

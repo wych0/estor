@@ -289,7 +289,7 @@ body{
   gap: 50px;
 }
 
-.orderDetailsCart{
+.shipDetailsCart{
   max-height: 617px;
   padding: 20px 20px 10px 20px;
   flex-basis: 28%;
@@ -312,7 +312,7 @@ body{
   border-bottom: 1.5px solid #1A1882;
 }
 
-.orderDetailsForm{
+.shipDetailsForm{
   width: 470px;
 }
 
@@ -323,12 +323,12 @@ body{
   margin-bottom: 25px;
 }
 
-.text.orderDetails{
+.text.shipDetails{
   font-size: 30px;
   font-weight: 450;
 }
 
-.orderDetailsBtnBox{
+.shipDetailsBtnBox{
   flex-basis: 100%;
 }
 
@@ -563,14 +563,14 @@ body{
   .boxForm.register{
     margin-bottom: -20px;
   }
-  .orderDetailsForm{
+  .shipDetailsForm{
     width: 400px;
   }
   .bodyCartPage{
     margin-top: 50px;
     gap: 50px;
   }
-  .text.orderDetails{
+  .text.shipDetails{
     font-size: 28px;
     font-weight: 450;
   }
@@ -580,10 +580,10 @@ body{
     margin-bottom: 25px;
     padding-bottom: 0px;
   }
-  .boxText.orderDetails{
+  .boxText.shipDetails{
     margin-bottom: 10px;
   }
-  .orderDetailsCart{
+  .shipDetailsCart{
     padding: 20px 20px 10px 30px;
     max-height: 510px;
   }
