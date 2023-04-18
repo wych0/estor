@@ -8,42 +8,26 @@ import { TableRowCustom } from './TableRowCustom';
 import orders from '../orders.json'
 import { UserContext } from '../UserContext';
 import { useContext } from 'react';
- 
-const containerStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    maxWidth: '632px',
-    minWidth: '632px',
-    bgcolor: 'white',
-    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-    justifyContent: "center",
-}
 
 const tableStyle = {
-    minWidth: '600px',
-    maxWidth: '600px',
+    minWidth: '95%',
+    maxWidth: '95%',
 }
 
 const btnStyle = {
-    height: 35,
-    width: 90,
+    width: '90%',
     bgcolor: '#1A1882',
     '&:hover':{
         bgcolor: '#283593'
     },
     fontSize: 12,
     fontWeight: "700",
-    "@media (max-width:1600px)": {
-      width: 375,
-      marginTop: 1.5,
-      marginBottom: 4,
-    },
 } 
 
 function TableComp(){
     const {displayOrderDetails} = useContext(UserContext)
     return(
-    <TableContainer sx={containerStyle}>
+    <TableContainer className="tableContainer flex wrap centerX shadow">
         <div className="box header flex">
             <p className="text header">Twoje zamówienia</p>
         </div>

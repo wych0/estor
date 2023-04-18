@@ -312,6 +312,11 @@ body{
   border-bottom: 1.5px solid #1A1882;
 }
 
+.orderDetailsItems{
+  background-color: red;
+  flex-basis: 100%;
+}
+
 .shipDetailsForm{
   width: 470px;
 }
@@ -659,9 +664,14 @@ body{
 }
 
 .text.orderDetails.info{
+  margin: 0;
   color: black;
-  font-size: 20px;
+  font-size: 1rem;
   flex-basis: 100%;
+}
+
+.text.orderDetails.info.data{
+  font-weight: 500;
 }
 
 .box.orderDetailsContent{
@@ -678,4 +688,10 @@ body{
 .orderDetailsInfo{
   margin: 0 15px;
   flex-basis: 100%;
+}
+
+.tableContainer{
+    max-width: 35%;
+    min-width: 530px;
+    background-color: white;
 }

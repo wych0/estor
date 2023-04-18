@@ -2,8 +2,8 @@ import {styled} from "@mui/material/styles";
 import Button from '@mui/material/Button';
 
 export const SignupLoginBtn = styled(Button)(({ theme }) => ({
-    marginTop: 20,
-    marginBottom: 45,
+    marginTop: '2%',
+    marginBottom: '5%',
     height: 50,
     width: 425,
     backgroundColor: '#1A1882',
@@ -14,7 +14,5 @@ export const SignupLoginBtn = styled(Button)(({ theme }) => ({
     fontWeight: "700",
     "@media (max-width:1600px)": {
       width: 375,
-      marginTop: 1.5,
-      marginBottom: 4,
     },
 }));

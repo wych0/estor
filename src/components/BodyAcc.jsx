@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Table from './Table';
-import OrderDetails from './OrderDetails';
+import OrderDetailsContainer from './OrderDetailsContainer';
 
 function BodyAcc() {
     return (
       <div className="bodyAccPage flex wrap centerX">
         <Table></Table>
-        <OrderDetails></OrderDetails>
+        <OrderDetailsContainer></OrderDetailsContainer>
       </div>
     );
   }
