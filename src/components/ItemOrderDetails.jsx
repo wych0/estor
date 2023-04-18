@@ -1,6 +1,6 @@
 function ItemOrderDetails(props) {
     return (
-      <div className="boxItemCart flex wrap">
+      <div className="boxItemOrderDetails flex wrap">
         <div className="boxImgCart shadow flex centerX centerY">
             <img className="imgItem" src="/images/products/product1.png" alt="produkt"/>
         </div>
