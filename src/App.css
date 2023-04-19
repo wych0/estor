@@ -291,7 +291,7 @@ body{
 
 .shipDetailsCart{
   max-height: 617px;
-  padding: 20px 20px 10px 20px;
+  padding: 20px 15px 10px 15px;
   flex-basis: 28%;
   background-color: white;
 }
@@ -299,7 +299,6 @@ body{
 .summaryCart{
   max-width: 425px;
   background-color: white;
-  flex-basis: 20%;
 }
 
 .list.cartItems{
@@ -639,7 +638,7 @@ body{
 }
 
 .text.header{
-  max-width: 290px;
+  max-width: 350px;
   margin: 20px 0px 20px 30px;
   font-size: 28px;
   font-weight: 500;
@@ -651,6 +650,7 @@ body{
 }
 
 .box.orderDetailsHeader{
+  flex-basis: 90%;
   gap: 40px;
 }
 
@@ -663,17 +663,18 @@ body{
   margin: 0;
   margin-top: 3%;
   color: black;
-  font-size: 1.15rem;
+  font-size: 1rem;
   flex-basis: 100%;
   font-weight: 600;
 }
 
-.text.orderDetails.info:last-of-type{
-  margin-bottom: 4%;
+.text.orderDetails.info.data{
+  font-size: 0.95rem;
+  font-weight: 400;
 }
 
-.text.orderDetails.info.data{
-  font-weight: 400;
+.text.orderDetails.info.data.address{
+  margin-top: 0;
 }
 
 .box.orderDetailsContent{
@@ -688,8 +689,8 @@ body{
 }
 
 .orderDetailsInfo{
-  margin: 0 15px;
-  flex-basis: 100%;
+  flex-basis: 50%;
+  
 }
 
 .tableContainer{
@@ -699,10 +700,55 @@ body{
 }
 
 .orderDetailsItems{
-  margin: 0 15px;
+  margin: 20px 0px;
   flex-basis: 100%;
 }
 
-.boxItemOrderDetails{
-  
+.displayOrderDetails{
+  justify-content: space-between;
+  max-width: 90%;
+}
+
+
+.listItemOrderDetails{
+  margin: 10px 0;
+  flex-basis: 50%;
+  max-height: 80px;
+  font-size: 14px;
+}
+
+.text.itemOrderDetails.brand{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.boxItemOrderDetailsProps{
+  flex-basis: 60%;
+  max-height: 60px;
+  margin-left: 4%;
+}
+
+.box.displayAlertOrderDetails{
+  margin: 0px 3%;
+}
+
+.detailsBtn.info{
+  color: #1A1882;
+  font-size: 1.25rem;
+  margin: 0 0 6% 0;
+  text-align: center;
+}
+
+.icon.detailsBtn.info{
+  margin: 3% 0 0 0;
+  font-size: 2.5rem;
+}
+
+.boxImgOrderDetails{
+  max-height: 80px;
+  max-width: 80px;
+  padding: 5px 0;
+  outline: 1.5px solid #1A1882;
+  border-radius: 5px;
+  background-color: white;
 }
