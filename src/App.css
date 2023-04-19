@@ -312,10 +312,6 @@ body{
   border-bottom: 1.5px solid #1A1882;
 }
 
-.orderDetailsItems{
-  background-color: red;
-  flex-basis: 100%;
-}
 
 .shipDetailsForm{
   width: 470px;
@@ -643,9 +639,9 @@ body{
 }
 
 .text.header{
-  margin: 20px;
+  max-width: 290px;
+  margin: 20px 0px 20px 30px;
   font-size: 28px;
-  margin-left: 30px;
   font-weight: 500;
 }
 
@@ -655,7 +651,7 @@ body{
 }
 
 .box.orderDetailsHeader{
-  
+  gap: 40px;
 }
 
 .box.orderDetails{
@@ -665,13 +661,19 @@ body{
 
 .text.orderDetails.info{
   margin: 0;
+  margin-top: 3%;
   color: black;
-  font-size: 1rem;
+  font-size: 1.15rem;
   flex-basis: 100%;
+  font-weight: 600;
+}
+
+.text.orderDetails.info:last-of-type{
+  margin-bottom: 4%;
 }
 
 .text.orderDetails.info.data{
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .box.orderDetailsContent{
@@ -694,4 +696,13 @@ body{
     max-width: 35%;
     min-width: 530px;
     background-color: white;
+}
+
+.orderDetailsItems{
+  margin: 0 15px;
+  flex-basis: 100%;
+}
+
+.boxItemOrderDetails{
+  
 }
