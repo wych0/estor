@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import {Link } from "react-router-dom";
 import Button from '@mui/material/Button';
+import { Alert } from '@mui/material';
 
 
 const formStyle = {
@@ -103,9 +104,14 @@ const btnStyle = {
   },
 } 
 
-
 function ShipDetails() {
-    const {placeOrder} = useContext(UserContext);
+    const {user, placeOrder} = useContext(UserContext)
+    const isBtnDisabled = user.cart.length===0 ? true : false
+    const makeOrder = () => {
+      console.log(user.cart);
+
+      placeOrder()
+    }
     return (
       <div className="bodyCartContent shipDetailsCart flex centerX shadow">
         <div className="shipDetailsForm flex wrap">
@@ -171,7 +177,7 @@ function ShipDetails() {
             />
           </FormControl>
           <div className="shipDetailsBtnBox flex centerX">
-            <Link to={"/complete"}><Button variant="contained" sx={btnStyle} onClick={placeOrder}>Zamów z obowiązkiem zapłaty</Button></Link>
+            <Button disabled={isBtnDisabled} component={Link} to={"/complete"} variant="contained" sx={btnStyle} onClick={makeOrder}>Zamów z obowiązkiem zapłaty</Button>
           </div>
           
         </div>

@@ -8,7 +8,8 @@ function matchesSearchTags(el, searchTags){
 
 function Items(props) {
   const searchTags = props.input ? props.input.split(" ") : [];
-  const filterData = products.filter(el => matchesSearchTags(el, searchTags));
+  const filterData = products.filter((el => matchesSearchTags(el, searchTags) && el.isSold==="false"));
+
   
     return (
       <div className="boxItems"> 
