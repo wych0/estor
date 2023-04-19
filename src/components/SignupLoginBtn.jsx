@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 
 export const SignupLoginBtn = styled(Button)(({ theme }) => ({
     marginTop: '2%',
-    marginBottom: '5%',
+    marginBottom: '8%',
     height: 50,
     width: 425,
     backgroundColor: '#1A1882',
