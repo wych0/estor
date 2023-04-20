@@ -5,6 +5,18 @@ import TableHead from '@mui/material/TableHead';
 import { TableCellCustom } from './TableCellCustom';
 import { TableRowCustom } from './TableRowCustom';
 import data from '../data.js'
+import { Button } from '@mui/material';
+
+const btnStyle = {
+    width: '90%',
+    maxWidth: '90px',
+    bgcolor: '#1A1882',
+    '&:hover':{
+        bgcolor: '#283593'
+    },
+    fontSize: 12,
+    fontWeight: "700",
+}
 
 const tableStyle = {
     minWidth: '95%',
@@ -13,7 +25,7 @@ const tableStyle = {
 
 function TableComp(){
     return(
-    <TableContainer className="tableContainer adminPageContent flex wrap centerX shadow">
+    <TableContainer className="tableContainer products adminPageContent flex wrap centerX shadow">
         <div className="box header flex">
             <p className="text header">Produkty</p>
         </div>
@@ -24,6 +36,7 @@ function TableComp(){
                 <TableCellCustom align="center">Marka</TableCellCustom>
                 <TableCellCustom align="center">Nazwa</TableCellCustom>
                 <TableCellCustom align="center">Cena</TableCellCustom>
+                <TableCellCustom align="center"></TableCellCustom>
             </TableRowCustom>
             </TableHead>
             <TableBody>
@@ -38,6 +51,7 @@ function TableComp(){
                 <TableCellCustom align="center">{row.brand}</TableCellCustom>
                 <TableCellCustom align="center">{row.name}</TableCellCustom>
                 <TableCellCustom align="center">{row.price}</TableCellCustom>
+                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>Usuń</Button></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
