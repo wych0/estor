@@ -695,6 +695,11 @@ body{
     background-color: white;
 }
 
+.tableContainer.products{
+  max-width: 25%;
+  min-width: 480px;
+}
+
 .orderDetailsItems{
   margin: 20px 0px;
   flex-basis: 100%;
@@ -765,3 +770,14 @@ body{
   gap: 50px;
 }
 
+.adminProducts{
+  margin-top: 1%;
+  gap: 50px;
+}
+
+.addProductContainer{
+  min-width: 600px;
+  align-items: start;
+  margin-top: 3%;
+  background-color: white;
+}

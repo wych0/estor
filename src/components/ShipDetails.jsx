@@ -3,7 +3,7 @@ import { UserContext } from '../UserContext';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import {Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-import InputsShipDetails from './InputsShipDetails';
+import Input from './Input';
 
 const formStyle = {
   marginBottom: '5%',
@@ -80,13 +80,13 @@ function ShipDetails() {
             <p className="text shipDetails">Dane do wysyłki</p>
           </div>
 
-          <InputsShipDetails formStyle={formStyle} placeHolder="Imię"/>
-          <InputsShipDetails formStyle={formStyle} placeHolder="Nazwisko"/>
-          <InputsShipDetails formStyle={formStyleBig} placeHolder="Ulica, numer domu, numer mieszkania"/>
-          <InputsShipDetails formStyle={formStyleMedium} placeHolder="Miasto"/>
-          <InputsShipDetails formStyle={formStyleSmall} placeHolder="Kod-Pocztowy"/>
-          <InputsShipDetails formStyle={formStyleBig} placeHolder="Adres e-mail"/>
-          <InputsShipDetails formStyle={formStyleMedium} placeHolder="Kraj"/>
+          <Input formStyle={formStyle} placeHolder="Imię"/>
+          <Input formStyle={formStyle} placeHolder="Nazwisko"/>
+          <Input formStyle={formStyleBig} placeHolder="Ulica, numer domu, numer mieszkania"/>
+          <Input formStyle={formStyleMedium} placeHolder="Miasto"/>
+          <Input formStyle={formStyleSmall} placeHolder="Kod-Pocztowy"/>
+          <Input formStyle={formStyleBig} placeHolder="Adres e-mail"/>
+          <Input formStyle={formStyleMedium} placeHolder="Kraj"/>
 
           <div className="shipDetailsBtnBox flex centerX">
             <Button disabled={isBtnDisabled} component={Link} to={"/complete"} variant="contained" sx={btnStyle} onClick={placeOrder}>Zamów z obowiązkiem zapłaty</Button>
