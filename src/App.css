@@ -601,10 +601,6 @@ body{
   display: none;
 }
 
-.center{
-  justify-content: center;
-}
-
 .complete{
   margin: 0;
   text-align: center;
@@ -752,3 +748,20 @@ body{
   border-radius: 5px;
   background-color: white;
 }
+
+.adminPageContent{
+  margin-top: 3%;
+  background-color: white;
+}
+
+.menu.adminPageContent{
+  min-width: 20%;
+  min-height: 400px;
+  flex-direction: column;
+}
+
+.bodyAdminPage{
+  align-items: start;
+  gap: 50px;
+}
+
