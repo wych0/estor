@@ -2,6 +2,7 @@ import {styled} from "@mui/material/styles";
 import Button from '@mui/material/Button';
 
 export const LogoutBtn = styled(Button)(({ theme }) => ({
+    color: 'white',
     height: 50,
     width: 190,
     backgroundColor: '#1A1882',
