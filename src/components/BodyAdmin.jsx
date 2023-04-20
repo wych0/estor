@@ -5,6 +5,7 @@ import { useState } from "react";
 import AllOrders from "./AllOrders";
 import AllProducts from "./AllProducts"
 import AllUsers from "./AllUsers"
+import AddProductAdmin from "./AddProductAdmin"
 
 function BodyAdmin() {
     const [showContainer, setShowContainer] = useState(' ')
@@ -13,7 +14,7 @@ function BodyAdmin() {
 
     }
     return (
-      <div className="bodyAdminPage flex centerX">
+      <div className="bodyAdminPage flex wrap centerX">
         <div className="menu adminPageContent flex centerY shadow">
             <AdminIcon />
             <MenuBtnAdmin onClick={btnFun.bind(this, 'users')}>Zarządzaj użytkownikami</MenuBtnAdmin>
@@ -23,7 +24,9 @@ function BodyAdmin() {
         </div>
         {showContainer==='orders' ? <AllOrders /> : ' '}
         {showContainer==='users' ? <AllUsers /> : ' '}
-        {showContainer==='products' ? <AllProducts /> : ' '}
+        {showContainer==='products' 
+        ? <div className="flex wrap centerX adminProducts"><AllProducts /> <AddProductAdmin /></div>
+        : ' '}
     </div>
     );
   }
