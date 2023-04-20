@@ -17,6 +17,7 @@ import { UserContext } from './UserContext';
 import ProtectedAuth from './ProtectedAuth'
 import ProtectedComplete from './ProtectedComplete';
 import Complete from './routes/complete'
+import Admin from './routes/admin';
 
 
 function App(){
@@ -55,6 +56,11 @@ function App(){
         {
           path: "/complete",
           element: <ProtectedComplete placedOrder={user.placedOrder}> <Complete /></ProtectedComplete>,
+          errorElement: <ErrorPage />
+        },
+        {
+          path: "/admin",
+          element: <Admin />,
           errorElement: <ErrorPage />
         }
     ]);
