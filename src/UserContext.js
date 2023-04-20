@@ -1,14 +1,15 @@
 import { createContext, useState} from "react";
 
-export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none"})
+export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' '})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none"})
+    const [user, setUser] = useState({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' '})
     const login = (name)=>{
         setUser((user)=> ({
             ...user,
             name: name,
             auth: true,
+            id: 2
         }));
     };
     
