@@ -26,7 +26,8 @@ const btnStyle = {
 } 
 
 function TableComp(){
-    const {displayOrderDetails} = useContext(UserContext)
+    const {displayOrderDetails, user} = useContext(UserContext)
+    const userOrders = data.orders.filter(el => el.customer===user.id)
     return(
     <TableContainer className="tableContainer flex wrap centerX shadow">
         <div className="box header flex">
@@ -43,10 +44,10 @@ function TableComp(){
             </TableRowCustom>
             </TableHead>
             <TableBody>
-            {data.orders.map((row) => (
+            {userOrders.map((row) => (
                 <TableRowCustom
                 key={row.id}
-                sx ={{'&:last-of-type': { border: 0 }, 
+                sx ={{'&:last-of-type': { border: 0}, 
                 '&:hover':{bgcolor: '#F5F5F5'},
                 }}
                 >
