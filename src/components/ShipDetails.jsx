@@ -1,77 +1,42 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import {Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-import { Alert } from '@mui/material';
-
+import InputsShipDetails from './InputsShipDetails';
 
 const formStyle = {
+  marginBottom: '5%',
   marginRight: '19px',
   width: '25ch',
-  height: 'auto',
-  marginBottom: '25px',
   "@media (max-width:1600px)": {
     width: '21ch',
     marginRight: '10px',
-    marginBottom: '15px',
   },
 }
 
 const formStyleMedium = {
+  marginBottom: '4%',
   marginRight: '19px',
   width: '33ch',
-  height: 'auto',
-  marginBottom: '25px',
   "@media (max-width:1600px)": {
     width: '27ch',
     marginRight: '10px',
-    marginBottom: '15px',
   },
 }
 
 const formStyleSmall = {
   width: '17ch',
-  height: 'auto',
-  marginBottom: '25px',
   "@media (max-width:1600px)": {
     width: '15ch',
-    marginBottom: '15px',
   },
 }
 
 const formStyleBig = {
+  marginBottom: '3%',
   width: '52ch',
-  height: 'auto',
-  marginBottom: '25px',
   "@media (max-width:1600px)": {
     width: '43ch',
-    marginBottom: '15px',
-  },
-}
-
-const inputStyle = {
-  color: '#1A1882',
-  borderColor: '#1A1882',
-  fontWeight: "500",
-  "@media (max-width:1600px)": {
-    height:"50px",
-  },
-}
-
-const labelStyle = {
-  color: '#1A1882',
-  "&.Mui-focused":{
-      color: '#1A1882',
-      fontWeight: "700",
-  },
-  fontWeight: "400",
-  fontSize: 16,
-  "@media (max-width:1600px)": {
-    fontSize: 14,
   },
 }
 
@@ -107,11 +72,6 @@ const btnStyle = {
 function ShipDetails() {
     const {user, placeOrder} = useContext(UserContext)
     const isBtnDisabled = user.cart.length===0 ? true : false
-    const makeOrder = () => {
-      console.log(user.cart);
-
-      placeOrder()
-    }
     return (
       <div className="bodyCartContent shipDetailsCart flex centerX shadow">
         <div className="shipDetailsForm flex wrap">
@@ -119,65 +79,17 @@ function ShipDetails() {
             <LocalShippingIcon sx={iconStyle}/> 
             <p className="text shipDetails">Dane do wysyłki</p>
           </div>
-          
-          <FormControl sx={formStyle} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Imię</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Imię"
-            />
-          </FormControl>
-          <FormControl sx={formStyle} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Nazwisko</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Nazwisko"
-            />
-          </FormControl>
-          <FormControl sx={formStyleBig} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Ulica, numer domu, numer mieszkania</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Ulica, numer domu, numer mieszkania"
-            />
-          </FormControl>
-          <FormControl sx={formStyleMedium} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Miasto</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Miasto"
-            />
-          </FormControl>
-          <FormControl sx={formStyleSmall} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Kod-Pocztowy</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Kod-Pocztowy"
-            />
-          </FormControl>
-          <FormControl sx={formStyleBig} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Adres e-mail</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Adres e-mail"
-            />
-          </FormControl>
-          <FormControl sx={formStyleMedium} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>Kraj</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              id="outlined"
-              label="Kraj"
-            />
-          </FormControl>
+
+          <InputsShipDetails formStyle={formStyle} placeHolder="Imię"/>
+          <InputsShipDetails formStyle={formStyle} placeHolder="Nazwisko"/>
+          <InputsShipDetails formStyle={formStyleBig} placeHolder="Ulica, numer domu, numer mieszkania"/>
+          <InputsShipDetails formStyle={formStyleMedium} placeHolder="Miasto"/>
+          <InputsShipDetails formStyle={formStyleSmall} placeHolder="Kod-Pocztowy"/>
+          <InputsShipDetails formStyle={formStyleBig} placeHolder="Adres e-mail"/>
+          <InputsShipDetails formStyle={formStyleMedium} placeHolder="Kraj"/>
+
           <div className="shipDetailsBtnBox flex centerX">
-            <Button disabled={isBtnDisabled} component={Link} to={"/complete"} variant="contained" sx={btnStyle} onClick={makeOrder}>Zamów z obowiązkiem zapłaty</Button>
+            <Button disabled={isBtnDisabled} component={Link} to={"/complete"} variant="contained" sx={btnStyle} onClick={placeOrder}>Zamów z obowiązkiem zapłaty</Button>
           </div>
           
         </div>

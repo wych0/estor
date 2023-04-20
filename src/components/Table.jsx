@@ -5,7 +5,7 @@ import TableHead from '@mui/material/TableHead';
 import { Button } from '@mui/material';
 import { TableCellCustom } from './TableCellCustom';
 import { TableRowCustom } from './TableRowCustom';
-import orders from '../orders.json'
+import data from '../data.js'
 import { UserContext } from '../UserContext';
 import { useContext } from 'react';
 
@@ -43,7 +43,7 @@ function TableComp(){
             </TableRowCustom>
             </TableHead>
             <TableBody>
-            {orders.map((row) => (
+            {data.orders.map((row) => (
                 <TableRowCustom
                 key={row.id}
                 sx ={{'&:last-of-type': { border: 0 }, 

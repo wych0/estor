@@ -1,5 +1,5 @@
 import Item from '../components/Item'
-import products from '../products.json'
+import data from '../data.js'
 
 function matchesSearchTags(el, searchTags){
   const tags = el.brand.concat(" ", el.name);
@@ -8,7 +8,7 @@ function matchesSearchTags(el, searchTags){
 
 function Items(props) {
   const searchTags = props.input ? props.input.split(" ") : [];
-  const filterData = products.filter((el => matchesSearchTags(el, searchTags) && el.isSold==="false"));
+  const filterData = data.products.filter((el => matchesSearchTags(el, searchTags) && el.isSold==="false"));
 
   
     return (

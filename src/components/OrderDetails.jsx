@@ -1,7 +1,6 @@
-import orders from '../orders.json'
+import data from '../data.js'
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
-import products from '../products.json'
 import ItemOrderDetails from './ItemOrderDetails';
 import { Button } from '@mui/material';
 
@@ -22,7 +21,7 @@ function filterProductsByOrderItems(products, orderItems) {
 
 function OrderDetails(props){
     const {user} = useContext(UserContext)
-    const orderToDisplay = orders.find(el => el.id===user.displayedOrder);
+    const orderToDisplay = data.orders.find(el => el.id===user.displayedOrder);
     const isOrderChosen = props.isOrderChosen==='false' ? false : true
     if(!isOrderChosen) {
         return (
@@ -37,7 +36,7 @@ function OrderDetails(props){
             </div>
         )
     }
-    const filterData = filterProductsByOrderItems(products, orderToDisplay.products)
+    const filterData = filterProductsByOrderItems(data.products, orderToDisplay.products)
     const isBtnDisabled = orderToDisplay.status==="W realizacji" ? false : true
     return(
         <div className="box orderDetailsContent flex wrap centerX">

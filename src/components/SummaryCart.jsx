@@ -1,7 +1,7 @@
 import { React, useContext} from "react"
 import { UserContext } from '../UserContext'
 import ItemCart from './ItemCart'
-import products from '../products.json'
+import data from '../data.js'
 import CostSumBox from "./CostSumBox"
 
 function filterProductsByCartItems(products, cartItems) {
@@ -16,7 +16,7 @@ function calculateAllProductsCost(cartItems){
 
 function SummaryCart() {
     const {user} = useContext(UserContext)
-    const filterData = filterProductsByCartItems(products, user.cart);
+    const filterData = filterProductsByCartItems(data.products, user.cart);
     const productsCost = calculateAllProductsCost(filterData);
 
     return (
