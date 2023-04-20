@@ -2,6 +2,7 @@ const data = {
     users: [
         {id: 1, name: 'admin', password: 'admin', role: 'admin'},
         {id: 2, name: 'albert', password: 'haslo', role: 'customer'},
+        {id: 3, name: 'uzytkownik', password: 'haslo', role: 'customer'},
     ],
     orders: [
         {id: 1111111, customer: 2, date: '16.04.2023', cost: 6400, status: 'W realizacji', isDisplayDetails: 'false', products: [1, 2],
@@ -24,7 +25,17 @@ const data = {
             email: 'xyz@gmail.com',
             country: 'Polska'
         }},
-        {id: 3333333, customer: 2, date: '20.04.2023', cost: 9600, status: 'Anulowane', isDisplayDetails: 'false', products: [4, 5, 6],
+        {id: 3333333, customer: 3, date: '20.04.2023', cost: 9600, status: 'Anulowane', isDisplayDetails: 'false', products: [4, 5, 6],
+        addres:{
+            name: 'Albert',
+            secName: 'Wychowaniec',
+            street: 'Chopina 13',
+            postalCode: '52-460',
+            city: 'Chorzów',
+            email: 'xyz@gmail.com',
+            country: 'Polska'
+        }},
+        {id: 4444444, customer: 3, date: '20.04.2023', cost: 3200, status: 'W realizacji', isDisplayDetails: 'false', products: [7],
         addres:{
             name: 'Albert',
             secName: 'Wychowaniec',
