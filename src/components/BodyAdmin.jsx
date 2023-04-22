@@ -14,7 +14,7 @@ function BodyAdmin() {
 
     }
     return (
-      <div className="bodyAdminPage flex wrap centerX">
+      <div className="bodyAdminPage flex wrap">
         <div className="menu adminPageContent flex centerY shadow">
             <AdminIcon />
             <MenuBtnAdmin onClick={btnFun.bind(this, 'users')}>Zarządzaj użytkownikami</MenuBtnAdmin>
@@ -25,7 +25,7 @@ function BodyAdmin() {
         {showContainer==='orders' ? <AllOrders /> : ' '}
         {showContainer==='users' ? <AllUsers /> : ' '}
         {showContainer==='products' 
-        ? <div className="flex wrap centerX adminProducts"><AllProducts /> <AddProductAdmin /></div>
+        ? <div className="flex wrap adminProducts"><AllProducts /> <AddProductAdmin /></div>
         : ' '}
     </div>
     );

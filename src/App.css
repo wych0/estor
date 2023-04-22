@@ -700,6 +700,10 @@ body{
   min-width: 480px;
 }
 
+.tableContainer.users{
+  max-width: 25%;
+}
+
 .orderDetailsItems{
   margin: 20px 0px;
   flex-basis: 100%;
@@ -760,6 +764,8 @@ body{
 }
 
 .menu.adminPageContent{
+  padding-bottom: 2%;
+  margin-left: 5%;
   min-width: 20%;
   min-height: 400px;
   flex-direction: column;
