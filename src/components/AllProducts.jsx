@@ -25,7 +25,7 @@ const tableStyle = {
 
 function TableComp(){
     return(
-    <TableContainer className="tableContainer products adminPageContent flex wrap centerX shadow">
+    <TableContainer className="tableContainer products flex wrap centerX shadow">
         <div className="box header flex">
             <p className="text header">Produkty</p>
         </div>
