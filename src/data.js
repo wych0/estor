@@ -1,8 +1,8 @@
 const data = {
     users: [
-        {id: 1, name: 'admin', password: 'admin', role: 'admin'},
-        {id: 2, name: 'albert', password: 'haslo', role: 'customer'},
-        {id: 3, name: 'uzytkownik', password: 'haslo', role: 'customer'},
+        {id: 1, name: 'admin', password: 'admin', role: 'admin', accStatus: 'aktywne'},
+        {id: 2, name: 'albert', password: 'haslo', role: 'customer', accStatus: 'aktywne'},
+        {id: 3, name: 'uzytkownik', password: 'haslo', role: 'customer', accStatus: 'aktywne'},
     ],
     orders: [
         {id: 1111111, customer: 2, date: '16.04.2023', cost: 6400, status: 'W realizacji', isDisplayDetails: 'false', products: [1, 2],
