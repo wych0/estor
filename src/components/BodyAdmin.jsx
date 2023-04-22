@@ -25,7 +25,7 @@ function BodyAdmin() {
         {showContainer==='orders' ? <AllOrders /> : ' '}
         {showContainer==='users' ? <AllUsers /> : ' '}
         {showContainer==='products' 
-        ? <div className="flex wrap adminProducts"><AllProducts /> <AddProductAdmin /></div>
+        ? <div className="flex wrap adminPageContent adminProducts"><AllProducts /> <AddProductAdmin /></div>
         : ' '}
     </div>
     );
