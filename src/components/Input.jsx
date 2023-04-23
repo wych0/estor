@@ -2,12 +2,10 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
   const inputStyle = {
+    height:"50px",
     color: '#1A1882',
     borderColor: '#1A1882',
     fontWeight: "500",
-    "@media (max-width:1600px)": {
-      height:"50px",
-    },
   }
   
   const labelStyle = {
@@ -17,10 +15,7 @@ import FormControl from '@mui/material/FormControl';
         fontWeight: "700",
     },
     fontWeight: "400",
-    fontSize: 16,
-    "@media (max-width:1600px)": {
-      fontSize: 14,
-    },
+    fontSize: 14,
   }
 
 function Input(props) {
