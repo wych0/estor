@@ -25,7 +25,8 @@ const tableStyle = {
 
 function TableComp(){
     return(
-    <TableContainer className="tableContainer users adminPageContent flex wrap centerX shadow">
+    <div className="flex wrap adminPageContent adminProducts">
+    <TableContainer className="tableContainer users flex wrap centerX shadow">
         <div className="box header flex">
             <p className="text header">Użytkownicy</p>
         </div>
@@ -34,6 +35,7 @@ function TableComp(){
             <TableRowCustom>
                 <TableCellCustom align="center">ID</TableCellCustom>
                 <TableCellCustom align="center">Nazwa</TableCellCustom>
+                <TableCellCustom align="center">E-mail</TableCellCustom>
                 <TableCellCustom align="center">Status konta</TableCellCustom>
                 <TableCellCustom align="center"></TableCellCustom>
             </TableRowCustom>
@@ -48,13 +50,15 @@ function TableComp(){
                 >
                 <TableCellCustom align="center">{row.id}</TableCellCustom>
                 <TableCellCustom align="center">{row.name}</TableCellCustom>
-                <TableCellCustom align="center">{row.accStatus}</TableCellCustom>
-                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>Zablokuj</Button></TableCellCustom>
+                <TableCellCustom align="center">{row.email}</TableCellCustom>
+                <TableCellCustom align="center">{row.isBlocked ? 'Zablokowane' : 'Aktywne'}</TableCellCustom>
+                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle}>{row.isBlocked ? 'Odblokuj' : 'Zablokuj'}</Button></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
       </Table>
     </TableContainer>
+    </div>
     );
 }
 
