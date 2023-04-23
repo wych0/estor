@@ -5,6 +5,18 @@ import TableHead from '@mui/material/TableHead';
 import { TableCellCustom } from './TableCellCustom';
 import { TableRowCustom } from './TableRowCustom';
 import data from '../data.js'
+import { Button } from '@mui/material';
+
+const btnStyle = {
+    width: '90%',
+    maxWidth: '90px',
+    bgcolor: '#1A1882',
+    '&:hover':{
+        bgcolor: '#283593'
+    },
+    fontSize: 12,
+    fontWeight: "700",
+}
 
 const tableStyle = {
     minWidth: '95%',
@@ -13,7 +25,8 @@ const tableStyle = {
 
 function TableComp(){
     return(
-    <TableContainer className="tableContainer adminPageContent flex wrap centerX shadow">
+    <div className="flex wrap adminPageContent adminProducts">
+    <TableContainer className="tableContainer orders flex wrap centerX shadow">
         <div className="box header flex">
             <p className="text header">Zamówienia</p>
         </div>
@@ -25,6 +38,8 @@ function TableComp(){
                 <TableCellCustom align="center">Koszt</TableCellCustom>
                 <TableCellCustom align="center">Status</TableCellCustom>
                 <TableCellCustom align="center">ID Klienta</TableCellCustom>
+                <TableCellCustom align="center"></TableCellCustom>
+                <TableCellCustom align="center"></TableCellCustom>
             </TableRowCustom>
             </TableHead>
             <TableBody>
@@ -36,15 +51,18 @@ function TableComp(){
                 }}
                 >
                 <TableCellCustom align="center">{row.id}</TableCellCustom>
-                <TableCellCustom align="center">{row.date}</TableCellCustom>
+                <TableCellCustom align="center">{row.date}</TableCellCustom> 
                 <TableCellCustom align="center">{row.cost}</TableCellCustom>
                 <TableCellCustom align="center">{row.status}</TableCellCustom>
                 <TableCellCustom align="center">{row.customer}</TableCellCustom>
+                <TableCellCustom align="center"><Button disabled={row.status==='W realizacji' ? false : true} variant="contained" sx={btnStyle}>Anuluj</Button></TableCellCustom>
+                <TableCellCustom align="center"><Button disabled={row.status==='W realizacji' ? false : true} variant="contained" sx={btnStyle}>Zatwierdź</Button></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
       </Table>
     </TableContainer>
+    </div>
     );
 }
 
