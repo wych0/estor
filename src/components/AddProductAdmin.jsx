@@ -1,7 +1,8 @@
 import { Button } from '@mui/material';
 import Input from './Input';
 
-const btnStyle = {
+const btnImgStyle = {
+    height: '40px',
     width: '125px',
     bgcolor: '#1A1882',
     '&:hover':{
@@ -11,8 +12,29 @@ const btnStyle = {
     fontWeight: "700",
 }
 
+const btnAddStyle = {
+    color: 'white',
+    height: 50,
+    width: 300,
+    backgroundColor: '#1A1882',
+    '&:hover':{
+        backgroundColor: '#283593'
+    },
+    fontSize: 15,
+    fontWeight: "700",
+    "@media (max-width:1600px)": {
+        height: 45,
+        width: 167,
+        fontSize: 13,
+        fontWeight: "600",
+      },
+}
+
+
+
 const formStyle = {
-    marginBottom: '6%',
+    marginTop: '3%',
+    marginBottom: '2%',
     width: '25ch',
     "@media (max-width:1600px)": {
       width: '23ch',
@@ -45,10 +67,13 @@ function AddProductAdmin(){
                 <div className="boxImgAddAdmin shadow flex centerX centerY">
                     <img className="previewImg"/>
                 </div>
-                <Button variant="contained" component="label" sx={btnStyle}>
+                <Button variant="contained" component="label" sx={btnImgStyle}>
                     Dodaj zdjęcie
                     <input hidden type="file" accept="image/*" onChange={(e) => previewImage(e)} />
                 </Button>
+                </div>
+                <div className="addProductBtnContainer flex centerX">
+                    <Button variant="contained" sx={btnAddStyle}>Dodaj produkt</Button>
                 </div>
             </div>
             
