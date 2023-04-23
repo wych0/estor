@@ -14,7 +14,7 @@ function BodyAdmin() {
 
     }
     return (
-      <div className="bodyAdminPage flex wrap">
+      <div className="bodyAdminPage flex wrap centerX">
         <div className="menu adminPageContent flex centerY shadow">
             <AdminIcon />
             <MenuBtnAdmin onClick={btnFun.bind(this, 'users')}>Zarządzaj użytkownikami</MenuBtnAdmin>
