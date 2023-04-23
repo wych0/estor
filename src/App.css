@@ -690,8 +690,8 @@ body{
 }
 
 .tableContainer{
-    max-width: 35%;
-    min-width: 530px;
+    max-width: 30%;
+    min-width: 576px;
     background-color: white;
 }
 
@@ -701,7 +701,13 @@ body{
 }
 
 .tableContainer.users{
-  max-width: 25%;
+  max-width: 30%;
+  min-width: 576px;
+}
+
+.tableContainer.orders{
+  max-width: 58%;
+  min-width: 0px;
 }
 
 .orderDetailsItems{
@@ -759,10 +765,12 @@ body{
 }
 
 .adminPageContent{
+  flex-basis: 70%;
   margin-top: 3%;
 }
 
 .menu.adminPageContent{
+  flex-basis: 20%;
   background-color: white;
   padding-bottom: 2%;
   margin-left: 5%;
@@ -782,14 +790,15 @@ body{
 }
 
 .addProductContainer{
-  padding-bottom: 50px;
-  min-width: 600px;
+  padding-bottom: 30px;
+  min-width: 40%;
+  max-width: 600px;
   align-items: start;
   background-color: white;
 }
 
 .inputsAddProduct{
-  flex-basis: 50%;
+  flex-basis: 55%;
   margin-top: 5%;
 }
 
@@ -814,4 +823,9 @@ body{
 
 .addProductContent{
   margin-top: 5%;
+}
+
+.addProductBtnContainer{
+  margin-top: 6%;
+  flex-basis: 100%;
 }
