@@ -15,8 +15,8 @@ const tableStyle = {
 }
 
 const btnStyle = {
-    width: '90%',
-    maxWidth: '125px',
+    height: '40px',
+    width: '85%',
     bgcolor: '#1A1882',
     '&:hover':{
         bgcolor: '#283593'
