@@ -3,16 +3,15 @@ import { LogoutBtn } from "./LogoutBtn";
 import { AdminIcon } from "./AdminIcon";
 import { useState } from "react";
 import AllOrders from "./AllOrders";
-import AllProducts from "./AllProducts"
 import AllUsers from "./AllUsers"
-import AddProductAdmin from "./AddProductAdmin"
+import ProductsPanelAdmin from "./ProductsPanelAdmin";
 
 function BodyAdmin() {
     const [showContainer, setShowContainer] = useState(' ')
     const btnFun = (container) => {
         setShowContainer(container)
-
     }
+    
     return (
       <div className="bodyAdminPage flex wrap centerX">
         <div className="menu adminPageContent flex centerY shadow">
@@ -24,9 +23,7 @@ function BodyAdmin() {
         </div>
         {showContainer==='orders' ? <AllOrders /> : ' '}
         {showContainer==='users' ? <AllUsers /> : ' '}
-        {showContainer==='products' 
-        ? <div className="flex wrap adminPageContent adminProducts"><AllProducts /> <AddProductAdmin /></div>
-        : ' '}
+        {showContainer==='products' ? <ProductsPanelAdmin /> : ' '}
     </div>
     );
   }
