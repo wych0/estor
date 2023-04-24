@@ -8,6 +8,7 @@ import { TableRowCustom } from './TableRowCustom';
 import data from '../data.js'
 import { UserContext } from '../UserContext';
 import { useContext } from 'react';
+import { TableRowHead } from './TableRowHead';
 
 const tableStyle = {
     minWidth: '95%',
@@ -35,13 +36,13 @@ function TableComp(){
         </div>
       <Table sx={tableStyle} size="small" aria-label="a dense table">
             <TableHead>
-            <TableRowCustom>
+            <TableRowHead>
                 <TableCellCustom align="center">Numer</TableCellCustom>
                 <TableCellCustom align="center">Data</TableCellCustom>
                 <TableCellCustom align="center">Koszt</TableCellCustom>
                 <TableCellCustom align="center">Status</TableCellCustom>
                 <TableCellCustom align="center"></TableCellCustom>
-            </TableRowCustom>
+            </TableRowHead>
             </TableHead>
             <TableBody>
             {userOrders.map((row) => (
