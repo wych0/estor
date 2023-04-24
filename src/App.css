@@ -215,7 +215,7 @@ body{
   flex-flow: column;
 }
 
-.boxLogoWelcome{
+.boxWelcome{
   margin-top: 30px;
   margin-bottom: 20px;
   flex-basis: 100%;
@@ -258,21 +258,20 @@ body{
 }
 
 .text.register{
-  margin-top: 0px;
-  margin-bottom: 0;
+  margin: 0;
   text-align: center;
-  font-size: 38px;
-  flex-basis: 100%;
+  font-size: 2rem;
 }
 
 .text.register.bottom{
-  margin-top: -6px;
-  font-size: 24px;
+  margin-top: -2%; 
+  font-size: 1.2rem;
 }
 
 .boxForm{
   background-color: white;
-  max-width: 550px;
+  width: 25%;
+  min-width: 450px;
 }
 
 .boxForm.register{
@@ -524,14 +523,7 @@ body{
     margin-right: 3px;
     font-size: 18px;
   }
-  .boxLogoWelcome{
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-  .boxLogoWelcome.register{
-    margin-top: 20px;
-    margin-bottom: 5px;
-  }
+  
   
   .logoImgForm{
    max-height: 85px;
@@ -539,9 +531,6 @@ body{
   .text.welcome{
     font-size: 38px;
     margin-top: -8px;
-  }
-  .boxForm{
-    max-width: 450px;
   }
   .boxForm.login{
     margin-bottom: -20px;
@@ -552,16 +541,6 @@ body{
   }
   .text.bottomBtn{
     font-size: 23px;
-  }
-  .text.register{
-    margin-top: -8px;
-    font-size: 28px;
-  }
-  .text.register.bottom{
-    font-size: 18px;
-  }
-  .boxForm.register{
-    margin-bottom: -20px;
   }
   .shipDetailsForm{
     width: 400px;
@@ -686,7 +665,6 @@ body{
 
 .orderDetailsInfo{
   flex-basis: 50%;
-  
 }
 
 .tableContainer{
@@ -697,7 +675,7 @@ body{
 
 .tableContainer.products{
   max-width: 25%;
-  min-width: 480px;
+  min-width: 600px;
 }
 
 .tableContainer.users{
@@ -706,8 +684,8 @@ body{
 }
 
 .tableContainer.orders{
-  max-width: 58%;
-  min-width: 0px;
+  max-width: 70%;
+  min-width: 740px;
 }
 
 .orderDetailsItems{
@@ -765,8 +743,10 @@ body{
 }
 
 .adminPageContent{
-  flex-basis: 70%;
+  justify-content: center;
+  flex-basis: 60%;
   margin-top: 3%;
+  max-width: 1150px;
 }
 
 .menu.adminPageContent{
@@ -774,7 +754,8 @@ body{
   background-color: white;
   padding-bottom: 2%;
   margin-left: 5%;
-  min-width: 20%;
+  width: 20%;
+  min-width: 350px;
   min-height: 400px;
   flex-direction: column;
 }
@@ -791,7 +772,8 @@ body{
 
 .addProductContainer{
   padding-bottom: 30px;
-  min-width: 40%;
+  width: 40%;
+  min-width: 514px;
   max-width: 600px;
   align-items: start;
   background-color: white;
@@ -811,7 +793,7 @@ body{
   height: 200px;
   width: 200px;
   padding: 20px 20px;
-  outline: 2px solid #1A1882;
+  outline: 1.5px solid #1A1882;
   border-radius: 5px;
   background-color: white;
   margin-bottom: 10%;
@@ -828,4 +810,12 @@ body{
 .addProductBtnContainer{
   margin-top: 6%;
   flex-basis: 100%;
+}
+
+.linkLogoImg{
+  height: 60%;
+}
+
+.logoImgForm{
+  height: 100%;
 }
