@@ -8,7 +8,7 @@ function matchesSearchTags(el, searchTags){
 
 function Items(props) {
   const searchTags = props.input ? props.input.split(" ") : [];
-  const filterData = data.products.filter((el => matchesSearchTags(el, searchTags) && el.isSold==="false"));
+  const filterData = data.products.filter((el => matchesSearchTags(el, searchTags) && !el.isSold));
 
   
     return (
