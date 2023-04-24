@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 export const BtnUnderForm = styled(Button)(({ theme }) => ({
     marginTop: 0.5,
     height: 50,
-    width: 425,
+    width: 350,
     backgroundColor: 'white',
     color: '#1A1882',
     border: '2px solid #1A1882',
@@ -15,6 +15,6 @@ export const BtnUnderForm = styled(Button)(({ theme }) => ({
     fontSize: 16,
     fontWeight: "700",
     "@media (max-width:1600px)": {
-        width: 375,
+        width: 300,
     },
 }));
