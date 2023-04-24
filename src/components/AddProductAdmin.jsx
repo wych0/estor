@@ -1,36 +1,6 @@
-import { Button } from '@mui/material';
 import Input from './Input';
-
-const btnImgStyle = {
-    height: '40px',
-    width: '125px',
-    bgcolor: '#1A1882',
-    '&:hover':{
-        bgcolor: '#283593'
-    },
-    fontSize: 12,
-    fontWeight: "700",
-}
-
-const btnAddStyle = {
-    color: 'white',
-    height: 50,
-    width: 300,
-    backgroundColor: '#1A1882',
-    '&:hover':{
-        backgroundColor: '#283593'
-    },
-    fontSize: 15,
-    fontWeight: "700",
-    "@media (max-width:1600px)": {
-        height: 45,
-        width: 167,
-        fontSize: 13,
-        fontWeight: "600",
-      },
-}
-
-
+import { AddProductAdminBtn } from './AddProductAdminBtn';
+import { AddImageProductAdminBtn } from './AddImageProductAdminBtn';
 
 const formStyle = {
     marginTop: '3%',
@@ -65,15 +35,15 @@ function AddProductAdmin(){
                 </div>
                 <div className="imgAddContainer addProductContent">
                 <div className="boxImgAddAdmin shadow flex centerX centerY">
-                    <img className="previewImg"/>
+                    <img className="previewImg" alt=""/>
                 </div>
-                <Button variant="contained" component="label" sx={btnImgStyle}>
+                <AddImageProductAdminBtn variant="contained" component="label">
                     Dodaj zdjęcie
                     <input hidden type="file" accept="image/*" onChange={(e) => previewImage(e)} />
-                </Button>
+                </AddImageProductAdminBtn>
                 </div>
                 <div className="addProductBtnContainer flex centerX">
-                    <Button variant="contained" sx={btnAddStyle}>Dodaj produkt</Button>
+                    <AddProductAdminBtn variant="contained">Dodaj produkt</AddProductAdminBtn>
                 </div>
             </div>
             
