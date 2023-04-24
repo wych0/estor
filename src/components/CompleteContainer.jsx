@@ -3,7 +3,6 @@ import { UserContext } from '../UserContext';
 import {Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
-
 const btnStyle = {
     marginTop: 3,
     marginBottom: 3,
