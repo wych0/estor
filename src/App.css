@@ -222,10 +222,10 @@ body{
 }
 
 .text.welcome{
-  margin-top: 0px;
-  margin-bottom: 0;
   text-align: center;
-  font-size: 42px;
+  margin-top: -10px;
+  margin-bottom: 0px;
+  font-size: 2.9rem;
   flex-basis: 100%;
 }
 
@@ -524,18 +524,6 @@ body{
     font-size: 18px;
   }
   
-  
-  .logoImgForm{
-   max-height: 85px;
-  }
-  .text.welcome{
-    font-size: 38px;
-    margin-top: -8px;
-  }
-  .boxForm.login{
-    margin-bottom: -20px;
-    margin-top: 3%;
-  }
   .boxBottomBtn{
     margin-top: 20px;
   }
@@ -812,10 +800,19 @@ body{
   flex-basis: 100%;
 }
 
-.linkLogoImg{
+.linkLogoImg.register{
   height: 60%;
 }
 
+.linkLogoImg.login{
+  height: 60%;
+}
+
+
 .logoImgForm{
   height: 100%;
+}
+
+.inputShipDetails{
+  margin: 20px;
 }
