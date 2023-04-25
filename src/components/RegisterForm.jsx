@@ -3,7 +3,7 @@ import {Link } from "react-router-dom";
 import { UserContext } from '../UserContext';
 import { SignupLoginBtn } from './SignupLoginBtn';
 import Input from './Input';
-import RegisterInputPassword from './RegisterInputPassword';
+import InputPassword from './InputPassword';
 
 const formStyle = {
   mb: 2,
@@ -13,22 +13,32 @@ const formStyle = {
     },
 }
 
+const labelStyle = {
+  color: '#1A1882',
+  "&.Mui-focused":{
+      color: '#1A1882',
+      fontWeight: "700",
+      fontSize: 18
+  },
+  fontWeight: "400",
+  fontSize: 15,
+}
+
+
 function RegisterForm() {
     const {login} = useContext(UserContext);
     return (
       <div className="boxForm register flex wrap centerX shadow">
         <div className="boxWelcome register flex wrap centerX">
-            <Link className="linkLogoImg"to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
-            
-            
+            <Link className="linkLogoImg register" to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
             <p className="text register">Nie masz jeszcze konta?</p>
             <p className="text register bottom">Zarejestruj się korzystając formularza poniżej</p>
         </div>
         <div className="form flex">
-        <Input formStyle={formStyle} placeHolder="Imię"/>
-        <Input formStyle={formStyle} placeHolder="Nazwisko"/>
-        <Input formStyle={formStyle} placeHolder="Adres e-mail"/>
-        <RegisterInputPassword formStyle={formStyle} placeHolder="Hasło"/>
+        <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Imię"/>
+        <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Nazwisko"/>
+        <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="E-mail"/>
+        <InputPassword startIcon={false} labelStyle={labelStyle} formStyle={formStyle} placeHolder="Hasło"/>
         </div>
         <Link to={"/auth"}><SignupLoginBtn variant="contained" onClick={login}>Zarejestruj się</SignupLoginBtn></Link>
       </div>
