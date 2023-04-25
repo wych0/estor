@@ -48,6 +48,17 @@ const iconStyle = {
   },
 }
 
+const labelStyle = {
+  color: '#1A1882',
+  "&.Mui-focused":{
+      color: '#1A1882',
+      fontWeight: "700",
+      fontSize: 17
+  },
+  fontWeight: "400",
+  fontSize: 15,
+}
+
 const btnStyle = {
   marginTop: 3,
   marginBottom: 3,
@@ -80,13 +91,13 @@ function ShipDetails() {
             <p className="text shipDetails">Dane do wysyłki</p>
           </div>
 
-          <Input formStyle={formStyle} placeHolder="Imię"/>
-          <Input formStyle={formStyle} placeHolder="Nazwisko"/>
-          <Input formStyle={formStyleBig} placeHolder="Ulica, numer domu, numer mieszkania"/>
-          <Input formStyle={formStyleMedium} placeHolder="Miasto"/>
-          <Input formStyle={formStyleSmall} placeHolder="Kod-Pocztowy"/>
-          <Input formStyle={formStyleBig} placeHolder="Adres e-mail"/>
-          <Input formStyle={formStyleMedium} placeHolder="Kraj"/>
+          <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Imię"/>
+          <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Nazwisko"/>
+          <Input formStyle={formStyleBig} labelStyle={labelStyle} placeHolder="Ulica, numer domu"/>
+          <Input formStyle={formStyleMedium} labelStyle={labelStyle} placeHolder="Miasto"/>
+          <Input formStyle={formStyleSmall} labelStyle={labelStyle} placeHolder="Kod-Pocztowy"/>
+          <Input formStyle={formStyleBig} labelStyle={labelStyle} placeHolder="Adres e-mail"/>
+          <Input formStyle={formStyleMedium} labelStyle={labelStyle} placeHolder="Kraj"/>
 
           <div className="shipDetailsBtnBox flex centerX">
             <Button disabled={isBtnDisabled} component={Link} to={"/complete"} variant="contained" sx={btnStyle} onClick={placeOrder}>Zamów z obowiązkiem zapłaty</Button>
