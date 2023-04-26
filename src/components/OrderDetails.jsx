@@ -5,7 +5,6 @@ import ItemOrderDetails from './ItemOrderDetails';
 import { Button } from '@mui/material';
 
 const btnStyle = {
-    height: '50%',
     width: '20%',
     bgcolor: '#1A1882',
     '&:hover':{
