@@ -250,10 +250,6 @@ body{
   flex-basis: 100%;
 }
 
-.MuiOutlinedInput-notchedOutline{
-  border-color: #1A1882 !important;
-}
-
 .line{
   flex-basis: 100%;
   height: 2px;
