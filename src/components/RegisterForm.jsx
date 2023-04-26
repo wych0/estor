@@ -14,17 +14,6 @@ const formStyle = {
     },
 }
 
-const labelStyle = {
-  color: '#1A1882',
-  "&.Mui-focused":{
-      color: '#1A1882',
-      fontWeight: "700",
-      fontSize: 17
-  },
-  fontWeight: "400",
-  fontSize: 15,
-}
-
 
 function RegisterForm() {
     const methods = useForm()
@@ -46,10 +35,10 @@ function RegisterForm() {
         <FormProvider {...methods}>
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
         <div className="form register flex">
-        <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Imię"/>
-        <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Nazwisko"/>
-        <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="E-mail"/>
-        <Input isPassword={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="Hasło" />
+        <Input formStyle={formStyle} placeHolder="Imię"/>
+        <Input formStyle={formStyle} placeHolder="Nazwisko"/>
+        <Input formStyle={formStyle} placeHolder="E-mail"/>
+        <Input isPassword={true} formStyle={formStyle} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zarejestruj się</SignupLoginBtn>
         </form>
