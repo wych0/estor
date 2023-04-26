@@ -8,6 +8,7 @@ import { IconButton } from '@mui/material';
 import { VisibilityOff } from '@mui/icons-material';
 import Visibility from '@mui/icons-material/Visibility';
 import { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 
   const inputStyle = {
     height:"50px",
@@ -17,11 +18,12 @@ import { useState } from 'react';
 
   const iconStyle = {
     color: '#1A1882'
-}
+  }
 
 
 export const Input = ({isPassword, isStartIcon, formStyle, labelStyle, placeHolder}) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+  const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -62,13 +64,19 @@ export const Input = ({isPassword, isStartIcon, formStyle, labelStyle, placeHold
     return (
       <div className="formContainer">
         <FormControl sx={formStyle} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>{placeHolder}</InputLabel>
+            <InputLabel htmlFor="outlined" sx={labelStyle}>{`${placeHolder}`}</InputLabel>
             <OutlinedInput
               sx={inputStyle}
               label={placeHolder+"."}
               {...startAdornment}
               {...typeInput}
               {...endAdornment}
+              {...register(placeHolder, {
+                required: {
+                  value: true,
+                  message: 'wymagane',
+                },
+              })}
             />
           </FormControl>
       </div>
