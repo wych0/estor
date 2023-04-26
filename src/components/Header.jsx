@@ -1,7 +1,7 @@
 import {Link } from "react-router-dom";
 import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
-import { LogoutBtn } from "./LogoutBtn";
+import { MidBtn } from "./MidBtn";
 import { NavButton } from "./NavButton";
 
 function Header(props) {
@@ -11,7 +11,7 @@ function Header(props) {
       <div className={"headerContainer flex centerY " + centerLogo}>
         <div className={"left headerContent flex centerX "+props.childDisplay}>
           {user.auth
-          ?  <Link to={"/"}><LogoutBtn variant="contained" onClick={logout}>Wyloguj się</LogoutBtn></Link>
+          ?  <Link to={"/"}><MidBtn variant="contained" onClick={logout}>Wyloguj się</MidBtn></Link>
           :  <p className="text shipInfo free">Bezpłatna dostawa i zwrot!</p>
           }
         </div>
