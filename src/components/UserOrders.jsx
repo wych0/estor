@@ -2,29 +2,19 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import { Button } from '@mui/material';
 import { TableCellCustom } from './TableCellCustom';
 import { TableRowCustom } from './TableRowCustom';
 import data from '../data.js'
 import { UserContext } from '../UserContext';
 import { useContext } from 'react';
 import { TableRowHead } from './TableRowHead';
+import TableBtn from './TableBtn';
 
 const tableStyle = {
     minWidth: '95%',
     maxWidth: '95%',
 }
 
-const btnStyle = {
-    height: '40px',
-    width: '85%',
-    bgcolor: '#1A1882',
-    '&:hover':{
-        bgcolor: '#283593'
-    },
-    fontSize: 12,
-    fontWeight: "700",
-} 
 
 function TableComp(){
     const {displayOrderDetails, user} = useContext(UserContext)
@@ -56,7 +46,7 @@ function TableComp(){
                 <TableCellCustom align="center">{row.date}</TableCellCustom>
                 <TableCellCustom align="center">{row.cost}</TableCellCustom>
                 <TableCellCustom align="center">{row.status}</TableCellCustom>
-                <TableCellCustom align="center"><Button variant="contained" sx={btnStyle} onClick={() => displayOrderDetails(row.id)}>Szczegóły</Button></TableCellCustom>
+                <TableCellCustom align="center"><TableBtn variant="contained" onClick={() => displayOrderDetails(row.id)}>Szczegóły</TableBtn></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
