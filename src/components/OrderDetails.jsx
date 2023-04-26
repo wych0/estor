@@ -2,17 +2,7 @@ import data from '../data.js'
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
 import ItemOrderDetails from './ItemOrderDetails';
-import { Button } from '@mui/material';
-
-const btnStyle = {
-    width: '20%',
-    bgcolor: '#1A1882',
-    '&:hover':{
-        bgcolor: '#283593'
-    },
-    fontSize: 12,
-    fontWeight: "700",
-} 
+import { SmallBtn } from './SmallBtn.jsx';
 
 function filterProductsByOrderItems(products, orderItems) {
     return products.filter((product) => orderItems.includes(product.id));
@@ -41,7 +31,7 @@ function OrderDetails(props){
         <div className="box orderDetailsContent flex wrap centerX">
             <div className="box orderDetailsHeader header flex centerY">
                 <p className="text orderDetails header">Szczegóły zamówienia</p>
-                <Button variant="contained" sx={btnStyle} disabled={isBtnDisabled}>Anuluj</Button>
+                <SmallBtn variant="contained" disabled={isBtnDisabled}>Anuluj</SmallBtn>
             </div>
                 <div className="box displayOrderDetails flex wrap">
                     <div className="box orderDetailsInfo flex wrap">
