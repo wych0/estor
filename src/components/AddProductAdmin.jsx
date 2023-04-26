@@ -1,15 +1,21 @@
 import { Input } from './Input';
-import { AddProductAdminBtn } from './AddProductAdminBtn';
-import { AddImageProductAdminBtn } from './AddImageProductAdminBtn';
+import { MidBtn } from './MidBtn';
+import { SmallBtn } from './SmallBtn';
 
 const formStyle = {
-    marginTop: '3%',
-    marginBottom: '2%',
-    width: '25ch',
-    "@media (max-width:1600px)": {
-      width: '23ch',
-    },
-  }
+    width: '20ch',
+}
+
+const labelStyle = {
+  color: '#1A1882',
+  "&.Mui-focused":{
+      color: '#1A1882',
+      fontWeight: "700",
+  },
+  fontWeight: "400",
+  fontSize: 15,
+}
+
 
 
 function AddProductAdmin(){
@@ -28,22 +34,22 @@ function AddProductAdmin(){
                 <p className="text header">Dodaj produkt</p>
             </div>
             <div className="addProductBody flex wrap">
-                <div className="inputsAddProduct addProductContent">
-                    <Input formStyle={formStyle} placeHolder="Marka"/>
-                    <Input formStyle={formStyle} placeHolder="Nazwa"/>
-                    <Input formStyle={formStyle} placeHolder="Cena"/>
+                <div className="inputsAddProduct flex wrap addProductContent">
+                    <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Marka"/>
+                    <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Nazwa"/>
+                    <Input formStyle={formStyle} labelStyle={labelStyle} placeHolder="Cena"/>
                 </div>
                 <div className="imgAddContainer addProductContent">
                 <div className="boxImgAddAdmin shadow flex centerX centerY">
                     <img className="previewImg" alt=""/>
                 </div>
-                <AddImageProductAdminBtn variant="contained" component="label">
+                <SmallBtn fz="small" variant="contained" component="label">
                     Dodaj zdjęcie
                     <input hidden type="file" accept="image/*" onChange={(e) => previewImage(e)} />
-                </AddImageProductAdminBtn>
+                </SmallBtn>
                 </div>
                 <div className="addProductBtnContainer flex centerX">
-                    <AddProductAdminBtn variant="contained">Dodaj produkt</AddProductAdminBtn>
+                    <MidBtn variant="contained">Dodaj produkt</MidBtn>
                 </div>
             </div>
             
