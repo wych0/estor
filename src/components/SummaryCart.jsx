@@ -22,14 +22,17 @@ function SummaryCart() {
     return (
       <div className="bodyCartContent">
         <div className="summaryCart shadow flex wrap">
-          <div className ="list cartItems flex wrap">
+            <div className="summaryCartListContainer flex wrap">
             {filterData.length !== 0
             ? filterData.map((item) => (
+              <div className ="list cartItems flex wrap">
               <div key={item.id} className="listItemCart"><ItemCart itemId={item.id} brand={item.brand} name={item.name} price={item.price}></ItemCart></div>
+              </div>
               ))
-            : <p className="text emptyCart">Twój koszyk jest pusty</p>
+            : <p className="text summaryCartHeaders">Twój koszyk jest pusty</p>
             } 
-          </div>
+            </div>
+          
           <CostSumBox cost={productsCost} text="Produkty"></CostSumBox>
           <CostSumBox cost="0" text="Dostawa"></CostSumBox>
           <CostSumBox cost={productsCost + 0} text="Łącznie" class="total"></CostSumBox>
