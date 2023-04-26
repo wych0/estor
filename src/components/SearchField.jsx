@@ -12,6 +12,9 @@ const formStyle = {
 }
 
 const inputStyle = {
+  '& .MuiOutlinedInput-notchedOutline, &.Mui-focused .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: "#1A1882"
+  },
   "@media (max-width:1600px)": {
     height: '40px',
     fontSize: '12px',
