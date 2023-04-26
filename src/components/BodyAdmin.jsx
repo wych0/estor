@@ -1,5 +1,5 @@
 import { MenuBtnAdmin } from "./MenuBtnAdmin";
-import { LogoutBtn } from "./LogoutBtn";
+import { MidBtn } from "./MidBtn";
 import { AdminIcon } from "./AdminIcon";
 import { useState } from "react";
 import AllOrders from "./AllOrders";
@@ -19,7 +19,7 @@ function BodyAdmin() {
             <MenuBtnAdmin onClick={btnFun.bind(this, 'users')}>Zarządzaj użytkownikami</MenuBtnAdmin>
             <MenuBtnAdmin onClick={btnFun.bind(this, 'orders')}>Zarządzaj zamówieniami</MenuBtnAdmin>
             <MenuBtnAdmin onClick={btnFun.bind(this, 'products')}>Zarządzaj produktami</MenuBtnAdmin>
-            <LogoutBtn sx={{marginTop: '5%'}}>Wyloguj się</LogoutBtn>
+            <MidBtn sx={{marginTop: '5%'}}>Wyloguj się</MidBtn>
         </div>
         {showContainer==='orders' ? <AllOrders /> : ' '}
         {showContainer==='users' ? <AllUsers /> : ' '}
