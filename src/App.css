@@ -211,21 +211,42 @@ body{
 }
 
 .form{
-  margin-top: 10px;
   flex-flow: column;
+  margin-bottom: 20px;
+}
+
+.form.register{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.form.login{
+  gap: 20px;
+}
+
+.formShipDetails{
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: -16px;
+  gap: 13px;
 }
 
 .boxWelcome{
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
   flex-basis: 100%;
+}
+
+.boxWelcome.register{
+  margin-bottom: 0;
 }
 
 .text.welcome{
   text-align: center;
   margin-top: -10px;
   margin-bottom: 0px;
-  font-size: 2.9rem;
+  font-size: 2.7rem;
   flex-basis: 100%;
 }
 
@@ -235,9 +256,8 @@ body{
 
 .line{
   flex-basis: 100%;
-  min-height: 2px;
+  height: 2px;
   background-color: #1A1882;
-  margin-top: 65px;
 }
 
 .boxBottomBtn{
@@ -260,12 +280,13 @@ body{
 .text.register{
   margin: 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.9rem;
+  margin-top: -10px;
 }
 
 .text.register.bottom{
-  margin-top: -2%; 
-  font-size: 1.2rem;
+  margin-top: -15px;
+  font-size: 1.1rem;
 }
 
 .boxForm{
@@ -275,23 +296,23 @@ body{
 }
 
 .boxForm.register{
-  margin-top: 2%;
+  margin: 2% 0;
 }
 
 .boxForm.login{
-  margin-top: 4%;
+  margin: 4% 0;
 }
 
 .bodyCartPage{
+  align-items: start;
   margin-top: 3%;
   height: 70%;
   gap: 50px;
 }
 
 .shipDetailsCart{
-  max-height: 617px;
-  padding: 20px 15px 10px 15px;
-  flex-basis: 28%;
+  min-height: 500px;
+  width: 29%;
   background-color: white;
 }
 
@@ -300,31 +321,26 @@ body{
   background-color: white;
 }
 
-.list.cartItems{
-  min-width: 344px;
-  max-width: 344px;
-  flex-basis: 100%;
-  margin: 40px;
-  margin-bottom: 0px; 
-  list-style: none;
+.summaryCartListContainer{ 
+  width: 343px;
+  margin: 0px 40px 0px 40px;
   border-bottom: 1.5px solid #1A1882;
 }
 
-
-.shipDetailsForm{
-  width: 470px;
-}
-
-.boxText{
+.list.cartItems{
+  margin-top: 20px;
+  list-style: none;
   flex-basis: 100%;
-  max-height: 60px;
-  gap: 10px;
-  margin-bottom: 25px;
 }
 
-.text.shipDetails{
-  font-size: 30px;
-  font-weight: 450;
+.list.cartItems:last-child{
+  margin-bottom: 20px;
+}
+
+
+.shipDetailsFormContainer{
+  width: 85%;
+  padding-bottom: 10px;
 }
 
 .shipDetailsBtnBox{
@@ -383,13 +399,8 @@ body{
 }
 
 .listItemCart{
-  margin-bottom: 25px;
   flex-basis: 100%;
   max-height: 80px;
-}
-
-.cartItems .listItemCart:last-child {
-  margin-bottom: 35px;
 }
 
 .boxTextSum{
@@ -434,9 +445,7 @@ body{
   flex-basis: 30%;
 }
 
-.text.emptyCart{
-  margin-top: -9px;
-  padding-bottom: 8px;
+.text.summaryCartHeaders{
   font-size: 30px;
   font-weight: 450;
 }
@@ -541,20 +550,6 @@ body{
     font-size: 28px;
     font-weight: 450;
   }
-  .text.emptyCart{
-    font-size: 28px;
-    margin-top: -9px;
-    margin-bottom: 25px;
-    padding-bottom: 0px;
-  }
-  .boxText.shipDetails{
-    margin-bottom: 10px;
-  }
-  .shipDetailsCart{
-    padding: 20px 20px 10px 30px;
-    max-height: 510px;
-  }
-  
 }
 
 .completeBox{
@@ -801,7 +796,8 @@ body{
 }
 
 .linkLogoImg.register{
-  height: 60%;
+  min-height: 92px;
+  height: 53%;
 }
 
 .linkLogoImg.login{
@@ -815,4 +811,9 @@ body{
 
 .inputShipDetails{
   margin: 20px;
+}
+
+.boxText{
+  width: 100%;
+  height: 100px;
 }
