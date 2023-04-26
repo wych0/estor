@@ -597,7 +597,7 @@ body{
 
 .text.header{
   max-width: 350px;
-  margin: 20px 0px 20px 30px;
+  margin: 20px 0px 20px 10px;
   font-size: 28px;
   font-weight: 500;
 }
@@ -609,7 +609,7 @@ body{
 
 .box.orderDetailsHeader{
   flex-basis: 90%;
-  gap: 40px;
+  gap: 20px;
 }
 
 .box.orderDetails{
@@ -657,12 +657,10 @@ body{
 }
 
 .tableContainer.products{
-  max-width: 25%;
   min-width: 600px;
 }
 
 .tableContainer.users{
-  max-width: 30%;
   min-width: 576px;
 }
 
@@ -727,44 +725,42 @@ body{
 
 .adminPageContent{
   justify-content: center;
-  flex-basis: 60%;
   margin-top: 3%;
   max-width: 1150px;
+  margin-left: 25px;
+  flex-basis: 70%;
+  margin-bottom: 2%;
 }
 
 .menu.adminPageContent{
-  flex-basis: 20%;
   background-color: white;
   padding-bottom: 2%;
-  margin-left: 5%;
-  width: 20%;
   min-width: 350px;
   min-height: 400px;
   flex-direction: column;
+  flex-basis: 20%;
 }
 
 .bodyAdminPage{
   align-items: start;
-  gap: 50px;
 }
 
 .adminProducts{
+  justify-content: center;
   align-items: start;
   gap: 25px;
 }
 
 .addProductContainer{
   padding-bottom: 30px;
-  width: 40%;
-  min-width: 514px;
-  max-width: 600px;
+  width: 450px;
   align-items: start;
   background-color: white;
 }
 
 .inputsAddProduct{
+  gap: 15px;
   flex-basis: 55%;
-  margin-top: 5%;
 }
 
 .previewImg{
@@ -773,8 +769,8 @@ body{
 }
 
 .boxImgAddAdmin{
-  height: 200px;
-  width: 200px;
+  height: 175px;
+  width: 175px;
   padding: 20px 20px;
   outline: 1.5px solid #1A1882;
   border-radius: 5px;
@@ -783,6 +779,7 @@ body{
 }
 
 .addProductBody{
+  align-items: start;
   flex-basis: 90%;
 }
 
