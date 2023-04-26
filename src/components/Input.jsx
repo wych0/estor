@@ -1,5 +1,3 @@
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import EmailIcon from '@mui/icons-material/Email';
@@ -9,32 +7,34 @@ import { VisibilityOff } from '@mui/icons-material';
 import Visibility from '@mui/icons-material/Visibility';
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { OutlinedInputCustom } from './OutlinedInputCustom';
+import { InputLabelCustom } from './InputLabelCustom';
+import { findInputErrors } from '../findInputErrors';
+import { isFormValid } from '../isFormValid';
 
-  const inputStyle = {
-    height:"50px",
-    color: '#1A1882',
-    borderColor: '#1A1882',
-  }
-
-  const iconStyle = {
-    color: '#1A1882'
-  }
-
-
-export const Input = ({isPassword, isStartIcon, formStyle, labelStyle, placeHolder}) => {
+export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
   const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+  const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+  };
+  const inputError = findInputErrors(errors, placeHolder)
+  const isValid = isFormValid(inputError)
+  let iconColor = {color: '#1A1882'}
+  let placeholder = placeHolder
 
+  if(!isValid){
+    iconColor = {color: '#d32f2f'} 
+    placeholder = `${placeholder} - ${inputError.error.message}`
+  }
+  
   const startAdornment = isStartIcon
     ? {
       startAdornment: <InputAdornment position="start">
         {isPassword
-        ? <HttpsIcon sx={iconStyle} />
-        : <EmailIcon sx={iconStyle} />}
+        ? <HttpsIcon sx={iconColor} />
+        : <EmailIcon sx={iconColor} />}
       </InputAdornment>
     }
     : { }
@@ -53,7 +53,7 @@ export const Input = ({isPassword, isStartIcon, formStyle, labelStyle, placeHold
         onClick={handleClickShowPassword}
         onMouseDown={handleMouseDownPassword}
         edge="end"
-        sx={iconStyle}
+        sx={iconColor}
       >
         {showPassword ? <VisibilityOff /> : <Visibility />}
       </IconButton>
@@ -64,26 +64,28 @@ export const Input = ({isPassword, isStartIcon, formStyle, labelStyle, placeHold
     return (
       <div className="formContainer">
         <FormControl sx={formStyle} variant="outlined">
-            <InputLabel htmlFor="outlined" sx={labelStyle}>{`${placeHolder}`}</InputLabel>
-            <OutlinedInput
-              sx={inputStyle}
-              label={placeHolder+"."}
+            <InputLabelCustom 
+              fz={isStartIcon ? 18 : 15}
+              isvalid={+isValid} 
+              htmlFor="outlined">
+              {placeholder}
+            </InputLabelCustom>
+
+            <OutlinedInputCustom
+              isvalid = {+isValid}
+              label={placeholder}
               {...startAdornment}
               {...typeInput}
               {...endAdornment}
               {...register(placeHolder, {
                 required: {
                   value: true,
-                  message: 'wymagane',
+                  message: 'Pole wymagane',
                 },
               })}
             />
-          </FormControl>
+        </FormControl>
       </div>
     );
-  }
-
-  const InputError = () => {
-    return <div>error</div>
   }
   
