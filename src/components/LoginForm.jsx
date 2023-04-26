@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import {Link } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../UserContext';
 import { SignupLoginBtn } from './SignupLoginBtn';
 import { Input } from './Input';
+import {useForm} from 'react-hook-form'
+import { FormProvider } from 'react-hook-form';
 
 const formStyle = {
     width: '45ch',
@@ -24,7 +26,16 @@ const labelStyle = {
 
 
 function LoginForm() {
-    const {login} = useContext(UserContext);
+    const methods = useForm()
+    const {login} = useContext(UserContext)
+    const navigation = useNavigate()
+
+    const onSubmit = methods.handleSubmit( (data) => {
+      console.log(data);
+      login()
+      navigation("/auth")
+    })
+
 
     return (
       <div className="boxForm login flex wrap centerX shadow">
@@ -32,11 +43,15 @@ function LoginForm() {
             <Link className="linkLogoImg login" to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>
         </div>
+        <FormProvider {...methods}>
+        <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
         <div className="form login flex">
-        <Input isStartIcon={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="E-mail" />
-        <Input isPassword={true} isStartIcon={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="Hasło" />
+          <Input isStartIcon={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="E-mail" />
+          <Input isPassword={true} isStartIcon={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="Hasło" />
         </div>
-        <Link to={"/auth"}><SignupLoginBtn variant="contained" onClick={login}>Zaloguj się</SignupLoginBtn></Link>
+        <SignupLoginBtn variant="contained" onClick={onSubmit}>Zaloguj się</SignupLoginBtn>
+        </form>
+        </FormProvider>
       </div>
     );
   }
