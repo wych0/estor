@@ -13,18 +13,6 @@ const formStyle = {
     },
 }
 
-const labelStyle = {
-  color: '#1A1882',
-  "&.Mui-focused":{
-      color: '#1A1882',
-      fontWeight: "700",
-  },
-  fontWeight: "500",
-  fontSize: 17,
-}
-
-
-
 function LoginForm() {
     const methods = useForm()
     const {login} = useContext(UserContext)
@@ -46,8 +34,8 @@ function LoginForm() {
         <FormProvider {...methods}>
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
         <div className="form login flex">
-          <Input isStartIcon={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="E-mail" />
-          <Input isPassword={true} isStartIcon={true} formStyle={formStyle} labelStyle={labelStyle} placeHolder="Hasło" />
+          <Input isStartIcon={true} formStyle={formStyle} placeHolder="E-mail" />
+          <Input isPassword={true} isStartIcon={true} formStyle={formStyle} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zaloguj się</SignupLoginBtn>
         </form>
