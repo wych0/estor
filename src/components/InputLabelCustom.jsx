@@ -9,7 +9,4 @@ export const InputLabelCustom = styled(InputLabel)(({ theme, isvalid, fz}) => ({
     },
     fontWeight: "500",
     fontSize: fz,
-    backgroundColor: 'white',
-    paddingRight: '3px'
-
 }));
