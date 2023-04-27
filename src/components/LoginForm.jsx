@@ -24,7 +24,6 @@ function LoginForm() {
       navigation("/auth")
     })
 
-
     return (
       <div className="boxForm login flex wrap centerX shadow">
         <div className="boxWelcome flex wrap centerX centerY">
