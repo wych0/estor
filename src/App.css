@@ -216,13 +216,12 @@ body{
 }
 
 .form.register{
-  margin-top: 10px;
   margin-bottom: 15px;
-  gap: 15px;
+  gap: 10px;
 }
 
 .form.login{
-  gap: 20px;
+  gap: 10px;
 }
 
 .formShipDetails{
@@ -230,6 +229,7 @@ body{
   margin-bottom: 20px;
   margin-top: -16px;
   gap: 13px;
+  row-gap: 10px;
 }
 
 .boxWelcome{
@@ -276,13 +276,13 @@ body{
 .text.register{
   margin: 0;
   text-align: center;
-  font-size: 1.9rem;
-  margin-top: -10px;
+  font-size: 1.7rem;
+  margin-top: -18px;
 }
 
 .text.register.bottom{
-  margin-top: -15px;
-  font-size: 1.1rem;
+  margin-top: -20px;
+  font-size: 1rem;
 }
 
 .boxForm{
@@ -292,7 +292,8 @@ body{
 }
 
 .boxForm.register{
-  margin: 2% 0;
+  min-width: 425px;
+  margin: 2% 0 ;
 }
 
 .boxForm.login{
@@ -301,9 +302,11 @@ body{
 
 .bodyCartPage{
   align-items: start;
-  margin-top: 3%;
-  height: 70%;
   gap: 50px;
+}
+
+.bodyCartContent{
+  margin-top: 2%;
 }
 
 .shipDetailsCart{
@@ -336,7 +339,7 @@ body{
 
 .shipDetailsFormContainer{
   width: 85%;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 
 .shipDetailsBtnBox{
@@ -538,10 +541,6 @@ body{
   .shipDetailsForm{
     width: 400px;
   }
-  .bodyCartPage{
-    margin-top: 50px;
-    gap: 50px;
-  }
   .text.shipDetails{
     font-size: 28px;
     font-weight: 450;
@@ -721,7 +720,7 @@ body{
 
 .adminPageContent{
   justify-content: center;
-  margin-top: 3%;
+  margin-top: 2%;
   max-width: 1150px;
   margin-left: 25px;
   flex-basis: 70%;
@@ -755,7 +754,7 @@ body{
 }
 
 .inputsAddProduct{
-  gap: 15px;
+  gap: 5px;
   flex-basis: 55%;
 }
 
@@ -765,6 +764,7 @@ body{
 }
 
 .boxImgAddAdmin{
+  
   height: 175px;
   width: 175px;
   padding: 20px 20px;
@@ -779,8 +779,13 @@ body{
   flex-basis: 90%;
 }
 
+
 .addProductContent{
   margin-top: 5%;
+}
+
+.imgAddContainer.addProductContent{
+  margin-top: 9%;
 }
 
 .addProductBtnContainer{
@@ -789,7 +794,7 @@ body{
 }
 
 .linkLogoImg.register{
-  min-height: 92px;
+  min-height: 80px;
   height: 53%;
 }
 
@@ -810,3 +815,16 @@ body{
   width: 100%;
   height: 100px;
 }
+
+.errorContainer{
+  text-align: right;
+  margin-bottom: 1px;
+}
+
+.text.error{
+  color: #C1292E;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+}
+
