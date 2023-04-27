@@ -22,11 +22,9 @@ export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
   const inputError = findInputErrors(errors, placeHolder)
   const isValid = isFormValid(inputError)
   let iconColor = {color: '#1A1882'}
-  let placeholder = placeHolder
 
   if(!isValid){
-    iconColor = {color: '#d32f2f'} 
-    placeholder = `${placeholder} - ${inputError.error.message}`
+    iconColor = {color: '#d32f2f'}
   }
   
   const startAdornment = isStartIcon
@@ -62,30 +60,44 @@ export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
   : { }
   
     return (
-      <div className="formContainer">
+      <div className="inputContainer">
+        {!isValid 
+        ? <Error message={inputError.error.message} />
+        : <div className="errorContainer"><p className="text error">&nbsp;</p></div>
+        }
+        
         <FormControl sx={formStyle} variant="outlined">
             <InputLabelCustom 
-              fz={isStartIcon ? 18 : 15}
+              fz={isStartIcon ? 18 : 14}
               isvalid={+isValid} 
               htmlFor="outlined">
-              {placeholder}
+              {placeHolder}
             </InputLabelCustom>
 
             <OutlinedInputCustom
               isvalid = {+isValid}
-              label={placeholder}
+              label={placeHolder}
               {...startAdornment}
               {...typeInput}
               {...endAdornment}
               {...register(placeHolder, {
                 required: {
                   value: true,
-                  message: 'Pole wymagane',
+                  message: 'WYMAGANE',
                 },
               })}
             />
         </FormControl>
       </div>
     );
+  }
+
+
+  const Error = ({ message }) => {
+    return (
+      <div className="errorContainer">
+        <p className="text error"><i class="bi bi-exclamation-circle-fill icon error"></i> {message}</p>
+      </div>
+    )
   }
   
