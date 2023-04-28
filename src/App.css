@@ -311,7 +311,7 @@ body{
 
 .shipDetailsCart{
   min-height: 500px;
-  width: 29%;
+  width: 23%;
   background-color: white;
 }
 
@@ -538,14 +538,14 @@ body{
   .text.bottomBtn{
     font-size: 23px;
   }
-  .shipDetailsForm{
-    width: 400px;
-  }
   .text.shipDetails{
     font-size: 28px;
     font-weight: 450;
   }
 }
+.shipDetailsForm{
+    width: 400px;
+  }
 
 .completeBox{
   padding: 15px 0;
@@ -764,11 +764,9 @@ body{
 }
 
 .boxImgAddAdmin{
-  
   height: 175px;
   width: 175px;
   padding: 20px 20px;
-  outline: 1.5px solid #1A1882;
   border-radius: 5px;
   background-color: white;
   margin-bottom: 10%;
@@ -782,10 +780,6 @@ body{
 
 .addProductContent{
   margin-top: 5%;
-}
-
-.imgAddContainer.addProductContent{
-  margin-top: 9%;
 }
 
 .addProductBtnContainer{
@@ -828,3 +822,10 @@ body{
   margin: 0;
 }
 
+.defaultBorder{
+  outline: 1.5px solid #1A1882;
+}
+
+.errorBorder{
+  outline: 1.5px solid #C1292E;
+}
