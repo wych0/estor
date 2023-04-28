@@ -57,7 +57,7 @@ function ShipDetails() {
                 <Input formStyle={formStyleBig}  placeHolder="Ulica, numer domu"/>
                 <Input formStyle={formStyle}  placeHolder="Miasto"/>
                 <Input formStyle={formStyle} placeHolder="Kod-Pocztowy"/>
-                <Input formStyle={formStyleBig} placeHolder="Adres e-mail"/>
+                <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail"/>
                 <Input formStyle={formStyle} placeHolder="Kraj"/>
               </div>
               <Button disabled={isBtnDisabled} variant="contained" sx={btnStyle} onClick={onSubmit}>Zamów z obowiązkiem zapłaty</Button>
