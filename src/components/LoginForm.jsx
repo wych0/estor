@@ -33,7 +33,7 @@ function LoginForm() {
         <FormProvider {...methods}>
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
         <div className="form login flex">
-          <Input isStartIcon={true} formStyle={formStyle} placeHolder="E-mail" />
+          <Input isEmail={true} isStartIcon={true} formStyle={formStyle} placeHolder="E-mail" />
           <Input isPassword={true} isStartIcon={true} formStyle={formStyle} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zaloguj się</SignupLoginBtn>
