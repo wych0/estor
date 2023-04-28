@@ -12,7 +12,7 @@ import { InputLabelCustom } from './InputLabelCustom';
 import { findInputErrors } from '../findInputErrors';
 import { isFormValid } from '../isFormValid';
 
-export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
+export const Input = ({isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
   const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -22,6 +22,21 @@ export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
   const inputError = findInputErrors(errors, placeHolder)
   const isValid = isFormValid(inputError)
   let iconColor = {color: '#1A1882'}
+
+  const validation =  {
+    required: {
+      value: true,
+      message: 'WYMAGANE',
+    },
+    ...((isPassword & isRegister) && {minLength: {
+      value: 6,
+      message: 'ZA MAŁO ZNAKÓW',
+    }}),
+    ...(isEmail && {pattern: {
+      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+      message: "ZŁY FORMAT EMAIL"
+    }}),
+  }
 
   if(!isValid){
     iconColor = {color: '#d32f2f'}
@@ -80,12 +95,7 @@ export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
               {...startAdornment}
               {...typeInput}
               {...endAdornment}
-              {...register(placeHolder, {
-                required: {
-                  value: true,
-                  message: 'WYMAGANE',
-                },
-              })}
+              {...register(placeHolder, validation)}
             />
         </FormControl>
       </div>
@@ -96,7 +106,7 @@ export const Input = ({isPassword, isStartIcon, formStyle, placeHolder}) => {
   const Error = ({ message }) => {
     return (
       <div className="errorContainer">
-        <p className="text error"><i class="bi bi-exclamation-circle-fill icon error"></i> {message}</p>
+        <p className="text error"><i className="bi bi-exclamation-circle-fill icon error"></i> {message}</p>
       </div>
     )
   }
