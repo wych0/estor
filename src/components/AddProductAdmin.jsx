@@ -1,7 +1,7 @@
 import { Input } from './Input';
 import { MidBtn } from './MidBtn';
-import { SmallBtn } from './SmallBtn';
 import {FormProvider, useForm} from 'react-hook-form'
+import { ImageInput } from './ImageInput';
 
 const formStyle = {
     width: '20ch',
@@ -13,16 +13,6 @@ function AddProductAdmin(){
     const onSubmit = methods.handleSubmit( (data) => {
       console.log(data);
     })
-
-    const previewImage = (e) => {
-        const imageFiles = e.target.files
-        if(imageFiles.length > 0){
-            const imgSrc = URL.createObjectURL(imageFiles[0])
-            const imagePreviewElement = document.querySelector('.previewImg')
-            imagePreviewElement.src = imgSrc
-            imagePreviewElement.style.display="block"
-        }
-    }
     return(
         <div className="addProductContainer flex shadow wrap centerX">
             <FormProvider {...methods}>
@@ -37,13 +27,7 @@ function AddProductAdmin(){
                     <Input formStyle={formStyle} placeHolder="Cena"/>
                 </div>
                 <div className="imgAddContainer addProductContent">
-                <div className="boxImgAddAdmin shadow flex centerX centerY">
-                    <img className="previewImg" alt=""/>
-                </div>
-                <SmallBtn fz="small" variant="contained" component="label">
-                    Dodaj zdjęcie
-                    <input hidden type="file" accept="image/*" onChange={(e) => previewImage(e)} />
-                </SmallBtn>
+                <ImageInput />
                 </div>
                 <div className="addProductBtnContainer flex centerX">
                     <MidBtn variant="contained" onClick={onSubmit}>Dodaj produkt</MidBtn>
