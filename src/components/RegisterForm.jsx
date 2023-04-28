@@ -37,8 +37,8 @@ function RegisterForm() {
         <div className="form register flex">
         <Input formStyle={formStyle} placeHolder="Imię"/>
         <Input formStyle={formStyle} placeHolder="Nazwisko"/>
-        <Input formStyle={formStyle} placeHolder="E-mail"/>
-        <Input isPassword={true} formStyle={formStyle} placeHolder="Hasło" />
+        <Input isEmail={true} formStyle={formStyle} placeHolder="E-mail"/>
+        <Input isPassword={true} isRegister={true} formStyle={formStyle} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zarejestruj się</SignupLoginBtn>
         </form>
