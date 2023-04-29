@@ -40,7 +40,12 @@ function ShipDetails() {
       placeOrder()
       navigation("/complete")
     })
-
+    
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        onSubmit();
+      }
+    };
 
     return (
       <div className="bodyCartContent shipDetailsCart flex centerX shadow">
@@ -50,13 +55,13 @@ function ShipDetails() {
             <p className="text summaryCartHeaders">&nbsp;Dane do wysyłki</p>
           </div>
           <FormProvider {...methods}>
-            <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
+            <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
               <div className="formShipDetails flex wrap">
                 <Input formStyle={formStyle} placeHolder="Imię"/>
                 <Input formStyle={formStyle}  placeHolder="Nazwisko"/>
                 <Input formStyle={formStyleBig}  placeHolder="Ulica, numer domu"/>
                 <Input formStyle={formStyle}  placeHolder="Miasto"/>
-                <Input formStyle={formStyle} placeHolder="Kod-Pocztowy"/>
+                <Input isPostalCode={true} formStyle={formStyle} placeHolder="Kod-Pocztowy"/>
                 <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail"/>
                 <Input formStyle={formStyle} placeHolder="Kraj"/>
               </div>
