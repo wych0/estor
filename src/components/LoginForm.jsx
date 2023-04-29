@@ -15,13 +15,17 @@ const formStyle = {
 
 function LoginForm() {
     const methods = useForm()
-    const {login} = useContext(UserContext)
+    const {setRole, login} = useContext(UserContext)
     const navigation = useNavigate()
 
     const onSubmit = methods.handleSubmit( (data) => {
-      console.log(data);
       login()
-      navigation("/auth")
+      if ((data["E-mail"]==='admin@wp.pl')&(data["Hasło"]==='admin')){
+        setRole('admin')
+        navigation("/admin")
+      } else {
+        navigation("/auth")
+      }
     })
 
     return (
