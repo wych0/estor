@@ -5,8 +5,12 @@ import { useState } from "react";
 import AllOrders from "./AllOrders";
 import AllUsers from "./AllUsers"
 import ProductsPanelAdmin from "./ProductsPanelAdmin";
+import { UserContext } from "../UserContext";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 function BodyAdmin() {
+    const { logout } = useContext(UserContext);
     const [showContainer, setShowContainer] = useState(' ')
     const btnFun = (container) => {
         setShowContainer(container)
@@ -19,7 +23,7 @@ function BodyAdmin() {
             <MenuBtnAdmin onClick={btnFun.bind(this, 'users')}>Zarządzaj użytkownikami</MenuBtnAdmin>
             <MenuBtnAdmin onClick={btnFun.bind(this, 'orders')}>Zarządzaj zamówieniami</MenuBtnAdmin>
             <MenuBtnAdmin onClick={btnFun.bind(this, 'products')}>Zarządzaj produktami</MenuBtnAdmin>
-            <MidBtn sx={{marginTop: '5%'}}>Wyloguj się</MidBtn>
+            <Link to={"/"}><MidBtn sx={{marginTop: '5%'}} onClick={logout}>Wyloguj się</MidBtn></Link>
         </div>
         {showContainer==='orders' ? <AllOrders /> : ' '}
         {showContainer==='users' ? <AllUsers /> : ' '}
