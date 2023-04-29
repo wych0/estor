@@ -13,10 +13,18 @@ function AddProductAdmin(){
     const onSubmit = methods.handleSubmit( (data) => {
       console.log(data);
     })
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+          onSubmit();
+        }
+      };
+
+
     return(
         <div className="addProductContainer flex shadow wrap centerX">
             <FormProvider {...methods}>
-            <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
+            <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
             <div className="box header flex">
                 <p className="text header">Dodaj produkt</p>
             </div>
@@ -24,7 +32,7 @@ function AddProductAdmin(){
                 <div className="inputsAddProduct flex wrap addProductContent">
                     <Input formStyle={formStyle} placeHolder="Marka"/>
                     <Input formStyle={formStyle} placeHolder="Nazwa"/>
-                    <Input formStyle={formStyle} placeHolder="Cena"/>
+                    <Input isPrice={true} formStyle={formStyle} placeHolder="Cena"/>
                 </div>
                 <div className="imgAddContainer addProductContent">
                 <ImageInput />
