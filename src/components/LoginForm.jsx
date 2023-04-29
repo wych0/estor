@@ -28,14 +28,20 @@ function LoginForm() {
       }
     })
 
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        onSubmit();
+      }
+    };
+
     return (
       <div className="boxForm login flex wrap centerX shadow">
         <div className="boxWelcome flex wrap centerX centerY">
             <Link className="linkLogoImg login" to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>
         </div>
-        <FormProvider {...methods}>
-        <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
+        <FormProvider {...methods}> 
+        <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress} >
         <div className="form login flex">
           <Input isEmail={true} isStartIcon={true} formStyle={formStyle} placeHolder="E-mail" />
           <Input isPassword={true} isStartIcon={true} formStyle={formStyle} placeHolder="Hasło" />
