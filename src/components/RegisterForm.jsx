@@ -25,6 +25,13 @@ function RegisterForm() {
       login()
       navigation("/auth")
     })
+
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        onSubmit();
+      }
+    };
+
     return (
       <div className="boxForm register flex wrap centerX shadow">
         <div className="boxWelcome register flex wrap centerX">
@@ -33,7 +40,7 @@ function RegisterForm() {
             <p className="text register bottom">Zarejestruj się korzystając formularza poniżej</p>
         </div>
         <FormProvider {...methods}>
-        <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate>
+        <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
         <div className="form register flex">
         <Input formStyle={formStyle} placeHolder="Imię"/>
         <Input formStyle={formStyle} placeHolder="Nazwisko"/>
