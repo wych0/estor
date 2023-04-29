@@ -3,7 +3,7 @@ import BodyHome from '../components/BodyHome'
 
 export default function HomePage() {
     return (
-      <div id="homeAuthPage">
+      <div id="homeAuthPage" className="page">
         <Header></Header>
         <BodyHome></BodyHome>
       </div>
