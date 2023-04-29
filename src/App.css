@@ -60,6 +60,9 @@ body{
 }
 
 .headerContainer{
+  position: sticky;
+  top: 0;
+  z-index: 10;
   height: 90px;
   padding: 0px 200px;
   background-color: white;
@@ -828,4 +831,8 @@ body{
 
 .errorBorder{
   outline: 1.5px solid #C1292E;
+}
+
+.page{
+  position: relative;
 }
