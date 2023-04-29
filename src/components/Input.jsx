@@ -12,7 +12,7 @@ import { InputLabelCustom } from './InputLabelCustom';
 import { findInputErrors } from '../findInputErrors';
 import { isFormValid } from '../isFormValid';
 
-export const Input = ({isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
+export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
   const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -34,8 +34,17 @@ export const Input = ({isRegister, isEmail, isPassword, isStartIcon, formStyle, 
     }}),
     ...(isEmail && {pattern: {
       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-      message: "ZŁY FORMAT EMAIL"
+      message: "ZŁY FORMAT"
     }}),
+    ...(isPostalCode && {pattern: {
+      value: /^[0-9]{2}-[0-9]{3}$/i,
+      message: "ZŁY FORMAT"
+    }}),
+    ...(isPrice && {pattern: {
+      value: /^[1-9]\d{0,7}(?:\.\d{1,4})?$/i,
+      message: "PODAJ LICZBĘ"
+    }}),
+
   }
 
   if(!isValid){
