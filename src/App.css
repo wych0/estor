@@ -196,7 +196,7 @@ body{
 } 
 
 .boxPriceBtn{
-  min-height: 40px;
+  min-height: 30px;
   flex-basis: 100%;
   justify-content: space-between;
 }
@@ -314,6 +314,7 @@ body{
 
 .shipDetailsCart{
   min-height: 500px;
+  min-width: 450px;
   width: 23%;
   background-color: white;
 }
@@ -491,18 +492,12 @@ body{
   }
   
   .text.item.name{
-    margin-top: -5px;
     font-size: 14px;
   }
   
   .text.item.price{
     font-size: 14px;
   } 
-  
-  .boxPriceBtn{
-    margin-top: 5px;
-    min-height: 0px;
-  }
 
   .icon.nav{
     margin-top: 2px;
