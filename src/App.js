@@ -18,6 +18,7 @@ import ProtectedAuth from './ProtectedAuth'
 import ProtectedComplete from './ProtectedComplete';
 import Complete from './routes/complete'
 import Admin from './routes/admin';
+import ProtectedAdmin from './ProtectedAdmin';
 
 
 function App(){
@@ -60,7 +61,7 @@ function App(){
         },
         {
           path: "/admin",
-          element: <Admin />,
+          element: <ProtectedAdmin role={user.role}><Admin /></ProtectedAdmin>,
           errorElement: <ErrorPage />
         }
     ]);
