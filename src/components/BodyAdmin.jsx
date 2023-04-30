@@ -2,9 +2,9 @@ import { MenuBtnAdmin } from "./MenuBtnAdmin";
 import { MidBtn } from "./MidBtn";
 import { AdminIcon } from "./AdminIcon";
 import { useState } from "react";
-import AllOrders from "./AllOrders";
-import AllUsers from "./AllUsers"
-import ProductsPanelAdmin from "./ProductsPanelAdmin";
+import { TableOrders } from "./AdminComponents/TableOrders";
+import { TableUsers } from "./AdminComponents/TableUsers";
+import { ProductsPanel } from "./AdminComponents/ProductsPanel";
 import { UserContext } from "../UserContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -25,9 +25,9 @@ function BodyAdmin() {
             <MenuBtnAdmin onClick={btnFun.bind(this, 'products')}>Zarządzaj produktami</MenuBtnAdmin>
             <Link to={"/"}><MidBtn sx={{marginTop: '5%'}} onClick={logout}>Wyloguj się</MidBtn></Link>
         </div>
-        {showContainer==='orders' ? <AllOrders /> : ' '}
-        {showContainer==='users' ? <AllUsers /> : ' '}
-        {showContainer==='products' ? <ProductsPanelAdmin /> : ' '}
+        {showContainer==='orders' ? <TableOrders /> : ' '}
+        {showContainer==='users' ? <TableUsers /> : ' '}
+        {showContainer==='products' ? <ProductsPanel /> : ' '}
     </div>
     );
   }
