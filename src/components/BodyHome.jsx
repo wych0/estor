@@ -13,7 +13,7 @@ function BodyHome() {
         setInputText(lowerCase);
     }
     return (
-        <div className="bodyPage bodyHomePage flex centerX wrap">
+        <div className="bodyPage homePage flex centerX wrap">
             <InfoBox text="shipInfo"></InfoBox>
             <SearchField onChangeFun={inputHandler}></SearchField>
             {user.auth
