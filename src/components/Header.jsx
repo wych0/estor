@@ -1,11 +1,11 @@
-import {Link } from "react-router-dom";
-import React, { useContext } from 'react';
-import { UserContext } from '../UserContext';
-import { MidBtn } from "./MidBtn";
-import { NavButton } from "./NavButton";
+import {Link } from "react-router-dom"
+import React, { useContext } from 'react'
+import { UserContext } from '../UserContext'
+import { MidBtn } from './Buttons'
+import { NavButton } from "./NavButton"
 
 function Header(props) {
-    const { user, logout } = useContext(UserContext);
+    const { user, logout } = useContext(UserContext)
     const centerLogo = props.childDisplay === 'none' ? 'centerX' : 'spaceBetween'
     return (
       <div className={"headerContainer flex centerY " + centerLogo}>
