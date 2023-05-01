@@ -4,7 +4,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import { Input } from './Input';
 import {FormProvider, useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-import { BigBtn } from './BigBtn';
+import { BigBtn } from "./Buttons"
 
 const formStyle = {
   width: '21ch',
