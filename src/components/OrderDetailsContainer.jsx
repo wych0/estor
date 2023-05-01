@@ -5,7 +5,7 @@ import OrderDetails from './OrderDetails';
 function OrderDetailsContainer() {
     const {user} = useContext(UserContext)
     return (
-      <div className="box orderDetails flex wrap shadow">
+      <div className="box accContent orderDetails flex wrap shadow">
         {user.displayedOrder==='none'  
             ? <OrderDetails isOrderChosen='false'/>
             : <OrderDetails isOrderChosen='true'/>
