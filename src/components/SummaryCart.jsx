@@ -20,7 +20,7 @@ function SummaryCart() {
     const productsCost = calculateAllProductsCost(filterData);
 
     return (
-      <div className="bodyCartContent">
+      <div className="pageContent cartPage">
         <div className="summaryCart shadow flex wrap">
             <div className="summaryCartListContainer flex wrap">
             {filterData.length !== 0
