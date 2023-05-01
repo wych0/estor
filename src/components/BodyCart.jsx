@@ -3,7 +3,7 @@ import ShipDetails from './ShipDetails'
 
 function BodyCart() {
     return (
-      <div className="bodyCartPage flex wrap centerX">
+      <div className="bodyPage cartPage flex wrap centerX">
         <ShipDetails></ShipDetails>
         <SummaryCart></SummaryCart>
       </div>
