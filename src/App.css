@@ -7,8 +7,17 @@
 body{
   width: 100vw;
   margin: 0;
-  background-color: #F2F8FF;
   overflow-x: hidden;
+  background-color: #F2F8FF;
+}
+
+.bodyPage{ 
+  align-items: start;
+  gap: 50px;
+}
+
+.bodyPage.adminPage{
+  gap: 0px;
 }
 
 ::-webkit-scrollbar {
@@ -303,13 +312,9 @@ body{
   margin: 4% 0;
 }
 
-.bodyCartPage{
-  align-items: start;
-  gap: 50px;
-}
-
 .bodyCartContent{
   margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .shipDetailsCart{
@@ -582,12 +587,6 @@ body{
   color: #1A1882;
 }
 
-.bodyAccPage{
-  align-items: start;
-  gap: 50px;
-  margin-top: 3%;
-}
-
 .text.header{
   max-width: 350px;
   margin: 20px 0px 20px 10px;
@@ -716,26 +715,26 @@ body{
   background-color: white;
 }
 
-.adminPageContent{
-  justify-content: center;
+.pageContent{
+  margin-bottom: 2%;
   margin-top: 2%;
+}
+
+.pageContent.adminPage{
+  justify-content: center;
   max-width: 1150px;
   margin-left: 25px;
   flex-basis: 70%;
-  margin-bottom: 2%;
 }
 
-.menu.adminPageContent{
+.menu.adminPage{
   background-color: white;
   padding-bottom: 2%;
   min-width: 350px;
   min-height: 400px;
   flex-direction: column;
   flex-basis: 20%;
-}
-
-.bodyAdminPage{
-  align-items: start;
+  gap: 10px;
 }
 
 .adminProducts{
@@ -830,4 +829,8 @@ body{
 
 .page{
   position: relative;
+}
+
+.accContent{
+  margin-top: 2%;
 }
