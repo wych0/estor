@@ -1,11 +1,11 @@
-import HeaderAdmin from '../components/HeaderAdmin'
-import BodyAdmin from '../components/BodyAdmin';
+import { Header } from '../components/AdminPageComponents/Header'
+import { Body } from '../components/AdminPageComponents/Body'
 
 export default function Admin() {
     return (
         <div id="adminPage" className="page">
-        <HeaderAdmin></HeaderAdmin>
-        <BodyAdmin></BodyAdmin>
+            <Header></Header>
+            <Body></Body>
         </div>
     );
 }
