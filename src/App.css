@@ -12,6 +12,7 @@ body{
 }
 
 .bodyPage{ 
+  position: relative;
   align-items: start;
   gap: 50px;
 }
@@ -67,6 +68,8 @@ body{
   font-family: Roboto;
   font-weight: 400;
 }
+
+
 
 .headerContainer{
   position: sticky;
@@ -728,6 +731,8 @@ body{
 }
 
 .menu.adminPage{
+  position: sticky;
+  top: 128px;
   background-color: white;
   padding-bottom: 2%;
   min-width: 350px;
