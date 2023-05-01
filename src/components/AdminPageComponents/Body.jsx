@@ -1,13 +1,12 @@
-import { BigBtn } from "../BigBtn";
-import { MidBtn } from "../MidBtn";
-import { AdminIcon } from "./Icon";
-import { useState } from "react";
-import { TableOrders } from "./TableOrders";
-import { TableUsers } from "./TableUsers";
-import { ProductsPanel } from "./ProductsPanel";
-import { UserContext } from "../../UserContext";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { BigBtn, MidBtn } from "../Buttons"
+import { AdminIcon } from "./Icon"
+import { useState } from "react"
+import { TableOrders } from "./TableOrders"
+import { TableUsers } from "./TableUsers"
+import { ProductsPanel } from "./ProductsPanel"
+import { UserContext } from "../../UserContext"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 
 export function Body() {
     const { logout } = useContext(UserContext);
