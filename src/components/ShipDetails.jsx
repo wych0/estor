@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import Button from '@mui/material/Button';
 import { Input } from './Input';
 import {FormProvider, useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
+import { BigBtn } from './BigBtn';
 
 const formStyle = {
   width: '21ch',
@@ -18,17 +18,6 @@ const iconStyle = {
   color: '#1A1882',
   fontSize: '50px',
 }
-
-const btnStyle = {
-  height: 45,
-  width: 350,
-  fontSize: 13,
-  bgcolor: '#1A1882',
-  '&:hover':{
-      bgcolor: '#283593'
-  },
-  fontWeight: "600",
-} 
 
 function ShipDetails() {
     const {user, placeOrder} = useContext(UserContext)
@@ -65,7 +54,7 @@ function ShipDetails() {
                 <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail"/>
                 <Input formStyle={formStyle} placeHolder="Kraj"/>
               </div>
-              <Button disabled={isBtnDisabled} variant="contained" sx={btnStyle} onClick={onSubmit}>Zamów z obowiązkiem zapłaty</Button>
+              <BigBtn disabled={isBtnDisabled} variant="contained" onClick={onSubmit}>Zamów z obowiązkiem zapłaty</BigBtn>
             </form>
           </FormProvider>
         </div>
