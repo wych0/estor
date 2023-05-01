@@ -37,7 +37,7 @@ function ShipDetails() {
     };
 
     return (
-      <div className="bodyCartContent shipDetailsCart flex centerX shadow">
+      <div className="pageContent cartPage shipDetailsCart flex centerX shadow">
         <div className="shipDetailsFormContainer flex wrap centerX">
           <div className="boxText shipDetails flex centerY">
             <LocalShippingIcon sx={iconStyle}/> 
