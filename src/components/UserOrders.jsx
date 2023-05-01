@@ -10,7 +10,7 @@ function TableComp(){
     const {displayOrderDetails, user} = useContext(UserContext)
     const userOrders = data.orders.filter(el => el.customer===user.id)
     return(
-    <TableContainer className="tableContainer flex wrap centerX shadow">
+    <TableContainer className="accContent tableContainer flex wrap centerX shadow">
         <div className="box header flex">
             <p className="text header">Twoje zamówienia</p>
         </div>
