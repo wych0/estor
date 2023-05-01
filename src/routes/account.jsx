@@ -1,11 +1,11 @@
 import Header from '../components/Header'
-import BodyAcc from '../components/BodyAcc';
+import { Body } from '../components/AccountPageComponents/Body'
 
 export default function Account() {
     return (
         <div id="accountPage" className="page">
             <Header></Header>
-            <BodyAcc></BodyAcc>
+            <Body></Body>
         </div>
           
     );
