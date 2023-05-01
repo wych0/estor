@@ -16,7 +16,7 @@ body{
   gap: 50px;
 }
 
-.bodyPage.adminPage{
+.bodyPage.adminPage, .bodyPage.homePage{
   gap: 0px;
 }
 
