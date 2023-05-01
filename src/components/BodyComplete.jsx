@@ -2,7 +2,7 @@ import CompleteContainer from "./CompleteContainer"
 
 function BodyComplete() {
     return (
-      <div className="bodyCompletePage flex centerX centerY">
+      <div className="bodyPage bodyCompletePage flex centerX centerY">
         <CompleteContainer></CompleteContainer>
       </div>
     );
