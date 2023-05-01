@@ -1,7 +1,7 @@
 import {FormProvider, useForm} from 'react-hook-form'
-import { Input } from '../Input';
-import { MidBtn } from '../MidBtn';
-import { ImageInput } from '../ImageInput';
+import { Input } from '../Input'
+import { MidBtn } from '../Buttons'
+import { ImageInput } from '../ImageInput'
 
 const formStyle = {
     width: '20ch',
