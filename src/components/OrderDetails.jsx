@@ -1,8 +1,8 @@
 import data from '../data.js'
-import { useContext } from "react";
-import { UserContext } from "../UserContext";
-import ItemOrderDetails from './ItemOrderDetails';
-import { SmallBtn } from './SmallBtn.jsx';
+import { useContext } from "react"
+import { UserContext } from "../UserContext"
+import ItemOrderDetails from './ItemOrderDetails'
+import { SmallBtn } from './Buttons'
 
 function filterProductsByOrderItems(products, orderItems) {
     return products.filter((product) => orderItems.includes(product.id));
@@ -10,7 +10,7 @@ function filterProductsByOrderItems(products, orderItems) {
 
 function OrderDetails(props){
     const {user} = useContext(UserContext)
-    const orderToDisplay = data.orders.find(el => el.id===user.displayedOrder);
+    const orderToDisplay = data.orders.find(el => el.id===user.displayedOrder)
     const isOrderChosen = props.isOrderChosen==='false' ? false : true
     if(!isOrderChosen) {
         return (
