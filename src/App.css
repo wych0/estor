@@ -69,8 +69,6 @@ body{
   font-weight: 400;
 }
 
-
-
 .headerContainer{
   position: sticky;
   top: 0;
@@ -313,11 +311,6 @@ body{
 
 .boxForm.login{
   margin: 4% 0;
-}
-
-.bodyCartContent{
-  margin-top: 2%;
-  margin-bottom: 2%;
 }
 
 .shipDetailsCart{
@@ -834,8 +827,4 @@ body{
 
 .page{
   position: relative;
-}
-
-.accContent{
-  margin-top: 2%;
 }
