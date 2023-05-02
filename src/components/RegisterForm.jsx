@@ -7,14 +7,6 @@ import {useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import { FormProvider } from 'react-hook-form';
 
-const formStyle = {
-    width: '45ch',
-    "@media (max-width:1600px)": {
-      width: '40ch',
-    },
-}
-
-
 function RegisterForm() {
     const methods = useForm()
     const {login} = useContext(UserContext)
@@ -42,10 +34,10 @@ function RegisterForm() {
         <FormProvider {...methods}>
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
         <div className="form register flex">
-        <Input formStyle={formStyle} placeHolder="Imię"/>
-        <Input formStyle={formStyle} placeHolder="Nazwisko"/>
-        <Input isEmail={true} formStyle={formStyle} placeHolder="E-mail"/>
-        <Input isPassword={true} isRegister={true} formStyle={formStyle} placeHolder="Hasło" />
+        <Input placeHolder="Imię"/>
+        <Input placeHolder="Nazwisko"/>
+        <Input isEmail={true} placeHolder="E-mail"/>
+        <Input isPassword={true} isRegister={true} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zarejestruj się</SignupLoginBtn>
         </form>
