@@ -271,16 +271,17 @@ body{
 
 .boxBottomBtn{
   margin-top: 40px;
-  max-width: 450px;
+  width: 25%;
+  min-width: 450px;
 }
 
 .boxTextBottomBtn{
-  flex-basis: 100%;
-  justify-content: left;
-  max-height: 40px;
+  width: 65%;
 }
 
 .text.bottomBtn{
+  padding: 0;
+  margin: 0;
   color: black;
   font-size: 25px;
   font-weight: 550;
