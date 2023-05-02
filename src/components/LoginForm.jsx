@@ -1,17 +1,10 @@
-import React, { useContext } from 'react';
-import {Link, useNavigate } from "react-router-dom";
-import { UserContext } from '../UserContext';
-import { SignupLoginBtn } from './SignupLoginBtn';
-import { Input } from './Input';
+import React, { useContext } from 'react'
+import {Link, useNavigate } from "react-router-dom"
+import { UserContext } from '../UserContext'
+import { SignupLoginBtn } from './SignupLoginBtn'
+import { Input } from './Input'
 import {useForm} from 'react-hook-form'
-import { FormProvider } from 'react-hook-form';
-
-const formStyle = {
-    width: '45ch',
-    "@media (max-width:1600px)": {
-      width: '40ch',
-    },
-}
+import { FormProvider } from 'react-hook-form'
 
 function LoginForm() {
     const methods = useForm()
@@ -43,8 +36,8 @@ function LoginForm() {
         <FormProvider {...methods}> 
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress} >
         <div className="form login flex">
-          <Input isEmail={true} isStartIcon={true} formStyle={formStyle} placeHolder="E-mail" />
-          <Input isPassword={true} isStartIcon={true} formStyle={formStyle} placeHolder="Hasło" />
+          <Input isEmail={true} isStartIcon={true} placeHolder="E-mail" />
+          <Input isPassword={true} isStartIcon={true} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zaloguj się</SignupLoginBtn>
         </form>
