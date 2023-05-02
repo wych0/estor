@@ -10,7 +10,6 @@ function Items(props) {
   const searchTags = props.input ? props.input.split(" ") : [];
   const filterData = data.products.filter((el => matchesSearchTags(el, searchTags) && !el.isSold));
 
-  
     return (
       <div className="boxItems"> 
         <ul className="listItems flex wrap centerX">
