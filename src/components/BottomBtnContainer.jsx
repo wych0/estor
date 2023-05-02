@@ -3,11 +3,11 @@ import { BtnUnderForm } from "./BtnUnderForm";
 
 function BottomBtnContainer(props) {
     return (
-      <div className="boxBottomBtn">
-        <div className="boxTextBottomBtn flex centerY">
+      <div className="boxBottomBtn flex wrap centerX">
+        <div className="boxTextBottomBtn">
             <p className="text bottomBtn">{props.text}</p>
         </div>
-        <Link to={`../${props.route}`}><BtnUnderForm variant="contained"> {props.btnText}</BtnUnderForm></Link>
+        <BtnUnderForm component={Link} to={`../${props.route}`} variant="contained"> {props.btnText}</BtnUnderForm>
       </div>
     );
   }
