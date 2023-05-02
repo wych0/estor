@@ -1,27 +1,29 @@
-import FormControl from '@mui/material/FormControl';
-import InputAdornment from '@mui/material/InputAdornment';
-import EmailIcon from '@mui/icons-material/Email';
-import HttpsIcon from '@mui/icons-material/Https';
-import { IconButton } from '@mui/material';
-import { VisibilityOff } from '@mui/icons-material';
-import Visibility from '@mui/icons-material/Visibility';
-import { useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { OutlinedInputCustom } from './OutlinedInputCustom';
-import { InputLabelCustom } from './InputLabelCustom';
-import { findInputErrors } from '../findInputErrors';
-import { isFormValid } from '../isFormValid';
+import FormControl from '@mui/material/FormControl'
+import InputAdornment from '@mui/material/InputAdornment'
+import EmailIcon from '@mui/icons-material/Email'
+import HttpsIcon from '@mui/icons-material/Https'
+import { IconButton } from '@mui/material'
+import { VisibilityOff } from '@mui/icons-material'
+import Visibility from '@mui/icons-material/Visibility'
+import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { OutlinedInputCustom } from './OutlinedInputCustom'
+import { InputLabelCustom } from './InputLabelCustom'
+import { findInputErrors } from '../findInputErrors'
+import { isFormValid } from '../isFormValid'
 
 export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
   const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
-      event.preventDefault();
+      event.preventDefault()
   };
   const inputError = findInputErrors(errors, placeHolder)
   const isValid = isFormValid(inputError)
   let iconColor = {color: '#1A1882'}
+
+  const formStyleDefault = formStyle ? formStyle : 'width: 40ch'
 
   const validation =  {
     required: {
@@ -44,7 +46,6 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
       value: /^[1-9]\d{0,7}(?:\.\d{1,4})?$/i,
       message: "PODAJ LICZBĘ"
     }}),
-
   }
 
   if(!isValid){
@@ -90,7 +91,7 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
         : <div className="errorContainer"><p className="text error">&nbsp;</p></div>
         }
         
-        <FormControl sx={formStyle} variant="outlined">
+        <FormControl sx={formStyleDefault} variant="outlined">
             <InputLabelCustom 
               fz={isStartIcon ? 18 : 14}
               isvalid={+isValid} 
