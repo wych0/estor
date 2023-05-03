@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import {Link, useNavigate } from "react-router-dom"
 import { UserContext } from '../UserContext'
-import { SignupLoginBtn } from './SignupLoginBtn'
+import { SignupLoginBtn } from './Buttons'
 import { Input } from './Input'
 import {useForm} from 'react-hook-form'
 import { FormProvider } from 'react-hook-form'
