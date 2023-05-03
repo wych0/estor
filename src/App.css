@@ -829,3 +829,8 @@ body{
 .page{
   position: relative;
 }
+
+.completeBtn{
+  margin: 6% 0 5% 0;
+  flex-basis: 100%;
+}
