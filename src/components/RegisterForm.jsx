@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import {Link } from "react-router-dom";
-import { UserContext } from '../UserContext';
-import { SignupLoginBtn } from './SignupLoginBtn';
-import { Input } from './Input';
+import React, { useContext } from 'react'
+import {Link } from "react-router-dom"
+import { UserContext } from '../UserContext'
+import { SignupLoginBtn } from './Buttons'
+import { Input } from './Input'
 import {useForm} from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
-import { FormProvider } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom'
+import { FormProvider } from 'react-hook-form'
 
 function RegisterForm() {
     const methods = useForm()
