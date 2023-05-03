@@ -9,12 +9,13 @@ const btnStyle = {
     },
     fontWeight: "700",
     height: 45,
+    fontSize: 16,
 }
 
 export const BigBtn = styled(Button)(() => ({
     ...btnStyle,
-    width: '80%',
-    fontSize: 13,
+    width: '300px',
+    fontSize: 14,
 }));
 
 export const MidBtn = styled(Button)(() => ({
@@ -28,5 +29,26 @@ export const SmallBtn = styled(Button)(({fz}) => ({
     height: '35px',
     width: '125px',
     fontSize: fz==='small' ? 12 : 14, 
+}));
+
+export const BtnUnderForm = styled(Button)(({ theme }) => ({
+    ...btnStyle,
+    height: 50,
+    width: '65%',
+    backgroundColor: 'white',
+    color: '#1A1882',
+    border: '2px solid #1A1882',
+    '&:hover':{
+        backgroundColor: '#1A1882',
+        color: 'white',
+    },
+}));
+
+export const SignupLoginBtn = styled(Button)(({ theme }) => ({
+    ...btnStyle,
+    marginTop: '2%',
+    marginBottom: '8%',
+    height: 50,
+    width: '65%',
 }));
 
