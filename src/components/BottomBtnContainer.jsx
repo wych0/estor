@@ -1,5 +1,5 @@
-import {Link } from "react-router-dom";
-import { BtnUnderForm } from "./BtnUnderForm";
+import {Link } from "react-router-dom"
+import { BtnUnderForm } from "./Buttons"
 
 function BottomBtnContainer(props) {
     return (
