@@ -1,11 +1,11 @@
 import Header from '../components/Header'
-import BodyHome from '../components/BodyHome'
+import Body from '../components/HomePageComponents/Body'
 
 export default function HomePage() {
     return (
       <div id="homeAuthPage" className="page">
         <Header></Header>
-        <BodyHome></BodyHome>
+        <Body></Body>
       </div>
     );
   }
