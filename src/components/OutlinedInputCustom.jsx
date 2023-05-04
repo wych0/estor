@@ -6,5 +6,5 @@ export const OutlinedInputCustom = styled(OutlinedInput)(({ theme, isvalid }) =>
         borderColor: isvalid ? "#1A1882" : "#C1292E",
     },
     height: '50px',
-    
+    backgroundColor: 'white'
 }));
