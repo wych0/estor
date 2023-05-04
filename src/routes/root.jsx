@@ -1,11 +1,11 @@
 import Header from '../components/Header'
-import BodyHome from '../components/BodyHome'
+import Body from '../components/HomePageComponents/Body'
 
 export default function Root() {
     return (
       <div id="homePage" className="page">
         <Header></Header>
-        <BodyHome></BodyHome>
+        <Body></Body>
       </div>
     );
   }
