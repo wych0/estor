@@ -315,6 +315,8 @@ body{
 }
 
 .shipDetailsCart{
+  position: sticky;
+  top: 128px;
   min-height: 500px;
   min-width: 450px;
   width: 23%;
@@ -602,6 +604,8 @@ body{
 }
 
 .box.orderDetails{
+  position: sticky;
+  top: 128px;
   text-align: left;
   background-color: white;
 }
