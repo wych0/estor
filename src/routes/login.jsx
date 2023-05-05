@@ -1,6 +1,6 @@
-import LoginForm from '../components/LoginForm'
-import Line from '../components/Line'
-import BottomBtnContainer from '../components/BottomBtnContainer'
+import LoginForm from '../components/SignInUpPageComponents/LoginForm'
+import Line from '../components/SignInUpPageComponents/Line'
+import BottomBtnContainer from '../components/SignInUpPageComponents/BottomBtnContainer'
 
 export default function Login() {
     return (
