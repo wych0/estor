@@ -1,12 +1,12 @@
 import data from '../../data.js'
-import { UserContext } from '../../UserContext';
-import { useContext } from 'react';
-import TableBody from '@mui/material/TableBody';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
+import { UserContext } from '../../UserContext'
+import { useContext } from 'react'
+import TableBody from '@mui/material/TableBody'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
 
-function TableComp(){
+export default function UserOders(){
     const {displayOrderDetails, user} = useContext(UserContext)
     const userOrders = data.orders.filter(el => el.customer===user.id)
     return(
@@ -44,5 +44,3 @@ function TableComp(){
     </TableContainer>
     );
 }
-
-export default TableComp;
