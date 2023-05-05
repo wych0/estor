@@ -1,10 +1,9 @@
 import {Link } from "react-router-dom"
 import React, { useContext } from 'react'
 import { UserContext } from '../UserContext'
-import { MidBtn } from './Buttons'
-import { NavButton } from "./NavButton"
+import { MidBtn, NavButton } from './Buttons'
 
-function Header(props) {
+export default function Header(props) {
     const { user, logout } = useContext(UserContext)
     const centerLogo = props.childDisplay === 'none' ? 'centerX' : 'spaceBetween'
     return (
@@ -18,12 +17,10 @@ function Header(props) {
         
         <img src="images/logoSvg.svg" alt="logoImgHeader" className="logoImgHeader"/>
         <ul className={"navigation flex centerX centerY " +props.childDisplay}>
-            <li><Link to='/cart'><NavButton><i className="bi bi-cart-fill icon nav"></i></NavButton></Link></li>
-            <li><Link to={(user.auth ? '/auth' : '/')}><NavButton><i className="bi bi-house-fill icon nav"></i></NavButton></Link></li>
-            <li><Link to='/account'><NavButton><i className="bi bi-person-fill icon nav"></i></NavButton></Link></li>
+            <NavButton component={Link} to='/cart'><i className="bi bi-cart-fill icon nav"></i></NavButton>
+            <NavButton component={Link} to={(user.auth ? '/auth' : '/')}><i className="bi bi-house-fill icon nav"></i></NavButton>
+            <NavButton component={Link} to='/account'><i className="bi bi-person-fill icon nav"></i></NavButton>
         </ul>
       </div>
     );
   }
-  
-  export default Header;
