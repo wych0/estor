@@ -31,7 +31,7 @@ export const SmallBtn = styled(Button)(({fz}) => ({
     fontSize: fz==='small' ? 12 : 14, 
 }));
 
-export const BtnUnderForm = styled(Button)(({ theme }) => ({
+export const BtnUnderForm = styled(Button)(() => ({
     ...btnStyle,
     height: 50,
     width: '65%',
@@ -44,11 +44,26 @@ export const BtnUnderForm = styled(Button)(({ theme }) => ({
     },
 }));
 
-export const SignupLoginBtn = styled(Button)(({ theme }) => ({
+export const SignupLoginBtn = styled(Button)(() => ({
     ...btnStyle,
     marginTop: '2%',
     marginBottom: '8%',
     height: 50,
     width: '65%',
+}));
+
+export const NavButton = styled(Button)(() => ({
+    ...btnStyle,
+    borderRadius: '10px',
+    maxWidth: '50px', 
+    maxHeight: '50px', 
+    minWidth: '50px', 
+    minHeight: '50px',
+    "@media (max-width:1600px)": {
+        maxWidth: '45px', 
+        maxHeight: '45px', 
+        minWidth: '45px', 
+        minHeight: '45px',
+      },
 }));
 
