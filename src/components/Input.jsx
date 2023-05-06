@@ -9,8 +9,7 @@ import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { OutlinedInputCustom } from './OutlinedInputCustom'
 import { InputLabelCustom } from './InputLabelCustom'
-import { findInputErrors } from '../findInputErrors'
-import { isFormValid } from '../isFormValid'
+import { findInputErrors, isFormValid } from '../InputValidation'
 
 export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
