@@ -8,7 +8,7 @@ export default function Header(props) {
     const centerLogo = props.childDisplay === 'none' ? 'centerX' : 'spaceBetween'
     return (
       <div className={"headerContainer flex centerY " + centerLogo}>
-        <div className={"left headerContent flex centerX "+props.childDisplay}>
+        <div className={"headerContent flex centerX "+props.childDisplay}>
           {user.auth
           ?  <Link to={"/"}><MidBtn variant="contained" onClick={logout}>Wyloguj się</MidBtn></Link>
           :  <p className="text shipInfo free">Bezpłatna dostawa i zwrot!</p>
@@ -16,7 +16,7 @@ export default function Header(props) {
         </div>
         
         <img src="images/logoSvg.svg" alt="logoImgHeader" className="logoImgHeader"/>
-        <ul className={"navigation flex centerX centerY " +props.childDisplay}>
+        <ul className={"headerContent navigation flex centerX centerY " +props.childDisplay}>
             <NavButton component={Link} to='/cart'><i className="bi bi-cart-fill icon nav"></i></NavButton>
             <NavButton component={Link} to={(user.auth ? '/auth' : '/')}><i className="bi bi-house-fill icon nav"></i></NavButton>
             <NavButton component={Link} to='/account'><i className="bi bi-person-fill icon nav"></i></NavButton>
