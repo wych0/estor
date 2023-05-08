@@ -1,5 +1,5 @@
-import {styled} from "@mui/material/styles";
-import InputLabel from '@mui/material/InputLabel';
+import {styled} from "@mui/material/styles"
+import InputLabel from '@mui/material/InputLabel'
 
 export const InputLabelCustom = styled(InputLabel)(({ theme, isvalid, fz}) => ({
     color: isvalid ? "#1A1882" : "#C1292E", 
