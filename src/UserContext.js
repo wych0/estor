@@ -1,4 +1,4 @@
-import { createContext, useState} from "react";
+import { createContext, useState} from "react"
 
 export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' ', role: 'none'})
 
