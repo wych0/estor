@@ -821,3 +821,10 @@ body{
   margin: 6% 0 5% 0;
   flex-basis: 100%;
 }
+
+.text.pattern{
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 2px 0 0 0;
+}
