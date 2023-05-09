@@ -29,9 +29,9 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
       value: true,
       message: 'WYMAGANE',
     },
-    ...((isPassword & isRegister) && {minLength: {
-      value: 6,
-      message: 'ZA MAŁO ZNAKÓW',
+    ...((isPassword & isRegister) && {pattern: {
+      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/,
+      message: 'SŁABE HASŁO',
     }}),
     ...(isEmail && {pattern: {
       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -107,6 +107,13 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
               {...register(placeHolder, validation)}
             />
         </FormControl>
+
+        {isPassword & !isValid & isRegister
+        ? inputError.error.message==='SŁABE HASŁO'
+          ? <PasswordPattern />
+          : ' '
+        : ' '
+        }
       </div>
     );
   }
@@ -117,6 +124,23 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
       <div className="errorContainer">
         <p className="text error"><i className="bi bi-exclamation-circle-fill icon error"></i> {message}</p>
       </div>
+      
     )
   }
+
+const PasswordPattern = () => {
+  return(
+    <div className="passwordPattern">
+      <p className="text pattern">Silne hasło - conajmniej:</p>
+      <ul className="list text pattern">
+        <li>8 znaków</li>
+        <li>1 duża litera</li>
+        <li>1 mała litera</li>
+        <li>1 cyfra</li>
+        <li>1 znak specjalny</li>
+      </ul>
+        
+    </div>
+  )
+} 
   
