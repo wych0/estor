@@ -1,4 +1,4 @@
-# First own project
+# First own project (Frontend)
 ## Online Store
 ### Using: 
 - JavaScript
