@@ -7,13 +7,24 @@ import { ProductsPanel } from "./ProductsPanel"
 import { UserContext } from "../../UserContext"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { logout } from "../../apiCalls/auth"
 
 export function Body() {
-    const { logout } = useContext(UserContext);
+    const { setAuth } = useContext(UserContext);
     const [showContainer, setShowContainer] = useState(' ')
     const btnFun = (container) => {
         setShowContainer(container)
     }
+
+    const onClick = (async() => {
+      try{
+        const result = await logout()
+        setAuth(false)
+        console.log(result.message)
+      } catch(error) {
+        console.log(error)
+      }
+    })
     
     return (
       <div className="bodyPage adminPage flex wrap centerX">
@@ -22,7 +33,7 @@ export function Body() {
             <BigBtn onClick={btnFun.bind(this, 'users')}>Zarządzaj użytkownikami</BigBtn>
             <BigBtn onClick={btnFun.bind(this, 'orders')}>Zarządzaj zamówieniami</BigBtn>
             <BigBtn onClick={btnFun.bind(this, 'products')}>Zarządzaj produktami</BigBtn>
-            <Link to={"/"}><MidBtn sx={{marginTop: '5%'}} onClick={logout}>Wyloguj się</MidBtn></Link>
+            <Link to={"/"}><MidBtn sx={{marginTop: '5%'}} onClick={onClick}>Wyloguj się</MidBtn></Link>
         </div>
         {showContainer==='orders' ? <TableOrders /> : ' '}
         {showContainer==='users' ? <TableUsers /> : ' '}
