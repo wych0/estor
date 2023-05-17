@@ -22,7 +22,7 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
   const isValid = isFormValid(inputError)
   let iconColor = {color: '#1A1882'}
 
-  const formStyleDefault = formStyle ? formStyle : 'width: 40ch'
+  const formStyleDefault = formStyle ? formStyle : {width: '40ch'}
 
   const validation =  {
     required: {
@@ -93,13 +93,13 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
         <FormControl sx={formStyleDefault} variant="outlined">
             <InputLabelCustom 
               fz={isStartIcon ? 18 : 14}
-              isvalid={+isValid} 
+              isvalid={isValid.toString()} 
               htmlFor="outlined">
               {placeHolder}
             </InputLabelCustom>
 
             <OutlinedInputCustom
-              isvalid = {+isValid}
+              isvalid = {isValid.toString()}
               label={placeHolder}
               {...startAdornment}
               {...typeInput}
