@@ -2,18 +2,19 @@ import {Link } from "react-router-dom"
 import React, { useContext } from 'react'
 import { UserContext } from '../UserContext'
 import { MidBtn, NavButton } from './Buttons'
-import axios from 'axios'
+import { logout } from "../apiCalls/auth"
 
 export default function Header(props) {
-    const { user, logout } = useContext(UserContext)
+    const { user, setAuth } = useContext(UserContext)
     const centerLogo = props.childDisplay === 'none' ? 'centerX' : 'spaceBetween'
 
     const onClick = (async() => {
       try{
-        const response = await axios.post('http://localhost:8000/auth/logout',{},{withCredentials: true})
-        console.log(response.data)
-      } catch(error){
-        console.log(error.response.data.message)
+        const result = await logout()
+        setAuth(false)
+        console.log(result.message)
+      } catch(error) {
+        console.log(error)
       }
     })
 
