@@ -24,7 +24,7 @@ export default function SearchField(props) {
         <div className="search flex centerY">
           <FormControl sx={formStyle} variant="outlined">
           <OutlinedInputCustom
-            isvalid={true}
+            isvalid={'true'}
             startAdornment={
                 <InputAdornment position="start">
                 <SearchIcon sx={iconStyle} />
