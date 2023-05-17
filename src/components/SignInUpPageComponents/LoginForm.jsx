@@ -5,31 +5,17 @@ import { SignupLoginBtn } from '../Buttons'
 import { Input } from '../Input'
 import {useForm} from 'react-hook-form'
 import { FormProvider } from 'react-hook-form'
-import axios from 'axios'
+import { loginUser } from '../../apiCalls/auth'
 
 export default function LoginForm() {
     const methods = useForm()
-    const {setRole, login} = useContext(UserContext)
+    const {user, setAuth, setRole, login, checkAuth} = useContext(UserContext)
     const navigation = useNavigate()
 
-    const loginUser = async (email, password) =>{
-      try{
-        const response = await axios.post('http://localhost:8000/auth/login',{
-          email,
-          password
-          },
-        {withCredentials: true})
-        await login()
-        await navigation('/auth')
-        console.log(response.data)
-      } catch(error){
-        console.log(error.response.data.message)
-      }
-      
-    }
-
-    const onSubmit = methods.handleSubmit( (data) => {
-      loginUser(data["E-mail"], data["Hasło"])
+    const onSubmit = methods.handleSubmit((data) => {
+      const auth = loginUser(data["E-mail"], data["Hasło"])
+      setAuth(auth)
+      navigation('/auth')
     })
 
     const handleKeyPress = (e) => {
