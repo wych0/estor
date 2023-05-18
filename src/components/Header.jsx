@@ -5,13 +5,13 @@ import { MidBtn, NavButton } from './Buttons'
 import { logout } from "../apiCalls/auth"
 
 export default function Header(props) {
-    const { user, setAuth } = useContext(UserContext)
+    const { user, logoutUser} = useContext(UserContext)
     const centerLogo = props.childDisplay === 'none' ? 'centerX' : 'spaceBetween'
 
     const onClick = (async() => {
       try{
         const result = await logout()
-        setAuth(false)
+        logoutUser()
         console.log(result.message)
       } catch(error) {
         console.log(error)
