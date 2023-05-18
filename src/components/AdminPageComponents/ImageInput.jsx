@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form'
-import { findInputErrors, isFormValid } from '../../InputValidation'
+import { findInputErrors, isFormValid } from '../../inputValidation'
 import { SmallBtn } from '../Buttons'
 
 const previewImage = (e) => {
