@@ -16,7 +16,7 @@ export const ProtectedAuth = ({ isLoggedIn, children }) => {
 
 export const ProtectedComplete = ({ placedOrder, children }) => {
     if (!placedOrder) {
-        return <Navigate to="/auth" replace />
+        return <Navigate to="/" replace />
     }
     return children
 };
