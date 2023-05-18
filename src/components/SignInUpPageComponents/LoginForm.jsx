@@ -24,7 +24,7 @@ export default function LoginForm() {
 
     useEffect(()=>{
       if(user.auth){
-        user.role==='admin' ? navigation('/admin') : navigation('/auth')
+        user.role==='admin' ? navigation('/admin') : navigation('/')
       } 
     }, [user.auth, user.role, navigation])
 
