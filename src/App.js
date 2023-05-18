@@ -1,5 +1,5 @@
 import './App.css'
-import {React, useContext, useEffect} from 'react'
+import {React, useContext} from 'react'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import "./index.css"
 import Root from "./routes/root"
@@ -17,7 +17,6 @@ import { ProtectedAdmin, ProtectedAuth, ProtectedComplete } from './ProtectedRou
 
 function App(){
     const {user} = useContext(UserContext)
-    console.log(user.auth)
 
     const router = createBrowserRouter([
         {
