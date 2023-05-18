@@ -1,10 +1,11 @@
 import { createContext, useState} from "react"
+import { checkAuth } from "./checkAuth"
 
-export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' ', role: 'none'})
+export const UserContext = createContext({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: 'none'})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' ', role: 'none'})
-    
+    const [user, setUser] = useState({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: 'none'})
+
     const setAuth = (auth, role) => {
         setUser((user)=>({
             ...user,
