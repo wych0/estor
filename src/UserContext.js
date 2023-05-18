@@ -5,29 +5,23 @@ export const UserContext = createContext({name: '', auth: checkAuth(), cart: [],
 
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: 'none'})
-
-    const setAuth = (auth, role) => {
-        setUser((user)=>({
-            ...user,
-            auth: auth,
-            role: role
-        }))
-    }
    
-    const login = (name)=>{
+    const loginUser = (role)=>{
         setUser((user)=> ({
             ...user,
-            name: name,
-            id: 2
+            role: role,
+            id: 2,
+            auth: checkAuth()
         }));
     };
     
-    const logout = () => {
+    const logoutUser = () => {
         setUser((user) => ({
           ...user,
           name: '',
           cart: [],
-          displayedOrder: "none"
+          displayedOrder: "none",
+          auth: checkAuth()
         }));
     };
 
@@ -70,9 +64,8 @@ export const UserProvider = ({children}) => {
     return (
         <UserContext.Provider value={{
         user, 
-        setAuth,
-        login, 
-        logout, 
+        loginUser, 
+        logoutUser, 
         addItemToCart, 
         deleteItemFromCart, 
         placeOrder, 
