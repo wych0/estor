@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 import { logout } from "../../apiCalls/auth"
 
 export function Body() {
-    const { setAuth } = useContext(UserContext);
+    const { logoutUser } = useContext(UserContext);
     const [showContainer, setShowContainer] = useState(' ')
     const btnFun = (container) => {
         setShowContainer(container)
@@ -19,7 +19,7 @@ export function Body() {
     const onClick = (async() => {
       try{
         const result = await logout()
-        setAuth(false)
+        logoutUser()
         console.log(result.message)
       } catch(error) {
         console.log(error)
