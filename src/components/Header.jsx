@@ -30,7 +30,7 @@ export default function Header(props) {
         <img src="images/logoSvg.svg" alt="logoImgHeader" className="logoImgHeader"/>
         <ul className={"headerContent navigation flex centerX centerY " +props.childDisplay}>
             <NavButton component={Link} to='/cart'><i className="bi bi-cart-fill icon nav"></i></NavButton>
-            <NavButton component={Link} to={(user.auth ? '/auth' : '/')}><i className="bi bi-house-fill icon nav"></i></NavButton>
+            <NavButton component={Link} to='/'><i className="bi bi-house-fill icon nav"></i></NavButton>
             <NavButton component={Link} to='/account'><i className="bi bi-person-fill icon nav"></i></NavButton>
         </ul>
       </div>
