@@ -1,5 +1,5 @@
 import './App.css'
-import {React, useContext} from 'react'
+import {React, useContext, useEffect} from 'react'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import "./index.css"
 import Root from "./routes/root"
@@ -7,7 +7,7 @@ import ErrorPage from "./routes/error-page"
 import Login from "./routes/login"
 import Cart from "./routes/cart"
 import Register from "./routes/register"
-import RootAuth from './routes/rootauth'
+import RootPrivate from './routes/root-private'
 import Account from './routes/account'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { UserContext } from './UserContext'
@@ -15,13 +15,14 @@ import Complete from './routes/complete'
 import Admin from './routes/admin'
 import { ProtectedAdmin, ProtectedAuth, ProtectedComplete } from './ProtectedRoutes'
 
-
 function App(){
     const {user} = useContext(UserContext)
+    console.log(user.auth)
+
     const router = createBrowserRouter([
         {
           path: "/",
-          element: <Root />,
+          element: user.auth ? <RootPrivate /> : <Root />,
           errorElement: <ErrorPage />
         },
         {
@@ -35,13 +36,8 @@ function App(){
           errorElement: <ErrorPage />
         },
         {
-          path: "/auth",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <RootAuth /></ProtectedAuth>,
-          errorElement: <ErrorPage />,
-        },
-        {
           path: "/cart",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <Cart /></ProtectedAuth>,
+          element: <ProtectedAuth isLoggedIn={user.auth}> <Cart /> </ProtectedAuth>,
           errorElement: <ErrorPage />
         },
         {
