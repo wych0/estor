@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import Body from '../components/HomePageComponents/Body'
 
-export default function Root() {
+export default function HomePage() {
     return (
       <div id="homePage" className="page">
         <Header></Header>
