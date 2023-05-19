@@ -21,3 +21,18 @@ export const logout = async()=>{
     return Promise.reject(error.response.data.message)
   }
 }
+
+export const register = async(name, secName, email, password)=>{
+  try{
+    const response = await axios.post('http://localhost:8000/auth/register', {
+    name, 
+    secName,
+    email,
+    password
+  },
+    {withCredentials: true})
+    return Promise.resolve(response.data)
+  } catch(error){
+    return Promise.reject(error.response.data.error)
+  }
+}
