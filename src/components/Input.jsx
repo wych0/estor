@@ -11,7 +11,7 @@ import { OutlinedInputCustom } from './OutlinedInputCustom'
 import { InputLabelCustom } from './InputLabelCustom'
 import { findInputErrors, isFormValid } from '../inputValidation'
 
-export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
+export const Input = ({isLettersOnly, isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
   const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -45,6 +45,10 @@ export const Input = ({isPrice, isPostalCode, isRegister, isEmail, isPassword, i
       value: /^[1-9]\d{0,7}(?:\.\d{1,4})?$/i,
       message: "PODAJ LICZBĘ"
     }}),
+    ...(isLettersOnly &&{pattern:{
+      value: /^[A-Za-z\s]+$/,
+      message: "TYLKO LITERY"
+    }})
   }
 
   if(!isValid){
