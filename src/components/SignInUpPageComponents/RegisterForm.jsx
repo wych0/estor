@@ -19,6 +19,7 @@ function RegisterForm() {
     const onSubmit = methods.handleSubmit( async (data) => {
       try{
         const result = await register(data['Imię'], data['Nazwisko'], data['E-mail'], data['Hasło'])
+        console.log(result.message)
         loginUser('klient')
       } catch(error){
         if(error){
