@@ -1,10 +1,28 @@
-import { createContext, useState} from "react"
+import { createContext, useState, useEffect} from "react"
 import { checkAuth} from "./Auth"
+import { getRole } from './apiCalls/auth'
 
-export const UserContext = createContext({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: 'none'})
+export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: 'none'})
+    const [user, setUser] = useState({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
+
+    const setRole = (role)=>{
+        setUser((user)=>({
+            ...user,
+            role: role
+        }))
+    }
+
+    useEffect(()=>{
+        getRole()
+        .then((role)=>{
+            setRole(role)
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    },[user.auth])
    
     const loginUser = (role)=>{
         setUser((user)=> ({
