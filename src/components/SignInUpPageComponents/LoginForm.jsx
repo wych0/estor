@@ -7,9 +7,7 @@ import {useForm} from 'react-hook-form'
 import { FormProvider } from 'react-hook-form'
 import { login } from '../../apiCalls/auth'
 import { useState } from 'react'
-import Alert from '@mui/material/Alert'
-import IconButton from '@mui/material/IconButton'
-import CloseIcon from '@mui/icons-material/Close'
+import { AlertAuth } from '../Alerts'
 
 export default function LoginForm() {
     const methods = useForm()
@@ -41,29 +39,14 @@ export default function LoginForm() {
 
     return (
       <div className="boxForm login flex wrap centerX shadow">
-        {error
-          ? <Alert
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
-          sx={{ mb: 2 }}
-        >
-          {error}
-        </Alert>
-        : ''
-
-        }
-        
         <div className="boxWelcome flex wrap centerX centerY">
             <Link className="linkLogoImg login" to={'/'}><img src="images/logoSvg.svg" alt="logo" className="logoImgForm"/></Link>
             <p className="text welcome">Witamy ponownie!</p>
         </div>
+        {error
+          ? <AlertAuth icon={false}><i className="bi bi-exclamation-circle-fill icon error"></i> {error}</AlertAuth>
+          : ''
+        }
         <FormProvider {...methods}> 
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress} >
         <div className="form login flex">
