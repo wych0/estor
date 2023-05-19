@@ -13,15 +13,16 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import { UserContext } from './UserContext'
 import Complete from './routes/complete'
 import Admin from './routes/admin'
-import { ProtectedAdmin, ProtectedAuth, ProtectedComplete } from './ProtectedRoutes'
+import { ProtectedAuth, ProtectedComplete } from './ProtectedRoutes'
 
 function App(){
     const {user} = useContext(UserContext)
+    console.log(user.role)
 
     const router = createBrowserRouter([
         {
           path: "/",
-          element: user.auth ? <RootPrivate /> : <Root />,
+          element: user.auth && user.role==='admin' ? <Admin/> : user.auth ? <RootPrivate /> : <Root />,
           errorElement: <ErrorPage />
         },
         {
@@ -47,11 +48,6 @@ function App(){
         {
           path: "/complete",
           element: <ProtectedComplete placedOrder={user.placedOrder}> <Complete /></ProtectedComplete>,
-          errorElement: <ErrorPage />
-        },
-        {
-          path: "/admin",
-          element: <ProtectedAdmin role={user.role}><Admin /></ProtectedAdmin>,
           errorElement: <ErrorPage />
         }
     ]);
