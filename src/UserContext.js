@@ -1,5 +1,5 @@
 import { createContext, useState} from "react"
-import { checkAuth } from "./checkAuth"
+import { checkAuth} from "./Auth"
 
 export const UserContext = createContext({name: '', auth: checkAuth(), cart: [], placedOrder: false, displayedOrder: "none", id: '', role: 'none'})
 
