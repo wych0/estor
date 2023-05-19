@@ -27,9 +27,9 @@ export default function LoginForm() {
 
     useEffect(()=>{
       if(user.auth){
-        user.role==='admin' ? navigation('/admin') : navigation('/')
+        navigation('/')
       } 
-    }, [user.auth, user.role, navigation])
+    }, [user.auth, navigation])
 
     const handleKeyPress = (e) => {
       if (e.key === 'Enter') {
