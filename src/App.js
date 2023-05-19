@@ -17,7 +17,9 @@ import { ProtectedAuth, ProtectedComplete } from './ProtectedRoutes'
 
 function App(){
     const {user} = useContext(UserContext)
-    console.log(user.role)
+    if(!user.role || user.auth===null){
+      return null
+    }
 
     const router = createBrowserRouter([
         {
