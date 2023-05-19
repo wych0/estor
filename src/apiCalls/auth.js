@@ -37,7 +37,7 @@ export const register = async(name, secName, email, password)=>{
   }
 }
 
-export const role = async()=>{
+export const getRole = async()=>{
   try{
     const response = await axios.get('http://localhost:8000/auth/role', {withCredentials: true})
     return Promise.resolve(response.data.role)
