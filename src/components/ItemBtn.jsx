@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button'
 import { useContext} from 'react'
 import { UserContext } from '../UserContext'
+import { addItem } from '../apiCalls/cart'
 
 const btnItemStyle = {
     color: 'black',
@@ -24,6 +25,7 @@ const btnItemStyle = {
   const handleClick = () => {
     const product = {id: props.itemId, name: `Produkt ${props.itemId}`}
     cartItemsIds.includes(props.itemId) ? deleteItemFromCart(props.itemId) : addItemToCart(product)
+    addItem()
   }
 
   
