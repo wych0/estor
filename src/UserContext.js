@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect} from "react"
 import { checkAuth} from "./Auth"
 import { getRole } from './apiCalls/auth'
+import { getCart } from "./apiCalls/cart"
 
 export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
 
@@ -14,14 +15,29 @@ export const UserProvider = ({children}) => {
         }))
     }
 
+    const setCart = (cart)=>{
+        setUser((user)=>({
+            ...user,
+            cart: cart
+        }))
+    }
+
     useEffect(()=>{
         getRole()
         .then((role)=>{
             setRole(role)
         })
         .catch((error)=>{
-            console.log(error);
+            console.log(error)
         })
+
+        getCart()
+        .then((cart)=>{
+            setCart(cart)
+        })
+        .catch((error)=>{
+            console.log(error)
+        }) 
     },[user.auth])
    
     const loginUser = (role)=>{
