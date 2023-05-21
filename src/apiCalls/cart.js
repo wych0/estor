@@ -9,11 +9,22 @@ export const getCart = async()=>{
     }
 }
 
-export const addItem = async()=>{
+export const addItem = async(productID)=>{
     try{
         const response = await axios.post('http://localhost:8000/product/addToCart', 
-        {productID: '6463a6a050b3e831dd48570d'},
+        {productID},
         {withCredentials: true})
+        return Promise.resolve(response.data.message) 
+    } catch(error){
+        return Promise.reject(error.response.data.message)
+    }
+}
+
+export const deleteItem = async(productID)=>{
+    try{
+        const response = await axios.delete('http://localhost:8000/product/deleteFromCart',
+        {data: {productID},
+        withCredentials: true})
         return Promise.resolve(response.data.message) 
     } catch(error){
         return Promise.reject(error.response.data.message)
