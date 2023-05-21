@@ -11,8 +11,7 @@ export const getProducts = async()=>{
 
 export const getProduct = async(productID)=>{
     try{
-        const response = await await axios.get('http://localhost:8000/product/all', 
-        {productID: productID},
+        const response = await axios.get(`http://localhost:8000/product?productID=${productID}`,
         {withCredentials: true})
         return Promise.resolve(response.data.product)
     } catch(error){
