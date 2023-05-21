@@ -318,17 +318,6 @@ body{
   border-bottom: 1.5px solid #1A1882;
 }
 
-.list.cartItems{
-  margin-top: 20px;
-  list-style: none;
-  flex-basis: 100%;
-}
-
-.list.cartItems:last-child{
-  margin-bottom: 20px;
-}
-
-
 .shipDetailsFormContainer{
   width: 85%;
   padding-bottom: 30px;
@@ -389,9 +378,18 @@ body{
   background-color: white;
 }
 
+.list.cartItems{
+  flex-basis: 100%;
+}
+
 .listItemCart{
   flex-basis: 100%;
+  margin-top: 20px;
   max-height: 80px;
+}
+
+.listItemCart:last-of-type{
+  margin-bottom: 20px;
 }
 
 .boxTextSum{
