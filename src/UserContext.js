@@ -23,21 +23,8 @@ export const UserProvider = ({children}) => {
     }
 
     useEffect(()=>{
-        getRole()
-        .then((role)=>{
-            setRole(role)
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-
-        getCart()
-        .then((cart)=>{
-            setCart(cart)
-        })
-        .catch((error)=>{
-            console.log(error)
-        }) 
+        getRole().then((role)=>{setRole(role)})
+        getCart().then((cart)=>{setCart(cart)})
     },[user.auth])
    
     const loginUser = (role)=>{
@@ -58,20 +45,6 @@ export const UserProvider = ({children}) => {
           auth: checkAuth()
         }));
     };
-
-    const addItemToCart = (product) => {
-        setUser((user) => ({
-            ...user,
-            cart: [...user.cart, product]
-        }));
-    };
-
-    const deleteItemFromCart = (productId) => {
-        setUser((user) => ({
-            ...user,
-            cart: user.cart.filter((item)=> item.id !== productId),
-        }))
-    }
 
     const placeOrder = () => {
         setUser((user) => ({
@@ -98,10 +71,9 @@ export const UserProvider = ({children}) => {
     return (
         <UserContext.Provider value={{
         user, 
-        loginUser, 
+        loginUser,
+        setCart,
         logoutUser, 
-        addItemToCart, 
-        deleteItemFromCart, 
         placeOrder, 
         endOrderProcess, 
         displayOrderDetails: displayOrderDetails}}>
