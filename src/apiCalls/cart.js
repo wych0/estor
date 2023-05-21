@@ -14,7 +14,7 @@ export const addItem = async(productID)=>{
         const response = await axios.post('http://localhost:8000/product/addToCart', 
         {productID},
         {withCredentials: true})
-        return Promise.resolve(response.data.message) 
+        return Promise.resolve(response.data.product) 
     } catch(error){
         return Promise.reject(error.response.data.message)
     }
