@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button'
-import { useContext} from 'react'
+import { useContext, useState, useEffect} from 'react'
 import { UserContext } from '../UserContext'
-import { addItem } from '../apiCalls/cart'
+import { addItem, deleteItem, getCart } from '../apiCalls/cart'
 
 const btnItemStyle = {
     color: 'black',
@@ -16,17 +16,24 @@ const btnItemStyle = {
 
 
   export default function ItemBtn(props) {
-  const {user, addItemToCart, deleteItemFromCart} = useContext(UserContext);
-  const cartItemsIds = user.cart.map((item) => item.id);
-  const btnFunction = cartItemsIds.includes(props.itemId) ? 'delete' : 'add';
-  const icon = btnFunction==='add' ? 'bi bi-cart-plus-fill' : 'bi bi-cart-dash-fill';
+  const {user} = useContext(UserContext)
+  const [btnFunction, setFunction] = useState('add')
+  const icon = btnFunction==='add' ? 'bi bi-cart-plus-fill' : 'bi bi-cart-dash-fill'
   const text = btnFunction==='add' ? 'Dodaj' : 'Usuń'
 
   const handleClick = () => {
-    const product = {id: props.itemId, name: `Produkt ${props.itemId}`}
-    cartItemsIds.includes(props.itemId) ? deleteItemFromCart(props.itemId) : addItemToCart(product)
-    addItem()
+    if(btnFunction==='add'){
+      addItem(props.itemId)
+      setFunction('delete')
+    }else{
+      deleteItem(props.itemId)
+      setFunction('add')
+    }
   }
+
+  useEffect(()=>{
+    user.cart.includes(props.itemId) ? setFunction('delete') : setFunction('add')
+  },[user.cart, props.itemId])
 
   
     return (
