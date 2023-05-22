@@ -22,16 +22,23 @@ export const UserProvider = ({children}) => {
         }))
     }
 
+    const setId = (id)=>{
+        setUser((user)=>({
+            ...user,
+            id: id
+        }))
+    }
+
     useEffect(()=>{
         getRole().then((role)=>{setRole(role)})
         getCart().then((cart)=>{setCart(cart)})
+        setId(document.cookie.split('; ').find(row=>row.startsWith('userID='))?.split('=')[1])
     },[user.auth])
    
     const loginUser = (role)=>{
         setUser((user)=> ({
             ...user,
             role: role,
-            id: 2,
             auth: checkAuth()
         }));
     };
