@@ -45,3 +45,12 @@ export const getRole = async()=>{
     return Promise.reject(error.response.data.error)
   }
 }
+
+export const isAuth = async()=>{
+  try{
+    const response = await axios.get('http://localhost:8000/auth', {withCredentials: true})
+    return Promise.resolve(response.data.isAuth)
+  } catch(error){
+    return Promise.reject(error.response.data.error)
+  }
+}
