@@ -1,19 +1,19 @@
 import './App.css'
 import {React, useContext} from 'react'
-import { createBrowserRouter, RouterProvider} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Navigate} from "react-router-dom"
 import "./index.css"
 import Root from "./routes/root"
 import ErrorPage from "./routes/error-page"
 import Login from "./routes/login"
 import Cart from "./routes/cart"
 import Register from "./routes/register"
-import RootPrivate from './routes/root-private'
 import Account from './routes/account'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { UserContext } from './UserContext'
 import Complete from './routes/complete'
 import Admin from './routes/admin'
-import { ProtectedAuth, ProtectedComplete } from './ProtectedRoutes'
+import { ProtectedComplete } from './ProtectedRoutes'
+
 
 function App(){
     const {user} = useContext(UserContext)
@@ -24,27 +24,27 @@ function App(){
     const router = createBrowserRouter([
         {
           path: "/",
-          element: user.auth && user.role==='admin' ? <Admin/> : user.auth ? <RootPrivate /> : <Root />,
+          element: user.auth && user.role==='admin' ? <Admin/> : <Root />,
           errorElement: <ErrorPage />
         },
         {
           path: "/register",
-          element: <Register />,
+          element: user.auth ? <Navigate to="/" replace /> : <Register />,
           errorElement: <ErrorPage />
         },
         {
           path: "/login",
-          element: <Login />,
+          element: user.auth ? <Navigate to="/" replace /> : <Login />,
           errorElement: <ErrorPage />
         },
         {
           path: "/cart",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <Cart /> </ProtectedAuth>,
+          element: user.auth && user.role==='admin' ? <Navigate to="/" replace /> : user.auth ? <Cart /> : <Navigate to="/login" replace />,
           errorElement: <ErrorPage />
         },
         {
           path: "/account",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <Account /></ProtectedAuth>,
+          element:user.auth && user.role==='admin' ? <Navigate to="/" replace /> : user.auth ? <Account /> : <Navigate to="/login" replace />,
           errorElement: <ErrorPage />
         },
         {
