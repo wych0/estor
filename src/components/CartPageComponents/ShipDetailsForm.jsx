@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import { BigBtn } from "../Buttons"
 import { placeOrder } from '../../apiCalls/order'
 import { getAddress } from '../../apiCalls/user'
-import { AddressField } from './AddressField'
 
 const formStyle = {
   width: '21ch',
@@ -75,24 +74,13 @@ export default function ShipDetails() {
           <FormProvider {...methods}>
             <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
               <div className="formShipDetails flex wrap">
-                {userAddress
-                ? (
-                <><AddressField formStyle={formStyle} label="Imię" valueVar={userAddress.name}/>
-                <AddressField formStyle={formStyle} label="Nazwisko" valueVar={userAddress.secName}/>
-                <AddressField formStyle={formStyleBig} label="Ulica, numer domu" valueVar={userAddress.street}/>
-                <AddressField formStyle={formStyle} label="Miasto" valueVar={userAddress.city}/>
-                <AddressField formStyle={formStyle} label="Kod-Pocztowy" valueVar={userAddress.postalCode}/>
-                <AddressField formStyle={formStyleBig} label="Adres e-mail" valueVar={userAddress.email} />
-                <AddressField formStyle={formStyle} label="Kraj" valueVar={userAddress.country} /></>)
-                : (
-                <><Input formStyle={formStyle} placeHolder="Imię"/>
-                <Input formStyle={formStyle} placeHolder="Nazwisko" />
-                <Input formStyle={formStyleBig} placeHolder="Ulica, numer domu" />
-                <Input formStyle={formStyle} placeHolder="Miasto" />
-                <Input isPostalCode={true} formStyle={formStyle} placeHolder="Kod-Pocztowy" />
-                <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail" />
-                <Input formStyle={formStyle} placeHolder="Kraj" /></>)}
-                
+                <Input formStyle={formStyle} placeHolder="Imię" valueVar={userAddress ? userAddress.name : 'none'}/>
+                <Input formStyle={formStyle} placeHolder="Nazwisko" valueVar={userAddress ? userAddress.secName : 'none'}/>
+                <Input formStyle={formStyleBig} placeHolder="Ulica, numer domu" valueVar={userAddress ? userAddress.street : 'none'}/>
+                <Input formStyle={formStyle} placeHolder="Miasto" valueVar={userAddress ? userAddress.city : 'none'}/>
+                <Input isPostalCode={true} formStyle={formStyle} placeHolder="Kod-Pocztowy" valueVar={userAddress ? userAddress.postalCode : 'none'}/>
+                <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail" valueVar={userAddress ? userAddress.email : 'none'}/>
+                <Input formStyle={formStyle} placeHolder="Kraj" valueVar={userAddress ? userAddress.country : 'none'}/>
               </div>
               <BigBtn disabled={isBtnDisabled} variant="contained" onClick={onSubmit}>Zamów z obowiązkiem zapłaty</BigBtn>
             </form>
