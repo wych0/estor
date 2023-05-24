@@ -5,7 +5,7 @@ import HttpsIcon from '@mui/icons-material/Https'
 import { IconButton } from '@mui/material'
 import { VisibilityOff } from '@mui/icons-material'
 import Visibility from '@mui/icons-material/Visibility'
-import { useState } from 'react'
+import { useState} from 'react'
 import { useFormContext } from 'react-hook-form'
 import { OutlinedInputCustom } from './OutlinedInputCustom'
 import { InputLabelCustom } from './InputLabelCustom'
@@ -101,15 +101,15 @@ export const Input = ({isLettersOnly, isPrice, isPostalCode, isRegister, isEmail
               htmlFor="outlined">
               {placeHolder}
             </InputLabelCustom>
-
-            <OutlinedInputCustom
-              isvalid = {isValid.toString()}
-              label={placeHolder}
-              {...startAdornment}
-              {...typeInput}
-              {...endAdornment}
-              {...register(placeHolder, validation)}
-            />
+          <OutlinedInputCustom
+          isvalid = {isValid.toString()}
+          label={placeHolder}
+          {...startAdornment}
+          {...typeInput}
+          {...endAdornment}
+          {...register(placeHolder, validation)}
+          />
+            
         </FormControl>
 
         {isPassword & !isValid & isRegister
