@@ -75,31 +75,28 @@ export default function ShipDetails() {
           <FormProvider {...methods}>
             <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
               <div className="formShipDetails flex wrap">
-                <AddressField formStyle={formStyle} label="Imię"/>
-                <AddressField formStyle={formStyle}  label="Nazwisko"/>
-                <AddressField formStyle={formStyleBig}  label="Ulica, numer domu"/>
-                <AddressField formStyle={formStyle}  label="Miasto"/>
-                <AddressField formStyle={formStyle} label="Kod-Pocztowy"/>
-                <AddressField formStyle={formStyleBig} label="Adres e-mail"/>
-                <AddressField formStyle={formStyle} label="Kraj"/>
+                {userAddress
+                ? (
+                <><AddressField formStyle={formStyle} label="Imię" valueVar={userAddress.name}/>
+                <AddressField formStyle={formStyle} label="Nazwisko" valueVar={userAddress.secName}/>
+                <AddressField formStyle={formStyleBig} label="Ulica, numer domu" valueVar={userAddress.street}/>
+                <AddressField formStyle={formStyle} label="Miasto" valueVar={userAddress.city}/>
+                <AddressField formStyle={formStyle} label="Kod-Pocztowy" valueVar={userAddress.postalCode}/>
+                <AddressField formStyle={formStyleBig} label="Adres e-mail" valueVar={userAddress.email} />
+                <AddressField formStyle={formStyle} label="Kraj" valueVar={userAddress.country} /></>)
+                : (
+                <><Input formStyle={formStyle} placeHolder="Imię"/>
+                <Input formStyle={formStyle} placeHolder="Nazwisko" />
+                <Input formStyle={formStyleBig} placeHolder="Ulica, numer domu" />
+                <Input formStyle={formStyle} placeHolder="Miasto" />
+                <Input isPostalCode={true} formStyle={formStyle} placeHolder="Kod-Pocztowy" />
+                <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail" />
+                <Input formStyle={formStyle} placeHolder="Kraj" /></>)}
+                
               </div>
               <BigBtn disabled={isBtnDisabled} variant="contained" onClick={onSubmit}>Zamów z obowiązkiem zapłaty</BigBtn>
             </form>
           </FormProvider>
-          {/* <FormProvider {...methods}>
-            <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
-              <div className="formShipDetails flex wrap">
-                <Input formStyle={formStyle} placeHolder="Imię"/>
-                <Input formStyle={formStyle}  placeHolder="Nazwisko"/>
-                <Input formStyle={formStyleBig}  placeHolder="Ulica, numer domu"/>
-                <Input formStyle={formStyle}  placeHolder="Miasto"/>
-                <Input isPostalCode={true} formStyle={formStyle} placeHolder="Kod-Pocztowy"/>
-                <Input isEmail={true} formStyle={formStyleBig} placeHolder="Adres e-mail"/>
-                <Input formStyle={formStyle} placeHolder="Kraj"/>
-              </div>
-              <BigBtn disabled={isBtnDisabled} variant="contained" onClick={onSubmit}>Zamów z obowiązkiem zapłaty</BigBtn>
-            </form>
-          </FormProvider> */}
         </div>
       </div>
     );
