@@ -26,13 +26,13 @@ export function AddProductForm(){
             <FormProvider {...methods}>
             <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
             <div className="box header flex">
-                <p className="text header">Dodaj produkt</p>
+                <p className="text header">Dodaj produkt</p> 
             </div>
             <div className="addProductBody flex wrap">
                 <div className="inputsAddProduct flex wrap addProductContent">
-                    <Input formStyle={formStyle} placeHolder="Marka"/>
-                    <Input formStyle={formStyle} placeHolder="Nazwa"/>
-                    <Input isPrice={true} formStyle={formStyle} placeHolder="Cena"/>
+                    <Input valueVar='none' formStyle={formStyle} placeHolder="Marka"/>
+                    <Input valueVar='none' formStyle={formStyle} placeHolder="Nazwa"/>
+                    <Input valueVar='none' isPrice={true} formStyle={formStyle} placeHolder="Cena"/>
                 </div>
                 <div className="imgAddContainer addProductContent">
                 <ImageInput />
