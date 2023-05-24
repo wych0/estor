@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { UserContext } from '../../UserContext'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import { Input } from '../Input'
 import {FormProvider, useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { BigBtn } from "../Buttons"
+import { placeOrder } from '../../apiCalls/order'
 
 const formStyle = {
   width: '21ch',
@@ -20,14 +21,27 @@ const iconStyle = {
 }
 
 export default function ShipDetails() {
-    const {user, placeOrder} = useContext(UserContext)
+    const {user, placeOrderUser} = useContext(UserContext)
     const methods = useForm()
     const navigation = useNavigate()
     const isBtnDisabled = user.cart.length===0 ? true : false
 
-    const onSubmit = methods.handleSubmit( (data) => {
-      placeOrder()
-      navigation("/complete")
+    const onSubmit = methods.handleSubmit(async (data) => {
+      try{
+        const address={
+          name: data['Imię'],
+          secName: data['Nazwisko'],
+          street: data['Ulica, numer domu'],
+          city: data['Miasto'],
+          postalCode: data['Kod-Pocztowy'],
+          email: data['Adres e-mail'],
+          country: data['Kraj']
+        }
+        const result = await placeOrder(address)
+        placeOrderUser(result)
+      } catch(error){
+        console.log(error)
+      } 
     })
     
     const handleKeyPress = (e) => {
@@ -35,6 +49,12 @@ export default function ShipDetails() {
         onSubmit();
       }
     };
+
+    useEffect(()=>{
+      if(user.placedOrder){
+        navigation("/complete")
+      }
+    },[user.placedOrder, navigation])
 
     return (
       <div className="pageContent cartPage shipDetailsCart flex centerX shadow">
