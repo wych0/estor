@@ -1,67 +1,55 @@
-import './App.css';
-import {React, useContext} from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import "./index.css";
-import Root from "./routes/root";
-import ErrorPage from "./routes/error-page";
-import Login from "./routes/login";
-import Cart from "./routes/cart";
+import './App.css'
+import {React, useContext} from 'react'
+import { createBrowserRouter, RouterProvider, Navigate} from "react-router-dom"
+import "./index.css"
+import Root from "./routes/root"
+import ErrorPage from "./routes/error-page"
+import Login from "./routes/login"
+import Cart from "./routes/cart"
 import Register from "./routes/register"
-import RootAuth from './routes/rootauth';
-import Account from './routes/account';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { UserContext } from './UserContext';
-import ProtectedAuth from './ProtectedAuth'
-import ProtectedComplete from './ProtectedComplete';
+import Account from './routes/account'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { UserContext } from './UserContext'
 import Complete from './routes/complete'
-import Admin from './routes/admin';
-import ProtectedAdmin from './ProtectedAdmin';
+import Admin from './routes/admin'
+import { ProtectedComplete } from './ProtectedRoutes'
 
 
 function App(){
-    const {user} = useContext(UserContext);
+    const {user} = useContext(UserContext)
+    if(!user.role || user.auth===null){
+      return null
+    }
+
     const router = createBrowserRouter([
         {
           path: "/",
-          element: <Root />,
+          element: user.auth && user.role==='admin' ? <Admin/> : <Root />,
           errorElement: <ErrorPage />
         },
         {
           path: "/register",
-          element: <Register />,
+          element: user.auth ? <Navigate to="/" replace /> : <Register />,
           errorElement: <ErrorPage />
         },
         {
           path: "/login",
-          element: <Login />,
+          element: user.auth ? <Navigate to="/" replace /> : <Login />,
           errorElement: <ErrorPage />
         },
         {
-          path: "/auth",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <RootAuth /></ProtectedAuth>,
-          errorElement: <ErrorPage />,
-        },
-        {
           path: "/cart",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <Cart /></ProtectedAuth>,
+          element: user.auth && user.role==='admin' ? <Navigate to="/" replace /> : user.auth ? <Cart /> : <Navigate to="/login" replace />,
           errorElement: <ErrorPage />
         },
         {
           path: "/account",
-          element: <ProtectedAuth isLoggedIn={user.auth}> <Account /></ProtectedAuth>,
+          element:user.auth && user.role==='admin' ? <Navigate to="/" replace /> : user.auth ? <Account /> : <Navigate to="/login" replace />,
           errorElement: <ErrorPage />
         },
         {
           path: "/complete",
           element: <ProtectedComplete placedOrder={user.placedOrder}> <Complete /></ProtectedComplete>,
-          errorElement: <ErrorPage />
-        },
-        {
-          path: "/admin",
-          element: <ProtectedAdmin role={user.role}><Admin /></ProtectedAdmin>,
           errorElement: <ErrorPage />
         }
     ]);

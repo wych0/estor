@@ -1,13 +1,12 @@
 import SummaryCart from "./SummaryCart"
-import ShipDetails from './ShipDetails'
+import ShipDetailsForm from './ShipDetailsForm'
 
-function BodyCart() {
+export function Body() {
     return (
       <div className="bodyPage cartPage flex wrap centerX">
-        <ShipDetails></ShipDetails>
+        <ShipDetailsForm></ShipDetailsForm>
         <SummaryCart></SummaryCart>
       </div>
-    );
-  }
+    )
+}
   
-  export default BodyCart;

@@ -1,7 +1,6 @@
 import { useFormContext } from 'react-hook-form'
-import { findInputErrors } from '../findInputErrors'
-import { isFormValid } from '../isFormValid'
-import { SmallBtn } from './Buttons'
+import { findInputErrors, isFormValid } from '../../inputValidation'
+import { SmallBtn } from '../Buttons'
 
 const previewImage = (e) => {
     const imageFiles = e.target.files

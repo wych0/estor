@@ -1,4 +1,4 @@
-function OrderInfo(props) {
+export default function OrderInfo(props) {
     return (
         <div className="box orderInfo">
             {props.isDisplay==='true'
@@ -8,6 +8,5 @@ function OrderInfo(props) {
         </div>
     );
   }
-  
-  export default OrderInfo;
+
 

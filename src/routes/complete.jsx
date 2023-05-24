@@ -1,11 +1,11 @@
 import Header from '../components/Header'
-import BodyComplete from '../components/BodyComplete'
+import Body from '../components/CompletePageComponents/Body'
 
 export default function Complete() {
     return (
         <div id="complete">
         <Header childDisplay="none" headerContent="center"></Header>
-        <BodyComplete></BodyComplete>
+        <Body></Body>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-function InfoBox(props) {
+export default function InfoBox(props) {
     const text = props.text==="shipInfo" ? "Złóż zamówienie do godziny 19, a paczkę wyślemy tego samego dnia!" : ""
     const icon = props.text==="shipInfo" ? "bi bi-rocket-takeoff-fill infoBoxRocket" : ""
     return (
@@ -10,5 +10,3 @@ function InfoBox(props) {
       </div>
     );
   }
-  
-  export default InfoBox;

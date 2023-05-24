@@ -1,8 +1,8 @@
-import {styled} from "@mui/material/styles";
-import TableRow from '@mui/material/TableRow';
-import Table from '@mui/material/Table';
-import TableCell from '@mui/material/TableCell';
-import Button from '@mui/material/Button';
+import {styled} from "@mui/material/styles"
+import TableRow from '@mui/material/TableRow'
+import Table from '@mui/material/Table'
+import TableCell from '@mui/material/TableCell'
+import Button from '@mui/material/Button'
 
 export const TableRowHead = styled(TableRow)(() => ({
     borderBottom: '1px solid rgba(26,24,130,0.3);',

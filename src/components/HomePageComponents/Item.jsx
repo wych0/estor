@@ -1,6 +1,6 @@
-import ItemBtn from '../components/ItemBtn'
+import ItemBtn from '../ItemBtn'
 
-function Item(props) {
+export default function Item(props) {
     return (
       <div className="boxItem flex wrap">
         <div className="boxImg shadow flex centerX centerY">
@@ -16,5 +16,3 @@ function Item(props) {
       </div>
     );
   }
-  
-  export default Item;

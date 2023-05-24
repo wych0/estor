@@ -1,11 +1,11 @@
 import InfoBox from './InfoBox'
-import SearchField from './SearchField';
-import Items from '../components/Items'
-import OrderInfo from '../components/OrderInfo'
-import { React, useState, useContext} from "react";
-import { UserContext } from '../UserContext';
+import SearchField from './SearchField'
+import Items from './Items'
+import OrderInfo from './OrderInfo'
+import { React, useState, useContext} from "react"
+import { UserContext } from '../../UserContext'
 
-function BodyHome() {
+export default function Body() {
     const {user} = useContext(UserContext);
     const [inputText, setInputText] = useState("");
     let inputHandler = (e) =>{
@@ -26,4 +26,3 @@ function BodyHome() {
     );
   }
   
-  export default BodyHome;

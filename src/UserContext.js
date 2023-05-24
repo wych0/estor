@@ -1,41 +1,64 @@
-import { createContext, useState} from "react";
+import { createContext, useState, useEffect} from "react"
+import { getRole, isAuth } from './apiCalls/auth'
+import { getCart } from "./apiCalls/cart"
 
-export const UserContext = createContext({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' ', role: 'none'})
+export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: false, cart: [], placedOrder: false, displayedOrder: "none", id: ' ', role: 'none'})
-    const login = (name)=>{
+    const [user, setUser] = useState({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
+
+    const setRole = (role)=>{
+        setUser((user)=>({
+            ...user,
+            role: role
+        }))
+    }
+
+    const setCart = (cart)=>{
+        setUser((user)=>({
+            ...user,
+            cart: cart
+        }))
+    }
+
+    const setId = (id)=>{
+        setUser((user)=>({
+            ...user,
+            id: id
+        }))
+    }
+
+    const setAuth = (auth)=>{
+        setUser((user)=>({
+            ...user,
+            auth: auth
+        }))
+    }
+
+    useEffect(()=>{
+        getRole().then((role)=>{setRole(role)})
+        getCart().then((cart)=>{setCart(cart)})
+        isAuth().then((auth)=>{setAuth(auth)})
+        setId(document.cookie.split('; ').find(row=>row.startsWith('userID='))?.split('=')[1])
+    },[user.auth])
+   
+    const loginUser = (role)=>{
         setUser((user)=> ({
             ...user,
-            name: name,
-            auth: true,
-            id: 2
+            role: role,
+            auth: isAuth()
         }));
     };
     
-    const logout = () => {
+    const logoutUser = () => {
         setUser((user) => ({
           ...user,
           name: '',
-          auth: false,
           cart: [],
-          displayedOrder: "none"
+          displayedOrder: "none",
+          auth: isAuth()
         }));
     };
-
-    const addItemToCart = (product) => {
-        setUser((user) => ({
-            ...user,
-            cart: [...user.cart, product]
-        }));
-    };
-
-    const deleteItemFromCart = (productId) => {
-        setUser((user) => ({
-            ...user,
-            cart: user.cart.filter((item)=> item.id !== productId),
-        }))
-    }
 
     const placeOrder = () => {
         setUser((user) => ({
@@ -59,23 +82,14 @@ export const UserProvider = ({children}) => {
         }))
     }
 
-    const setRole = (role) => {
-        setUser((user) => ({
-            ...user,
-            role: role
-        }))
-    }
-
     return (
         <UserContext.Provider value={{
         user, 
-        login, 
-        logout, 
-        addItemToCart, 
-        deleteItemFromCart, 
+        loginUser,
+        setCart,
+        logoutUser, 
         placeOrder, 
-        endOrderProcess,
-        setRole, 
+        endOrderProcess, 
         displayOrderDetails: displayOrderDetails}}>
         {children}
         </UserContext.Provider>

@@ -79,7 +79,7 @@ body{
   border-bottom: 0.2rem solid #1A1882;
 }
 
-.left.headerContent{
+.headerContent{
   width: 250px;
 }
 
@@ -89,23 +89,7 @@ body{
   order: 2;
   list-style: none;
   height: 60%;
-  width: 250px;
   gap: 10px;
-}
-
-.btn{
-  background-color: #1A1882;
-  color: white;
-  border-radius: 10px;
-}
-
-.btn.nav{
-  padding: 12px 16px;
-  font-size: 22px;
-}
-
-.btn.nav:hover{
-  background-color: #283593;
 }
 
 .logoImgHeader{
@@ -271,16 +255,17 @@ body{
 
 .boxBottomBtn{
   margin-top: 40px;
-  max-width: 450px;
+  width: 25%;
+  min-width: 450px;
 }
 
 .boxTextBottomBtn{
-  flex-basis: 100%;
-  justify-content: left;
-  max-height: 40px;
+  width: 65%;
 }
 
 .text.bottomBtn{
+  padding: 0;
+  margin: 0;
   color: black;
   font-size: 25px;
   font-weight: 550;
@@ -314,6 +299,8 @@ body{
 }
 
 .shipDetailsCart{
+  position: sticky;
+  top: 128px;
   min-height: 500px;
   min-width: 450px;
   width: 23%;
@@ -330,17 +317,6 @@ body{
   margin: 0px 40px 0px 40px;
   border-bottom: 1.5px solid #1A1882;
 }
-
-.list.cartItems{
-  margin-top: 20px;
-  list-style: none;
-  flex-basis: 100%;
-}
-
-.list.cartItems:last-child{
-  margin-bottom: 20px;
-}
-
 
 .shipDetailsFormContainer{
   width: 85%;
@@ -402,9 +378,18 @@ body{
   background-color: white;
 }
 
+.list.cartItems{
+  flex-basis: 100%;
+}
+
 .listItemCart{
   flex-basis: 100%;
+  margin-top: 20px;
   max-height: 80px;
+}
+
+.listItemCart:last-of-type{
+  margin-bottom: 20px;
 }
 
 .boxTextSum{
@@ -505,10 +490,9 @@ body{
     font-size: 21px;
   }
   .navigation{
-    width: 200px;
     gap: 8px;
   }
-  .left.headerContent{
+  .headerContent{
     width: 200px;
   }
   .search{
@@ -601,6 +585,8 @@ body{
 }
 
 .box.orderDetails{
+  position: sticky;
+  top: 128px;
   text-align: left;
   background-color: white;
 }
@@ -827,4 +813,16 @@ body{
 
 .page{
   position: relative;
+}
+
+.completeBtn{
+  margin: 6% 0 5% 0;
+  flex-basis: 100%;
+}
+
+.text.pattern{
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 2px 0 0 0;
 }

@@ -1,6 +1,6 @@
-import Line from '../components/Line'
-import BottomBtnContainer from '../components/BottomBtnContainer'
-import RegisterForm from '../components/RegisterForm'
+import Line from '../components/SignInUpPageComponents/Line'
+import BottomBtnContainer from '../components/SignInUpPageComponents/BottomBtnContainer'
+import RegisterForm from '../components/SignInUpPageComponents/RegisterForm'
 
 export default function Register() {
     return (

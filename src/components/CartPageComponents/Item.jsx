@@ -1,6 +1,6 @@
-import ItemBtn from '../components/ItemBtn'
+import ItemBtn from '../ItemBtn'
 
-function ItemCart(props) {
+export default function Item(props) {
     return (
       <div className="boxItemCart flex wrap">
         <div className="boxImgCart shadow flex centerX centerY">
@@ -14,6 +14,4 @@ function ItemCart(props) {
         <p className="text itemCart price">{props.price} zł</p>
       </div>
     );
-  }
-  
-  export default ItemCart;
+}

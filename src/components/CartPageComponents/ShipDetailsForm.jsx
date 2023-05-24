@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../UserContext';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import { Input } from './Input';
+import React, { useContext } from 'react'
+import { UserContext } from '../../UserContext'
+import LocalShippingIcon from '@mui/icons-material/LocalShipping'
+import { Input } from '../Input'
 import {FormProvider, useForm} from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
-import { BigBtn } from "./Buttons"
+import { useNavigate } from 'react-router-dom'
+import { BigBtn } from "../Buttons"
 
 const formStyle = {
   width: '21ch',
@@ -19,7 +19,7 @@ const iconStyle = {
   fontSize: '50px',
 }
 
-function ShipDetails() {
+export default function ShipDetails() {
     const {user, placeOrder} = useContext(UserContext)
     const methods = useForm()
     const navigation = useNavigate()
@@ -61,5 +61,3 @@ function ShipDetails() {
       </div>
     );
   }
-  
-  export default ShipDetails;
