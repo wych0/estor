@@ -725,7 +725,7 @@ body{
 
 .menu.adminPage{
   position: sticky;
-  top: 128px;
+  top: 121px;
   background-color: white;
   padding-bottom: 2%;
   min-width: 350px;
