@@ -49,8 +49,8 @@ export default function LoginForm() {
         <FormProvider {...methods}> 
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress} >
         <div className="form login flex">
-          <Input isEmail={true} isStartIcon={true} placeHolder="E-mail"/>
-          <Input isPassword={true} isStartIcon={true} placeHolder="Hasło" />
+          <Input valueVar='none' isEmail={true} isStartIcon={true} placeHolder="E-mail"/>
+          <Input valueVar='none' isPassword={true} isStartIcon={true} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zaloguj się</SignupLoginBtn>
         </form>
