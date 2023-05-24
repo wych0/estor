@@ -18,7 +18,6 @@ export default function LoginForm() {
     const onSubmit = methods.handleSubmit(async (data) => {
       try{
         const result = await login(data["E-mail"], data["Hasło"])
-        console.log(result.message)
         loginUser(result.role)
       } catch(error){
         setError(error)
