@@ -35,6 +35,13 @@ export const UserProvider = ({children}) => {
         }))
     }
 
+    const setPlacedOrder = (placedOrder)=>{
+        setUser((user)=>({
+            ...user,
+            placedOrder
+        }))
+    }
+
     useEffect(()=>{
         getRole().then((role)=>{setRole(role)})
         getCart().then((cart)=>{setCart(cart)})
@@ -60,19 +67,9 @@ export const UserProvider = ({children}) => {
         }));
     };
 
-    const placeOrder = () => {
-        setUser((user) => ({
-            ...user,
-            placedOrder: true,
-            cart: []
-        })) 
-    }
-
-    const endOrderProcess = () => {
-        setUser((user) => ({
-            ...user, 
-            placedOrder: false
-        }))
+    const placeOrderUser = (placedOrder) => {
+        setPlacedOrder(placedOrder)
+        setCart([])
     }
 
     const displayOrderDetails = (id) => {
@@ -88,8 +85,7 @@ export const UserProvider = ({children}) => {
         loginUser,
         setCart,
         logoutUser, 
-        placeOrder, 
-        endOrderProcess, 
+        placeOrderUser, 
         displayOrderDetails: displayOrderDetails}}>
         {children}
         </UserContext.Provider>
