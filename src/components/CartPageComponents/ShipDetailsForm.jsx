@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../UserContext'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import { Input } from '../Input'
@@ -6,6 +6,8 @@ import {FormProvider, useForm} from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { BigBtn } from "../Buttons"
 import { placeOrder } from '../../apiCalls/order'
+import { getAddress } from '../../apiCalls/user'
+import { AddressField } from './AddressField'
 
 const formStyle = {
   width: '21ch',
@@ -25,6 +27,13 @@ export default function ShipDetails() {
     const methods = useForm()
     const navigation = useNavigate()
     const isBtnDisabled = user.cart.length===0 ? true : false
+    const [userAddress, setUserAddress] = useState({})
+
+    useEffect(()=>{
+      getAddress().then((address)=> {
+        setUserAddress(address)
+      })
+    },[])
 
     const onSubmit = methods.handleSubmit(async (data) => {
       try{
@@ -66,6 +75,20 @@ export default function ShipDetails() {
           <FormProvider {...methods}>
             <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
               <div className="formShipDetails flex wrap">
+                <AddressField formStyle={formStyle} label="Imię"/>
+                <AddressField formStyle={formStyle}  label="Nazwisko"/>
+                <AddressField formStyle={formStyleBig}  label="Ulica, numer domu"/>
+                <AddressField formStyle={formStyle}  label="Miasto"/>
+                <AddressField formStyle={formStyle} label="Kod-Pocztowy"/>
+                <AddressField formStyle={formStyleBig} label="Adres e-mail"/>
+                <AddressField formStyle={formStyle} label="Kraj"/>
+              </div>
+              <BigBtn disabled={isBtnDisabled} variant="contained" onClick={onSubmit}>Zamów z obowiązkiem zapłaty</BigBtn>
+            </form>
+          </FormProvider>
+          {/* <FormProvider {...methods}>
+            <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
+              <div className="formShipDetails flex wrap">
                 <Input formStyle={formStyle} placeHolder="Imię"/>
                 <Input formStyle={formStyle}  placeHolder="Nazwisko"/>
                 <Input formStyle={formStyleBig}  placeHolder="Ulica, numer domu"/>
@@ -76,7 +99,7 @@ export default function ShipDetails() {
               </div>
               <BigBtn disabled={isBtnDisabled} variant="contained" onClick={onSubmit}>Zamów z obowiązkiem zapłaty</BigBtn>
             </form>
-          </FormProvider>
+          </FormProvider> */}
         </div>
       </div>
     );
