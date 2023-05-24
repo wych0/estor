@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect} from "react"
-import { getRole, isAuth } from './apiCalls/auth'
+import { getRole, isAuth } from './apiCalls/user'
 import { getCart } from "./apiCalls/cart"
 
 export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
@@ -85,7 +85,8 @@ export const UserProvider = ({children}) => {
         loginUser,
         setCart,
         logoutUser, 
-        placeOrderUser, 
+        placeOrderUser,
+        setPlacedOrder, 
         displayOrderDetails: displayOrderDetails}}>
         {children}
         </UserContext.Provider>
