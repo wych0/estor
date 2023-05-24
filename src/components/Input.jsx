@@ -11,7 +11,7 @@ import { OutlinedInputCustom } from './OutlinedInputCustom'
 import { InputLabelCustom } from './InputLabelCustom'
 import { findInputErrors, isFormValid } from '../inputValidation'
 
-export const Input = ({isLettersOnly, isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
+export const Input = ({valueVar, isLettersOnly, isPrice, isPostalCode, isRegister, isEmail, isPassword, isStartIcon, formStyle, placeHolder}) => {
   const [showPassword, setShowPassword] = useState(false)
   const {register, formState: {errors}} = useFormContext()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -86,6 +86,10 @@ export const Input = ({isLettersOnly, isPrice, isPostalCode, isRegister, isEmail
     </InputAdornment>
     }
   : { }
+
+  if(valueVar===undefined){
+    return null
+  }
   
     return (
       <div className="inputContainer">
@@ -95,15 +99,16 @@ export const Input = ({isLettersOnly, isPrice, isPostalCode, isRegister, isEmail
         }
         
         <FormControl sx={formStyleDefault} variant="outlined">
-            <InputLabelCustom 
-              fz={isStartIcon ? 18 : 14}
-              isvalid={isValid.toString()} 
-              htmlFor="outlined">
-              {placeHolder}
-            </InputLabelCustom>
+          <InputLabelCustom 
+          fz={isStartIcon ? 18 : 14}
+          isvalid={isValid.toString()} 
+          htmlFor="outlined">
+          {placeHolder}
+          </InputLabelCustom>
           <OutlinedInputCustom
           isvalid = {isValid.toString()}
           label={placeHolder}
+          defaultValue = {valueVar==='none' ? '' : valueVar}
           {...startAdornment}
           {...typeInput}
           {...endAdornment}
