@@ -12,3 +12,14 @@ export const getUserOrders = async(userID)=>{
         return Promise.reject(error.response.data.message)
     }
 }
+
+export const placeOrder = async(address)=>{
+    try{
+        await axios.post(`http://localhost:8000/order`,
+        {address},
+        {withCredentials: true})
+        return Promise.resolve(true)
+    } catch(error){
+        return Promise.reject(false)
+    }
+}
