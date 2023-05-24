@@ -54,10 +54,10 @@ function RegisterForm() {
         <FormProvider {...methods}>
         <form className="flex wrap centerX" onSubmit={e => e.preventDefault()} noValidate onKeyPress={handleKeyPress}>
         <div className="form register flex">
-        <Input isLettersOnly={true} placeHolder="Imię"/>
-        <Input isLettersOnly={true} placeHolder="Nazwisko"/>
-        <Input isEmail={true} placeHolder="E-mail"/>
-        <Input isPassword={true} isRegister={true} placeHolder="Hasło" />
+        <Input valueVar='none' isLettersOnly={true} placeHolder="Imię"/>
+        <Input valueVar='none' isLettersOnly={true} placeHolder="Nazwisko"/>
+        <Input valueVar='none' isEmail={true} placeHolder="E-mail"/>
+        <Input valueVar='none' isPassword={true} isRegister={true} placeHolder="Hasło" />
         </div>
         <SignupLoginBtn variant="contained" onClick={onSubmit}>Zarejestruj się</SignupLoginBtn>
         </form>
