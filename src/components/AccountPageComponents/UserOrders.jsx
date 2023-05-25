@@ -41,7 +41,7 @@ export default function UserOders(){
                 <TableCellCustom align="center">{row.date}</TableCellCustom>
                 <TableCellCustom align="center">{row.cost}</TableCellCustom>
                 <TableCellCustom align="center">{row.status}</TableCellCustom>
-                <TableCellCustom align="center"><TableBtn variant="contained" onClick={() => displayOrderDetails(row.id)}>Szczegóły</TableBtn></TableCellCustom>
+                <TableCellCustom align="center"><TableBtn variant="contained" onClick={() => displayOrderDetails(row._id)}>Szczegóły</TableBtn></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
