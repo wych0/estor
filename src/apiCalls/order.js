@@ -13,6 +13,16 @@ export const getUserOrders = async(userID)=>{
     }
 }
 
+export const getOrder = async(orderID)=>{
+    try{
+        const response = await axios.get(`http://localhost:8000/order/?orderID=${orderID}`,
+        {withCredentials: true})
+        return Promise.resolve(response.data.order)
+    } catch(error){
+        return Promise.reject(error.reponse.data.error)
+    }
+}
+
 export const placeOrder = async(address)=>{
     try{
         await axios.post(`http://localhost:8000/order`,
