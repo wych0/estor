@@ -95,10 +95,10 @@ export const Input = ({valueVar, isLettersOnly, isPrice, isPostalCode, isRegiste
       <div className="inputContainer">
         {!isValid 
         ? <Error message={inputError.error.message} />
-        : <div className="errorContainer"><p className="text error">&nbsp;</p></div>
+        : ''
         }
         
-        <FormControl sx={formStyleDefault} variant="outlined">
+        <FormControl sx={{ ...formStyleDefault, marginTop: isValid ? '15px' : '0' }} variant="outlined">
           <InputLabelCustom 
           fz={isStartIcon ? 18 : 14}
           isvalid={isValid.toString()} 
@@ -120,8 +120,8 @@ export const Input = ({valueVar, isLettersOnly, isPrice, isPostalCode, isRegiste
         {isPassword & !isValid & isRegister
         ? inputError.error.message==='SŁABE HASŁO'
           ? <PasswordPattern />
-          : ' '
-        : ' '
+          : ''
+        : ''
         }
       </div>
     );
@@ -140,15 +140,7 @@ export const Input = ({valueVar, isLettersOnly, isPrice, isPostalCode, isRegiste
 const PasswordPattern = () => {
   return(
     <div className="passwordPattern">
-      <p className="text pattern">Silne hasło - conajmniej:</p>
-      <ul className="list text pattern">
-        <li>8 znaków</li>
-        <li>1 duża litera</li>
-        <li>1 mała litera</li>
-        <li>1 cyfra</li>
-        <li>1 znak specjalny</li>
-      </ul>
-        
+      <p className="text pattern">Silne hasło posiada conajmniej: <br/> 8 znaków, 1 duża litera, 1 mała litera, 1 cyfra, 1 znak specjalny</p>        
     </div>
   )
 } 
