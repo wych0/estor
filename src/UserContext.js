@@ -2,10 +2,10 @@ import { createContext, useState, useEffect} from "react"
 import { getRole, isAuth } from './apiCalls/user'
 import { getCart } from "./apiCalls/cart"
 
-export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
+export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: null, id: '', role: null})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: "none", id: '', role: null})
+    const [user, setUser] = useState({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: null, id: '', role: null})
 
     const setRole = (role)=>{
         setUser((user)=>({
@@ -43,8 +43,10 @@ export const UserProvider = ({children}) => {
     }
 
     useEffect(()=>{
+        if(user.auth===true){
+            getCart().then((cart)=>{setCart(cart)})
+        }
         getRole().then((role)=>{setRole(role)})
-        getCart().then((cart)=>{setCart(cart)})
         isAuth().then((auth)=>{setAuth(auth)})
         setId(document.cookie.split('; ').find(row=>row.startsWith('userID='))?.split('=')[1])
     },[user.auth])
@@ -62,7 +64,7 @@ export const UserProvider = ({children}) => {
           ...user,
           name: '',
           cart: [],
-          displayedOrder: "none",
+          displayedOrder: null,
           auth: isAuth()
         }));
     };
