@@ -1,20 +1,12 @@
 import { UserContext } from '../../UserContext'
-import { useContext, useState, useEffect } from 'react'
+import { useContext} from 'react'
 import TableBody from '@mui/material/TableBody'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
-import { getUserOrders } from '../../apiCalls/order.js'
 
-export default function UserOders({orderCancelled}){
-    const [userOrders, setUserOrders] = useState([])
-    const {displayOrderDetails, user} = useContext(UserContext)
-
-    useEffect(()=>{
-        getUserOrders(user.id).then((orders)=>setUserOrders(orders))
-        console.log('wchodze do useEffecta')
-    },[user.id, orderCancelled])
-
+export default function UserOders({userOrders}){
+    const {displayOrderDetails} = useContext(UserContext)
     return(
     <TableContainer className="pageContent accPage tableContainer flex wrap centerX shadow">
         <div className="box header flex">
