@@ -6,13 +6,14 @@ import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
 import { getUserOrders } from '../../apiCalls/order.js'
 
-export default function UserOders(){
+export default function UserOders({orderCancelled}){
     const [userOrders, setUserOrders] = useState([])
     const {displayOrderDetails, user} = useContext(UserContext)
 
     useEffect(()=>{
         getUserOrders(user.id).then((orders)=>setUserOrders(orders))
-    },[user.id, setUserOrders])
+        console.log('wchodze do useEffecta')
+    },[user.id, orderCancelled])
 
     return(
     <TableContainer className="pageContent accPage tableContainer flex wrap centerX shadow">
