@@ -9,7 +9,7 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 
-export default function OrderDetails({onOrderCancellation }){
+export default function OrderDetails({onOrderCancel}){
     const [order, setOrder] = useState()
     const [open, setOpen] = useState(false)
     const [buttonDisabled, setDisabled] = useState(null)
@@ -17,22 +17,24 @@ export default function OrderDetails({onOrderCancellation }){
     const {user} = useContext(UserContext)
 
     useEffect(()=>{
-        getOrder(user.displayedOrder).then((order)=>{
-            setOrder(order)
-            setOrderStatus(order.status)
-            order.status==='W realizacji' ? setDisabled(false) : setDisabled(true)})
+        if(user.displayedOrder!==null){
+            getOrder(user.displayedOrder).then((order)=>{
+                setOrder(order)
+                setOrderStatus(order.status)
+                order.status==='W realizacji' ? setDisabled(false) : setDisabled(true)})
+        }
     },[user.displayedOrder])
 
     if(!order) {
         return (
-        <div className="box pageContent accPage orderDetails flex wrap shadow">
-            <div className="box orderDetailsContent flex wrap centerX">
-                <div className="box orderDetailsHeader header flex centerY">
-                    <p className="text orderDetails header">Nie wybrano zamówienia</p>
+        <div className="box pageContent accPage flex wrap shadow">
+            <div className="box flex wrap centerX">
+                <div className="box header flex centerY">
+                    <p className="text header">Nie wybrano zamówienia</p>
                 </div>
-                <div className="box displayAlertOrderDetails flex wrap centerX">
-                    <i className="bi bi-info-circle-fill icon detailsBtn info"></i>
-                    <p className="text detailsBtn info">Aby wyświetlić szczegóły danego zamówienia, skorzystaj z przycisku "Szczegóły".</p>
+                <div className="box flex wrap centerX">
+                    <i className="bi bi-info-circle-fill icon info"></i>
+                    <p className="text info">Aby wyświetlić szczegóły danego zamówienia, skorzystaj z przycisku "Szczegóły".</p>
                 </div>
             </div>
         </div>
@@ -48,11 +50,12 @@ export default function OrderDetails({onOrderCancellation }){
     }
 
     const handleSubmit = () =>{
-        cancelOrder(order._id).then(console.log('Anulowano zamówienie'))
-        setDisabled(true)
-        setOrderStatus('Anulowane')
-        onOrderCancellation()
-        setOpen(false)
+        cancelOrder(order._id).then(()=>{
+            setDisabled(true)
+            setOrderStatus('Anulowane')
+            onOrderCancel()
+            setOpen(false)
+        })
     }
     return(
     <div className="box pageContent accPage orderDetails flex wrap shadow">
