@@ -19,7 +19,7 @@ export const getOrder = async(orderID)=>{
         {withCredentials: true})
         return Promise.resolve(response.data.order)
     } catch(error){
-        return Promise.reject(error.reponse)
+        return Promise.reject(error.response.data.errors)
     }
 }
 
