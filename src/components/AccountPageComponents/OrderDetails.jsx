@@ -27,14 +27,14 @@ export default function OrderDetails({onOrderCancel}){
 
     if(!order) {
         return (
-        <div className="box pageContent accPage flex wrap shadow">
-            <div className="box flex wrap centerX">
-                <div className="box header flex centerY">
-                    <p className="text header">Nie wybrano zamówienia</p>
+        <div className="box pageContent accPage orderDetails flex wrap shadow">
+            <div className="box orderDetailsContent flex wrap centerX">
+                <div className="box orderDetailsHeader header flex centerY">
+                    <p className="text orderDetails header">Nie wybrano zamówienia</p>
                 </div>
-                <div className="box flex wrap centerX">
-                    <i className="bi bi-info-circle-fill icon info"></i>
-                    <p className="text info">Aby wyświetlić szczegóły danego zamówienia, skorzystaj z przycisku "Szczegóły".</p>
+                <div className="box displayAlertOrderDetails flex wrap centerX">
+                    <i className="bi bi-info-circle-fill icon detailsBtn info"></i>
+                    <p className="text detailsBtn info">Aby wyświetlić szczegóły danego zamówienia, skorzystaj z przycisku "Szczegóły".</p>
                 </div>
             </div>
         </div>
