@@ -10,11 +10,9 @@ export default function Header(props) {
 
     const onClick = (async() => {
       try{
-        const result = await logout()
+        await logout()
         logoutUser()
-        console.log(result.message)
       } catch(error) {
-        console.log(error)
       }
     })
 
