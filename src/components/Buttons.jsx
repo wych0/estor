@@ -67,3 +67,10 @@ export const NavButton = styled(Button)(() => ({
       },
 }));
 
+export const DialogButton = styled(Button)(() => ({
+    ...btnStyle,
+    width: '20px',
+    maxHeight: '40px'
+}));
+
+
