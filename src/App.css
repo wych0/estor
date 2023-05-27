@@ -635,16 +635,15 @@ body{
 }
 
 .tableContainer.products{
-  min-width: 600px;
+  min-width: 660px;
 }
 
 .tableContainer.users{
-  min-width: 576px;
+  min-width: 700px;
 }
 
 .tableContainer.orders{
-  max-width: 70%;
-  min-width: 740px;
+  min-width: 800px;
 }
 
 .orderDetailsItems{
