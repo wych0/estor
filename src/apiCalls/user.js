@@ -26,3 +26,12 @@ export const getRole = async()=>{
         return Promise.reject(error.reponse.data.error)
     }
   }
+
+  export const getUsers = async()=>{
+    try{
+      const response = await axios.get('http://localhost:8000/user/all', {withCredentials: true})
+      return Promise.resolve(response.data.users)
+    } catch(error){
+      return Promise.reject(error.reponse.data.error)
+    }
+  }
