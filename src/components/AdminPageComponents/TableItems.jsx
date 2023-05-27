@@ -1,10 +1,15 @@
-import data from '../../data.js'
+import { useState, useEffect } from 'react'
+import { getProducts } from '../../apiCalls/product.js'
 import TableBody from '@mui/material/TableBody'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
 
 export function TableItems(){
+    const [products, setProducts] = useState([])
+    useEffect(()=>{
+        getProducts().then((products)=>setProducts(products))
+    },[])
     return(
     <TableContainer className="tableContainer products flex wrap centerX shadow">
         <div className="box header flex">
@@ -22,11 +27,11 @@ export function TableItems(){
             </TableRowHead>
             </TableHead>
             <TableBody>
-            {data.products.map((row) => (
+            {products.map((row) => (
                 <TableRowCustom
                 key={row.id}
                 >
-                <TableCellCustom align="center">{row.id}</TableCellCustom>
+                <TableCellCustom align="center">{row._id}</TableCellCustom>
                 <TableCellCustom align="center">{row.brand}</TableCellCustom>
                 <TableCellCustom align="center">{row.name}</TableCellCustom>
                 <TableCellCustom align="center">{row.price}</TableCellCustom>
