@@ -23,6 +23,16 @@ export const getOrder = async(orderID)=>{
     }
 }
 
+export const getOrders = async()=>{
+    try{
+        const response = await axios.get(`http://localhost:8000/order/all`,
+        {withCredentials: true})
+        return Promise.resolve(response.data.orders)
+    } catch(error){
+        return Promise.reject(error.response.data.errors)
+    }
+}
+
 export const placeOrder = async(address)=>{
     try{
         await axios.post(`http://localhost:8000/order`,
