@@ -20,16 +20,11 @@ export function Body() {
     return (
       <div className="bodyPage accPage flex wrap centerX">
         {userOrders.length===0
-        ? <div className="box pageContent accPage orderDetails flex wrap shadow">
-            <div className="box orderDetailsContent flex wrap centerX">
-                <div className="box orderDetailsHeader header flex centerY">
-                    <p className="text orderDetails header">Tutaj wyświetlane będą twoje zamówienia</p>
-                </div>
-                <div className="box displayAlertOrderDetails flex wrap centerX">
-                    <i className="bi bi-info-circle-fill icon detailsBtn info"></i>
-                    <p className="text detailsBtn info">Zachęcamy do złożenia twojego pierwszego zamówienia!</p>
-                </div>
+        ? <div className="box pageContent accPage noOrder flex wrap shadow centerX">
+            <div className="box orderDetailsHeader header flex centerY">
+              <p className="text header noOrder">Tutaj będą wyświetlane twoje zamówienia</p>
             </div>
+            <p className="text info">Zachęcamy do złożenia pierwszego zamówienia!</p>
           </div>
         :  <><UserOrders userOrders={userOrders}></UserOrders>
             <OrderDetails onOrderCancel={onOrderCancel}></OrderDetails></>
