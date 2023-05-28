@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
-import { getUsers } from '../../apiCalls/user.js'
+import { getUsers, blockUser } from '../../apiCalls/user.js'
 
 export function TableUsers(){
     const [users, setUsers] = useState([])
@@ -11,6 +11,13 @@ export function TableUsers(){
         getUsers().then((users)=>setUsers(users))
     },[])
 
+    const handleClick = (userID, accountStatus) => {
+        if(accountStatus==='Aktywne'){
+            blockUser(userID).then(()=>getUsers().then((users)=>setUsers(users)))
+        }else if(accountStatus==='Zablokowane'){
+            
+        }
+      }
 
     return(
     <div className="flex wrap pageContent adminPage">
@@ -30,12 +37,12 @@ export function TableUsers(){
             <TableBody>
             {users.map((row) => (
                 <TableRowCustom
-                key={row.id}
+                key={row._id}
                 >
                 <TableCellCustom align="center">{row._id}</TableCellCustom>
                 <TableCellCustom align="center">{row.email}</TableCellCustom>
-                <TableCellCustom align="center">{row.isBlocked ? 'Zablokowane' : 'Aktywne'}</TableCellCustom>
-                <TableCellCustom align="center"><TableBtn variant="contained">{row.isBlocked ? 'Odblokuj' : 'Zablokuj'}</TableBtn></TableCellCustom>
+                <TableCellCustom align="center">{row.accountStatus}</TableCellCustom>
+                <TableCellCustom align="center"><TableBtn onClick={()=>handleClick(row._id, row.accountStatus)} variant="contained">{row.accountStatus==='Zablokowane' ? 'Odblokuj' : 'Zablokuj'}</TableBtn></TableCellCustom>
                 </TableRowCustom>
             ))}
             </TableBody>
