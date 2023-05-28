@@ -35,3 +35,12 @@ export const getRole = async()=>{
       return Promise.reject(error.reponse.data.error)
     }
   }
+
+  export const blockUser = async(userID)=>{
+    try{
+      const response = await axios.put(`http://localhost:8000/user/block/${userID}`,{} ,{withCredentials: true})
+      return Promise.resolve(response.data.message)
+    } catch(error){
+      return Promise.reject(error.response.data.error)
+    }
+  }
