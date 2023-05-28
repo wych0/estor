@@ -53,3 +53,12 @@ export const getRole = async()=>{
       return Promise.reject(error.response.data.error)
     }
   }
+
+  export const getUser = async(userID)=>{
+    try{
+      const response = await axios.get(`http://localhost:8000/user/${userID}`, {withCredentials: true})
+      return Promise.resolve(response.data.user)
+    } catch(error){
+      return Promise.reject(error.reponse.data.error)
+    }
+  }
