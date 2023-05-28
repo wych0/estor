@@ -3,7 +3,7 @@ import TableBody from '@mui/material/TableBody'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
-import { getUsers, blockUser } from '../../apiCalls/user.js'
+import { getUsers, blockUser, unblockUser } from '../../apiCalls/user.js'
 
 export function TableUsers(){
     const [users, setUsers] = useState([])
@@ -15,7 +15,7 @@ export function TableUsers(){
         if(accountStatus==='Aktywne'){
             blockUser(userID).then(()=>getUsers().then((users)=>setUsers(users)))
         }else if(accountStatus==='Zablokowane'){
-            
+            unblockUser(userID).then(()=>getUsers().then((users)=>setUsers(users)))
         }
       }
 
