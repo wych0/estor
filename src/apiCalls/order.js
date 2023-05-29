@@ -1,4 +1,5 @@
 import axios from "axios"
+import { isBlocked } from "./user"
 
 export const getUserOrders = async(userID)=>{
     try{
@@ -35,12 +36,16 @@ export const getOrders = async()=>{
 
 export const placeOrder = async(address)=>{
     try{
+        const blocked = await isBlocked()
+        if(blocked){
+            return Promise.reject('User blocked')
+        }
         await axios.post(`http://localhost:8000/order`,
         {address},
         {withCredentials: true})
         return Promise.resolve(true)
     } catch(error){
-        return Promise.reject(false)
+        return Promise.reject(error.response.data.message)
     }
 }
 
