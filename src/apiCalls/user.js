@@ -1,5 +1,14 @@
 import axios from "axios"
 
+export const isBlocked = async()=>{
+  try{
+    const response = await axios.get('http://localhost:8000/user/isBlocked', {withCredentials: true})
+    return Promise.resolve(response.data.isBlocked)
+  } catch(error){
+    return Promise.resolve(error.response.data)
+  }
+}
+
 export const getRole = async()=>{
     try{
       const response = await axios.get('http://localhost:8000/user/role', {withCredentials: true})
