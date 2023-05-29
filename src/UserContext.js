@@ -1,11 +1,12 @@
 import { createContext, useState, useEffect} from "react"
-import { getRole, isAuth } from './apiCalls/user'
+import { getRole, isAuth, isBlocked} from './apiCalls/user'
 import { getCart } from "./apiCalls/cart"
+import { logout } from "./apiCalls/auth"
 
-export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: null, id: '', role: null})
+export const UserContext = createContext({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: null, id: '', role: null, isBlocked: null})
 
 export const UserProvider = ({children}) => {
-    const [user, setUser] = useState({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: null, id: '', role: null})
+    const [user, setUser] = useState({name: '', auth: null, cart: [], placedOrder: false, displayedOrder: null, id: '', role: null, isBlocked: null})
 
     const setRole = (role)=>{
         setUser((user)=>({
@@ -42,7 +43,15 @@ export const UserProvider = ({children}) => {
         }))
     }
 
+    const setIsBlocked = (isBlocked)=>{
+        setUser((user)=>({
+            ...user,
+            isBlocked
+        }))
+    }
+
     useEffect(()=>{
+        isBlocked().then((blocked)=>{setIsBlocked(blocked)})
         if(user.auth===true){
             getCart().then((cart)=>{setCart(cart)})
         }
@@ -50,7 +59,14 @@ export const UserProvider = ({children}) => {
         isAuth().then((auth)=>{setAuth(auth)})
         setId(document.cookie.split('; ').find(row=>row.startsWith('userID='))?.split('=')[1])
     },[user.auth])
-   
+
+    useEffect(()=>{
+        if(user.isBlocked){
+            logoutUser()
+            logout()
+        }
+    },[user.isBlocked])
+
     const loginUser = (role)=>{
         setUser((user)=> ({
             ...user,
@@ -84,6 +100,7 @@ export const UserProvider = ({children}) => {
     return (
         <UserContext.Provider value={{
         user, 
+        setIsBlocked,
         loginUser,
         setCart,
         logoutUser, 
