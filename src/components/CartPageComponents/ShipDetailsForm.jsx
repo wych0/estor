@@ -22,7 +22,7 @@ const iconStyle = {
 }
 
 export default function ShipDetails() {
-    const {user, placeOrderUser} = useContext(UserContext)
+    const {user, placeOrderUser, setIsBlocked} = useContext(UserContext)
     const methods = useForm()
     const navigation = useNavigate()
     const isBtnDisabled = user.cart.length===0 ? true : false
@@ -48,7 +48,9 @@ export default function ShipDetails() {
         const result = await placeOrder(address)
         placeOrderUser(result)
       } catch(error){
-        console.log(error)
+        if(error==='User blocked'){
+          setIsBlocked(true)
+        }
       } 
     })
     
