@@ -1,17 +1,13 @@
 import { useContext, useState, useEffect} from "react"
 import { UserContext } from "../../UserContext"
 import { ItemOrderDetails } from './ItemOrderDetails'
-import { SmallBtn, DialogButton } from '../Buttons'
+import { SmallBtn} from '../Buttons'
 import { getOrder, cancelOrder } from '../../apiCalls/order.js'
-import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
+import ConfirmationDialog from '../ConfirmationDialog'
 
 export default function OrderDetails({onOrderCancel}){
     const [order, setOrder] = useState()
-    const [open, setOpen] = useState(false)
+    const [dialogOpen, setDialogOpen] = useState(false)
     const [buttonDisabled, setDisabled] = useState(null)
     const [orderStatus, setOrderStatus] = useState(null)
     const {user, setIsBlocked} = useContext(UserContext)
@@ -42,11 +38,11 @@ export default function OrderDetails({onOrderCancel}){
     }
 
     const handleClickOpen = () => {
-        setOpen(true)
+        setDialogOpen(true)
     }
 
     const handleClose = () => {
-        setOpen(false)
+        setDialogOpen(false)
     }
 
     const handleSubmit = async () =>{
@@ -55,11 +51,17 @@ export default function OrderDetails({onOrderCancel}){
             setDisabled(true)
             setOrderStatus('Anulowane')
             onOrderCancel()
-            setOpen(false)
+            setDialogOpen(false)
         } catch(error){
             if(error==='User blocked'){
                 setIsBlocked(true)
               }
+            if(error==='Order cancelled'){
+                setDisabled(true)
+                setOrderStatus('Anulowane')
+                onOrderCancel()
+                setDialogOpen(false)
+            }
         }
     }
     return(
@@ -68,25 +70,13 @@ export default function OrderDetails({onOrderCancel}){
             <div className="box orderDetailsHeader header flex centerY">
                 <p className="text orderDetails header">Szczegóły zamówienia</p>
                 <SmallBtn variant="contained" disabled={buttonDisabled} onClick={handleClickOpen}>Anuluj</SmallBtn>
-                <Dialog
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">
-                    {"Czy na pewno chcesz anulować zamówienie?"}
-                    </DialogTitle>
-                    <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        Anulowanie zamówienia jest akcją, której nie można cofnąć
-                    </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    <DialogButton onClick={handleSubmit}>Tak</DialogButton>
-                    <DialogButton onClick={handleClose}>Nie</DialogButton>
-                    </DialogActions>
-                </Dialog>
+                <ConfirmationDialog
+                    open={dialogOpen}
+                    onClose={handleClose}
+                    onConfirm={handleSubmit}
+                    title="Czy na pewno chcesz anulować zamówienie?"
+                    description="Anulowanie zamówienia jest akcją, której nie można cofnąć"
+                />
             </div>
                 <div className="box displayOrderDetails flex wrap">
                     <div className="box orderDetailsInfo flex wrap">
