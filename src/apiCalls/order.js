@@ -55,6 +55,10 @@ export const cancelOrder = async(orderID)=>{
         if(blocked){
             return Promise.reject('User blocked')
         }
+        const cancelled = await isCancelled(orderID)
+        if(cancelled){
+            return Promise.reject('Order cancelled')
+        }
         const response = await axios.put(`http://localhost:8000/order/cancel/${orderID}`,
         {},
         {withCredentials: true})
@@ -63,3 +67,12 @@ export const cancelOrder = async(orderID)=>{
         return Promise.reject(error.data.error)
     }
 }
+
+export const isCancelled = async(orderID)=>{
+    try{
+      const response = await axios.get(`http://localhost:8000/order/isCancelled/${orderID}`, {withCredentials: true})
+      return Promise.resolve(response.data.isCancelled)
+    } catch(error){
+      return Promise.resolve(error.response.data)
+    }
+  }
