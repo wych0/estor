@@ -14,7 +14,7 @@ export default function OrderDetails({onOrderCancel}){
     const [open, setOpen] = useState(false)
     const [buttonDisabled, setDisabled] = useState(null)
     const [orderStatus, setOrderStatus] = useState(null)
-    const {user} = useContext(UserContext)
+    const {user, setIsBlocked} = useContext(UserContext)
 
     useEffect(()=>{
         if(user.displayedOrder!==null){
@@ -49,13 +49,18 @@ export default function OrderDetails({onOrderCancel}){
         setOpen(false)
     }
 
-    const handleSubmit = () =>{
-        cancelOrder(order._id).then(()=>{
+    const handleSubmit = async () =>{
+        try{
+            await cancelOrder(order._id)
             setDisabled(true)
             setOrderStatus('Anulowane')
             onOrderCancel()
             setOpen(false)
-        })
+        } catch(error){
+            if(error==='User blocked'){
+                setIsBlocked(true)
+              }
+        }
     }
     return(
     <div className="box pageContent accPage orderDetails flex wrap shadow">
