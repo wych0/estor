@@ -51,6 +51,10 @@ export const placeOrder = async(address)=>{
 
 export const cancelOrder = async(orderID)=>{
     try{
+        const blocked = await isBlocked()
+        if(blocked){
+            return Promise.reject('User blocked')
+        }
         const response = await axios.put(`http://localhost:8000/order/cancel/${orderID}`,
         {},
         {withCredentials: true})
