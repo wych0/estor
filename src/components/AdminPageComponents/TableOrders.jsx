@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getOrders, cancelOrder } from '../../apiCalls/order.js'
+import { getOrders, cancelOrder, completeOrder} from '../../apiCalls/order.js'
 import TableBody from '@mui/material/TableBody'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
@@ -10,22 +10,34 @@ export function TableOrders(){
     const [orders, setOrders] = useState([])
     const [dialogOpen, setDialogOpen] = useState(false)
     const [orderID, setOrderID] = useState(null)
+    const [action, setAction] = useState(null)
     useEffect(()=>{
         getOrders().then((orders)=>setOrders(orders))
     }, [])
 
-    const handleClickOpen = (orderID) => {
+    const handleClickOpen = (orderID, action) => {
         setOrderID(orderID)
+        setAction(action)
         setDialogOpen(true)
     }
 
     const handleSubmit = async () => {
-        try{
-            await cancelOrder(orderID)
-            getOrders().then((order)=>setOrders(order))
-        } catch(error){
-            getOrders().then((order)=>setOrders(order))
+        if(action==='cancel'){
+            try{
+                await cancelOrder(orderID)
+                getOrders().then((order)=>setOrders(order))
+            } catch(error){
+                getOrders().then((order)=>setOrders(order))
+            }
+        } else if(action==='complete'){
+            try{
+                await completeOrder(orderID)
+                getOrders().then((order)=>setOrders(order))
+            } catch(error){
+                getOrders().then((order)=>setOrders(order))
+            }
         }
+        
     }
 
     const handleClose = () => {
@@ -59,21 +71,21 @@ export function TableOrders(){
                 <TableCellCustom align="center">{row.cost}</TableCellCustom>
                 <TableCellCustom align="center">{row.status}</TableCellCustom>
                 <TableCellCustom align="center">{row.userID.slice(15)}</TableCellCustom>
-                <TableCellCustom align="center"><TableBtn onClick={()=> handleClickOpen(row._id)} disabled={row.status==='W realizacji' ? false : true} variant="contained">Anuluj</TableBtn></TableCellCustom>
-                <TableCellCustom align="center"><TableBtn disabled={row.status==='W realizacji' ? false : true} variant="contained">Zatwierdź</TableBtn></TableCellCustom>
+                <TableCellCustom align="center"><TableBtn onClick={()=> handleClickOpen(row._id, 'cancel')} disabled={row.status==='W realizacji' ? false : true} variant="contained">Anuluj</TableBtn></TableCellCustom>
+                <TableCellCustom align="center"><TableBtn onClick={()=> handleClickOpen(row._id, 'complete')} disabled={row.status==='W realizacji' ? false : true} variant="contained">Zatwierdź</TableBtn></TableCellCustom>
                 
                 </TableRowCustom>
             ))}
             </TableBody>
       </TableCustom>
-    </TableContainer>
-    <ConfirmationDialog
+      <ConfirmationDialog
         open={dialogOpen}
         onClose={handleClose}
         onConfirm={handleSubmit}
-        title="Czy na pewno chcesz anulować zamówienie?"
-        description="Anulowanie zamówienia jest akcją, której nie można cofnąć"
+        title={action==='cancel' ? "Czy na pewno chcesz anulować zamówienie?" : "Czy na pewno chcesz zatwierdzić zamówienie?"}
+        description={action==='cancel' ? "Anulowanie zamówienia jest akcją, której nie można cofnąć" : "Zatwierdzenie zamówienia jest akcją, której nie można cofnąć"}
     />
+    </TableContainer>
     </div>
     );
 }
