@@ -17,7 +17,7 @@ export function TableUsers(){
         }else if(accountStatus==='Zablokowane'){
             unblockUser(userID).then(()=>getUsers().then((users)=>setUsers(users)))
         }
-      }
+    }
 
     return(
     <div className="flex wrap pageContent adminPage">
@@ -39,7 +39,7 @@ export function TableUsers(){
                 <TableRowCustom
                 key={row._id}
                 >
-                <TableCellCustom align="center">{row._id}</TableCellCustom>
+                <TableCellCustom align="center">{row._id.slice(15)}</TableCellCustom>
                 <TableCellCustom align="center">{row.email}</TableCellCustom>
                 <TableCellCustom align="center">{row.accountStatus}</TableCellCustom>
                 <TableCellCustom align="center"><TableBtn onClick={()=>handleClick(row._id, row.accountStatus)} variant="contained">{row.accountStatus==='Zablokowane' ? 'Odblokuj' : 'Zablokuj'}</TableBtn></TableCellCustom>
