@@ -299,8 +299,6 @@ body{
 }
 
 .shipDetailsCart{
-  position: sticky;
-  top: 128px;
   min-height: 500px;
   min-width: 450px;
   width: 23%;
@@ -589,8 +587,6 @@ body{
 }
 
 .box.orderDetails{
-  position: sticky;
-  top: 128px;
   text-align: left;
   background-color: white;
 }
@@ -635,11 +631,11 @@ body{
 }
 
 .tableContainer.products{
-  min-width: 660px;
+  min-width: 550px;
 }
 
 .tableContainer.users{
-  min-width: 700px;
+  min-width: 500px;
 }
 
 .tableContainer.orders{
@@ -713,8 +709,6 @@ body{
 }
 
 .menu.adminPage{
-  position: sticky;
-  top: 121px;
   background-color: white;
   padding-bottom: 2%;
   min-width: 350px;
