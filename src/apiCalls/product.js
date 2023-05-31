@@ -19,3 +19,13 @@ export const getProduct = async(productID)=>{
     }
 }
 
+export const deleteProduct = async(productID)=>{
+    try{
+        const response = await axios.delete(`http://localhost:8000/product/${productID}`,
+        {withCredentials: true})
+        return Promise.resolve(response.data.message)
+    } catch(error){
+        return Promise.reject(error.response.data.message)
+    }
+}
+
