@@ -68,6 +68,21 @@ export const cancelOrder = async(orderID)=>{
     }
 }
 
+export const completeOrder = async(orderID)=>{
+    try{
+        const cancelled = await isCancelled(orderID)
+        if(cancelled){
+            return Promise.reject('Order cancelled')
+        }
+        const response = await axios.put(`http://localhost:8000/order/complete/${orderID}`,
+        {},
+        {withCredentials: true})
+        return Promise.resolve(response.data.message)
+    } catch(error){
+        return Promise.reject(error.data.error)
+    }
+}
+
 export const isCancelled = async(orderID)=>{
     try{
       const response = await axios.get(`http://localhost:8000/order/isCancelled/${orderID}`, {withCredentials: true})
