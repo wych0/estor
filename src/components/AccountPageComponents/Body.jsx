@@ -15,6 +15,7 @@ export function Body() {
 
     useEffect(()=>{
       getUserOrders(user.id).then((orders)=>setUserOrders(orders))
+      setOrderCancelled(false)
   },[user.id, orderCancelled])
 
     return (
