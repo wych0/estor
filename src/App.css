@@ -154,6 +154,7 @@ body{
 
 .boxImg{
   max-height: 200px;
+  min-height: 200px;
   flex-basis: 100%;
   padding: 20px 0px;
   outline: 2px solid #1A1882;
@@ -369,7 +370,9 @@ body{
 .boxImgCart{
   flex-basis: 24%;
   max-height: 80px;
+  min-height: 80px;
   max-width: 80px;
+  min-width: 80px;
   padding: 5px 0;
   outline: 1.5px solid #1A1882;
   border-radius: 5px;
@@ -631,7 +634,7 @@ body{
 }
 
 .tableContainer.products{
-  min-width: 550px;
+  min-width: 600px;
 }
 
 .tableContainer.users{
@@ -689,6 +692,8 @@ body{
 
 .boxImgOrderDetails{
   max-height: 80px;
+  min-height: 80px;
+  min-width: 80px;
   max-width: 80px;
   padding: 5px 0;
   outline: 1.5px solid #1A1882;
