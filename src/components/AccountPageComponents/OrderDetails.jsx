@@ -95,7 +95,7 @@ export default function OrderDetails({onOrderCancel}){
                     <div className ="orderDetailsItems flex wrap">
                         <p className="text orderDetails info">Zamówione produkty</p>
                         {order.products.map((item) => (
-                            <div key={item._id} className="listItemOrderDetails"><ItemOrderDetails brand={item.brand} name={item.name} price={item.price}></ItemOrderDetails></div>
+                            <div key={item._id} className="listItemOrderDetails"><ItemOrderDetails brand={item.brand} name={item.name} price={item.price} image={item.image}></ItemOrderDetails></div>
                             ))}
                     
                     </div>
