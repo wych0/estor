@@ -2,24 +2,34 @@ import {FormProvider, useForm} from 'react-hook-form'
 import { Input } from '../Input'
 import { MidBtn } from '../Buttons'
 import { ImageInput } from './ImageInput'
+import { createProduct } from '../../apiCalls/product'
 
 const formStyle = {
     width: '20ch',
 }
 
-export function AddProductForm(){
+export function AddProductForm({onProductAdd}){
     const methods = useForm()
-
-    const onSubmit = methods.handleSubmit( (data) => {
-      console.log(data);
+    const onSubmit = methods.handleSubmit( async (data) => {
+        const productData = {
+            name: data['Nazwa'],
+            brand: data['Marka'],
+            price: data['Cena'],
+            image: data['Zdjęcie'][0]
+          }
+          try {
+            await createProduct(productData)
+            onProductAdd()
+          } catch (error) {
+            console.error(error)
+          }
     })
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
           onSubmit();
         }
-      };
-
+    }
 
     return(
         <div className="addProductContainer flex shadow wrap centerX">
@@ -35,7 +45,7 @@ export function AddProductForm(){
                     <Input valueVar='none' isPrice={true} formStyle={formStyle} placeHolder="Cena"/>
                 </div>
                 <div className="imgAddContainer addProductContent">
-                <ImageInput />
+                <ImageInput/>
                 </div>
                 <div className="addProductBtnContainer flex centerX">
                     <MidBtn variant="contained" onClick={onSubmit}>Dodaj produkt</MidBtn>
