@@ -19,7 +19,7 @@ export default function Items(props) {
       <div className="boxItems"> 
         <ul className="listItems flex wrap centerX">
           {filterData.map((item) => (
-            <li key={item._id} className="listItem"><Item itemId={item._id} brand={item.brand} name={item.name} price={item.price}></Item></li>
+            <li key={item._id} className="listItem"><Item itemId={item._id} brand={item.brand} name={item.name} price={item.price} image={item.image}></Item></li>
           ))}
         </ul> 
       </div>
