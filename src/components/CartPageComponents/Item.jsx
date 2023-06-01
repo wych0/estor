@@ -4,7 +4,7 @@ export default function Item(props) {
     return (
       <div className="boxItemCart flex wrap">
         <div className="boxImgCart shadow flex centerX centerY">
-            <img className="imgItem" src="/images/products/product1.png" alt="produkt"/>
+            <img className="imgItem" src={`http://localhost:8000/images/${props.image}`} alt="produkt"/>
         </div>
         <div className="boxBrandNameBtnCart flex wrap">
           <p className="text itemCart brand">{props.brand}</p>
