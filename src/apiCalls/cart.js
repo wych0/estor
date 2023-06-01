@@ -22,11 +22,11 @@ export const addItem = async(productID)=>{
 
 export const deleteItem = async(productID)=>{
     try{
-        const response = await axios.delete('http://localhost:8000/product/deleteFromCart',
-        {data: {productID},
-        withCredentials: true})
+        const response = await axios.post('http://localhost:8000/product/deleteFromCart',
+        {productID},
+        {withCredentials: true})
         return Promise.resolve(response.data.message) 
     } catch(error){
-        return Promise.reject(error.response.data.message)
+        return Promise.reject(error.response.data.errors)
     }
 }
