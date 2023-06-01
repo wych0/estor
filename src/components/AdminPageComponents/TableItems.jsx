@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead'
 import {TableBtn, TableRowHead, TableRowCustom, TableCellCustom, TableCustom} from '../TableComponents'
 import ConfirmationDialog from '../ConfirmationDialog'
 
-export function TableItems(){
+export function TableItems({productAdded, setProductAdded}){
     const [products, setProducts] = useState([])
     const [dialogOpen, setDialogOpen] = useState(false)
     const [productID, setProductID] = useState(null)
@@ -14,11 +14,16 @@ export function TableItems(){
         getProducts().then((products)=>setProducts(products))
     },[])
 
+    useEffect(()=>{
+        getProducts().then((products)=>setProducts(products))
+        setProductAdded(false)
+    },[productAdded, setProductAdded])
+
     const handleClickOpen = (productID) => {
         setProductID(productID)
         setDialogOpen(true)
     }
-
+    
     const handleSubmit = async () => {
         try{
             await deleteProduct(productID)
