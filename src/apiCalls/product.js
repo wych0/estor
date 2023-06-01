@@ -29,3 +29,19 @@ export const deleteProduct = async(productID)=>{
     }
 }
 
+export const createProduct = async(data)=>{
+    try{
+        const formData = new FormData()
+        formData.append('name', data.name)
+        formData.append('brand', data.brand)
+        formData.append('price', data.price)
+        formData.append('image', data.image)
+        const response = await axios.post('http://localhost:8000/product/create',
+        formData,
+        {withCredentials: true})
+        return Promise.resolve(response.data.message)
+    } catch(error){
+        return Promise.reject(error.response.data)
+    }
+}
+
