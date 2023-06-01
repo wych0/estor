@@ -18,7 +18,7 @@ function SummaryCart() {
             <div  className ="list cartItems flex wrap">
             {user.cart.length !== 0
             ? user.cart.map((item) => (
-              <div key={item._id} className="listItemCart"><Item itemId={item._id} brand={item.brand} name={item.name} price={item.price}></Item></div>
+              <div key={item._id} className="listItemCart"><Item itemId={item._id} brand={item.brand} name={item.name} price={item.price} image={item.image}></Item></div>
               ))
             : <p className="text summaryCartHeaders">Twój koszyk jest pusty</p>
             } 
