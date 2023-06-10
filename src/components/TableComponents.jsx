@@ -32,5 +32,6 @@ export const TableBtn = styled(Button)(() => ({
     },
     fontSize: 12,
     fontWeight: "700",
+    color: 'white'
 }));
 
