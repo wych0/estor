@@ -1,8 +1,18 @@
 import { useFormContext } from 'react-hook-form'
 import { findInputErrors, isFormValid } from '../../inputValidation'
 import { SmallBtn } from '../Buttons'
+import { useEffect } from 'react'
 
-const previewImage = (e) => {
+export const ImageInput = ({isAdded}) => {
+  const {register, formState: {errors}} = useFormContext()
+  const placeholder = 'Zdjęcie'
+  const inputError = findInputErrors(errors, placeholder)
+  const isValid = isFormValid(inputError)
+  let borderClass = 'defaultBorder'
+  if(!isValid){
+    borderClass = 'errorBorder'
+  }
+  const previewImage = (e) => {
     const imageFiles = e.target.files
     if(imageFiles.length > 0){
         const imgSrc = URL.createObjectURL(imageFiles[0])
@@ -12,16 +22,13 @@ const previewImage = (e) => {
     }
   }
 
-export const ImageInput = () => {
-  const {register, formState: {errors}} = useFormContext()
-  const placeholder = 'Zdjęcie'
-  const inputError = findInputErrors(errors, placeholder)
-  const isValid = isFormValid(inputError)
-  let borderClass = 'defaultBorder'
-
-  if(!isValid){
-    borderClass = 'errorBorder'
-  }
+  useEffect(()=>{
+    if(isAdded){
+      const imagePreviewElement = document.querySelector('.previewImg')
+      imagePreviewElement.src = ''
+      imagePreviewElement.style.display = "none"
+    }
+  },[isAdded])
 
   
     return (
