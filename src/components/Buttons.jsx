@@ -73,4 +73,11 @@ export const DialogButton = styled(Button)(() => ({
     maxHeight: '40px'
 }));
 
+export const TextButton = styled(Button)(() => ({
+    '&:hover':{
+        backgroundColor: 'white'
+    },
+    color: '#1A1882',
+    padding: 0,
+}));
 
